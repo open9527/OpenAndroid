@@ -1,19 +1,53 @@
-// Top-level build file where you can add configuration options common to all sub-projects/modules.
-buildscript {
-    repositories {
-        google()
-        mavenCentral()
-        maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
-    }
-    dependencies {
-        classpath "com.android.tools.build:gradle:7.0.0"
-        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30-M1"
+import com.farmer.open9527.buildsrc.*
 
-        // NOTE: Do not place your application dependencies here; they belong
-        // in the individual module build.gradle files
+//apply from: 'configs.gradle'
+
+apply {
+    from 'configs.gradle'
+}
+
+buildscript {
+    // 导入通用的 Maven 库配置
+    apply from: 'maven.gradle'
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+//        maven { url = uri("https://dl.bintray.com/kotlin/kotlin-eap") }
+        maven { url  'https://dl.bintray.com/kotlin/kotlin-eap'}
+        addCommonMaven(repositories)
     }
+
+
+    dependencies {
+        classpath Plugins.Gradle.GradlePlugin
+        classpath Plugins.Kotlin.KotlinPlugin
+        classpath Plugins.Aop.AspectjxPlugin
+    }
+}
+
+allprojects {
+    repositories {
+        maven { url 'https://repo1.maven.org/maven2' }
+        addCommonMaven(repositories)
+    }
+
+    tasks.withType(JavaCompile) {
+        // 设置全局编码
+        options.encoding = 'UTF-8'
+    }
+    tasks.withType(Javadoc) {
+        // 设置文档编码
+        options {
+            encoding 'UTF-8'
+            charSet 'UTF-8'
+            links 'http://docs.oracle.com/javase/7/docs/api'
+        }
+    }
+
+    // 将构建文件统一输出到项目根目录下的 build 文件夹
+    setBuildDir(new File(rootDir, "build/${path.replaceAll(':', '/')}"))
 }
 
 task clean(type: Delete) {
     delete rootProject.buildDir
 }
+

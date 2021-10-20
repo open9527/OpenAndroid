@@ -1,0 +1,29 @@
+import com.farmer.open9527.buildsrc.Libs
+
+apply {
+    plugin 'com.android.library'
+    plugin 'kotlin-android'
+    from '../../common.gradle'
+}
+
+android {
+
+    defaultConfig {
+        // 模块混淆配置
+        consumerProguardFiles 'proguard-common.pro'
+    }
+
+    sourceSets {
+        main {
+            // res 资源目录配置
+            res.srcDirs(
+                    'src/main/res',
+            )
+        }
+    }
+}
+
+dependencies {
+    implementation project(':library:base')
+    api Libs.Utils.UtilCode
+}

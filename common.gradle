@@ -1,0 +1,68 @@
+import com.farmer.open9527.buildsrc.*
+
+// 通用配置
+android {
+    // 编译源码版本
+    compileSdkVersion Versions.Sdk.compileSdk
+    defaultConfig {
+        // 最低安装版本
+        minSdkVersion Versions.Sdk.minSdk
+        // 目标适配版本
+        targetSdkVersion Versions.Sdk.targetSdk
+        versionName Versions.App.versionName
+        versionCode Versions.App.versionCode
+    }
+
+    // 支持 Java JDK 8
+//    compileOptions {
+//        targetCompatibility JavaVersion.VERSION_1_8
+//        sourceCompatibility JavaVersion.VERSION_1_8
+//    }
+
+    // 设置存放 so 文件的目录
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    // 可在 Studio 最左侧中的 Build Variants 选项中切换默认的构建类型
+    buildTypes {
+        // 调试版本
+        debug {}
+        // 预览版本
+        preview {}
+        // 正式版本
+        release {}
+    }
+
+    // 代码警告配置
+    lintOptions {
+        // 禁用文本硬编码警告
+        disable 'HardcodedText'
+        // 禁用图片描述警告
+        disable 'ContentDescription'
+    }
+
+    //支持dataBinding
+    dataBinding {
+        enabled true
+    }
+}
+
+afterEvaluate {
+    // 前提条件是这个 Module 工程必须是 Library 类型，并且排除名为 umeng 的 Module 工程
+    if (android.defaultConfig.applicationId == null && "umeng" != getName()) {
+        // 排除 BuildConfig.class
+        generateReleaseBuildConfig.enabled = false
+        generatePreviewBuildConfig.enabled = false
+        generateDebugBuildConfig.enabled = false
+    }
+}
+
+dependencies {
+    // 依赖 libs 目录下所有的 jar 和 aar 包
+    api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
+    implementation Libs.Androidx.Appcompat
+    implementation Libs.Androidx.Kotlin.ktx
+}
