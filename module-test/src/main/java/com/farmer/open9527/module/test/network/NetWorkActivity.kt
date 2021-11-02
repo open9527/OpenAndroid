@@ -1,14 +1,15 @@
 package com.farmer.open9527.module.test.network
 
 import android.app.Activity
+import android.content.Intent
 import android.os.Bundle
 import android.view.View
 import com.blankj.utilcode.util.BarUtils
 import com.blankj.utilcode.util.LogUtils
 import com.farmer.open9527.base.BaseActivity
 import com.farmer.open9527.base.page.DataBindingConfig
-import com.farmer.open9527.module.test.R
 import com.farmer.open9527.module.test.BR
+import com.farmer.open9527.module.test.R
 
 
 /**
@@ -20,6 +21,7 @@ class NetWorkActivity : BaseActivity() {
     protected var mActivity: Activity? = null
 
     private var mViewModel: NetWorkViewModel? = null
+
 
 //    private val mViewModel by viewModels<NetWorkViewModel>()
 
@@ -48,31 +50,40 @@ class NetWorkActivity : BaseActivity() {
     }
 
     private fun initView(extras: Bundle?) {
+
         mViewModel?.userLiveData?.observeState(this) {
             onSuccess {
-                LogUtils.i(TAG, "userLiveData: onSuccess" )
+                LogUtils.i(TAG, "userLiveData: onSuccess")
 //                LogUtils.i(TAG, "userLiveData: " + it.toString())
                 mViewModel?.fetchWxArticleFromNet();
             }
         }
         mViewModel?.wxArticleLiveData?.observeState(this) {
             onSuccess {
-                LogUtils.i(TAG, "wxArticleLiveData: onSuccess" )
+                LogUtils.i(TAG, "wxArticleLiveData: onSuccess")
 //                LogUtils.i(TAG, "wxArticleLiveData: " + it.toString())
             }
 
         }
-//        mViewModel?.login("open_9527", "kuaige930817")
-        mViewModel?.fetchWxArticleFromNet();
+
 
     }
 
 
     inner class ClickProxy {
 
-        var backClick = View.OnClickListener {
+        var requestClick = View.OnClickListener {
+            LogUtils.i(TAG, "requestClick")
+            mViewModel?.fetchWxArticleFromNet();
+        }
 
-            LogUtils.i(TAG, "backClick")
+        var loginClick = View.OnClickListener {
+            LogUtils.i(TAG, "loginClick")
+//            mViewModel?.login("open_9527", "kuaige930817")
+            val intent = Intent()
+            intent.putExtra("data", "data from NetWorkActivity")
+            setResult(RESULT_OK, intent)
+            finish()
         }
     }
 }

@@ -6,6 +6,7 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.blankj.utilcode.util.ActivityUtils;
+import com.farmer.open9527.module.test.media.MediaActivity;
 import com.farmer.open9527.module.test.network.NetWorkActivity;
 
 /**
@@ -17,7 +18,8 @@ public class SplashActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 //        setContentView(R.layout.splash_activity);
-        ActivityUtils.startActivity(NetWorkActivity.class);
+//        ActivityUtils.startActivity(NetWorkActivity.class);
+        ActivityUtils.startActivity(MediaActivity.class);
         finish();
     }
 

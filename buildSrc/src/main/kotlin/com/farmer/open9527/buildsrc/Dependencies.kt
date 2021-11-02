@@ -122,7 +122,7 @@ object Libs {
     }
 
     object Androidx {
-        const val Appcompat = "androidx.appcompat:appcompat:1.2.0"
+        const val Appcompat = "androidx.appcompat:appcompat:1.3.1"
 
         object Layout {
             const val ConstraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"

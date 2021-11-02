@@ -9,8 +9,7 @@ import kotlinx.coroutines.delay
 open class BaseRepository {
 
     suspend fun <T> executeHttp(block: suspend () -> ApiResponse<T>): ApiResponse<T> {
-        //for test
-        delay(500)
+//        delay(500)
         runCatching {
             block.invoke()
         }.onSuccess { data: ApiResponse<T> ->

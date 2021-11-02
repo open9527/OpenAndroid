@@ -9,6 +9,7 @@ import okhttp3.OkHttpClient
  **/
 
 object RetrofitClient : BaseRetrofitClient() {
+    
 
     val service by lazy { getService(ApiService::class.java, ApiService.BASE_URL) }
 
