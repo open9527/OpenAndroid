@@ -2,7 +2,6 @@ package com.farmer.open9527.module.test.media
 
 import android.content.ContentValues
 import android.content.Context
-import android.database.Cursor
 import android.media.MediaScannerConnection
 import android.net.Uri
 import android.os.Environment
@@ -11,6 +10,8 @@ import android.text.TextUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.UriUtils
 import java.io.File
+import java.util.*
+import kotlin.collections.ArrayList
 
 /**
  *@author   open_9527
@@ -19,7 +20,7 @@ import java.io.File
  * 多媒体工具类
  **/
 
- object MediaFileUtils {
+object MediaFileUtils {
 
 
     /**
@@ -91,33 +92,140 @@ import java.io.File
     }
 
 
+    private val QUERY_URI = MediaStore.Files.getContentUri("external")
+    private const val ORDER_BY_DESC = MediaStore.Files.FileColumns.DATE_MODIFIED + " DESC"
+    private const val ORDER_BY_ASC = MediaStore.Files.FileColumns.DATE_MODIFIED + " ASC"
+    private const val NOT_GIF = "!='image/gif'"
+    private const val DURATION = "duration"
+
+    /**
+     * 获取图片or视频
+     */
+    private val SELECTION_ALL_ARGS = arrayOf(
+        MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString(),
+        MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString()
+    )
+
+    /**
+     * 获取图片
+     */
+    private val SELECTION_IMAGE = arrayOf(
+        MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString()
+    )
+
+
+    /**
+     * 获取视频
+     */
+    private val SELECTION_VIDEO = arrayOf(
+        MediaStore.Files.FileColumns.MEDIA_TYPE_VIDEO.toString()
+    )
+
+    /**
+     * 视频和图片
+     */
+    private const val SELECTION_ALL = (
+            MediaStore.Files.FileColumns.MEDIA_TYPE + "=?"
+                    + " AND " + MediaStore.MediaColumns.SIZE + ">0"
+                    + " OR " + MediaStore.Files.FileColumns.MEDIA_TYPE + "=?"
+                    + " AND " + "1000")
+
+    /**
+     * 图片
+     */
+    private const val SELECTION = (MediaStore.Files.FileColumns.MEDIA_TYPE + "=?"
+            + " AND " + MediaStore.MediaColumns.SIZE + ">0")
+
+    /**
+     * 图片(不包含gif)
+     */
+    private const val SELECTION_NOT_GIF = (MediaStore.Files.FileColumns.MEDIA_TYPE + "=?"
+            + " AND " + MediaStore.MediaColumns.SIZE + ">0"
+            + " AND " + MediaStore.MediaColumns.MIME_TYPE + NOT_GIF)
+
+
+    /**
+     * 获取所有系统资源
+     *
+     * @param time_condition
+     * @param isGif
+     * @return
+     */
+    fun getAllMediaCondition(time_condition: String, isGif: Boolean): String? {
+        return ("(" + MediaStore.Files.FileColumns.MEDIA_TYPE + "=?"
+                + (if (isGif) "" else " AND " + MediaStore.MediaColumns.MIME_TYPE + NOT_GIF)
+                + " OR "
+                + (MediaStore.Files.FileColumns.MEDIA_TYPE + "=? AND " + time_condition) + ")"
+                + " AND " + MediaStore.MediaColumns.SIZE + ">0")
+    }
+
+
+    /**
+     * 查询条件(音视频)
+     *
+     * @param time_condition
+     * @return
+     */
+    fun getSelectionArgsForSingleMediaCondition(time_condition: String): String? {
+        return (MediaStore.Files.FileColumns.MEDIA_TYPE + "=?"
+                + " AND " + MediaStore.MediaColumns.SIZE + ">0"
+                + " AND " + time_condition)
+    }
+
+    /**
+     * 获取视频(最长或最小时间)
+     *
+     * @param exMaxLimit
+     * @param exMinLimit
+     * @param videoMaxS
+     * @param videoMinS
+     * @return
+     */
+    fun getDurationCondition(
+        exMaxLimit: Long,
+        exMinLimit: Long,
+        videoMaxS: Long,
+        videoMinS: Long
+    ): String? {
+        var maxS = if (videoMaxS == 0L) Long.MAX_VALUE else videoMaxS
+        if (exMaxLimit != 0L) maxS = Math.min(maxS, exMaxLimit)
+        return java.lang.String.format(
+            Locale.CHINA, "%d <%s duration and duration <= %d",
+            Math.max(exMinLimit, videoMinS),
+            if (Math.max(exMinLimit, videoMinS) == 0L) "" else "=",
+            maxS
+        )
+    }
+
+    /**
+     * 媒体文件数据库字段
+     */
+    private val PROJECTION = arrayOf(
+        MediaStore.Files.FileColumns._ID,
+        MediaStore.MediaColumns.DATA,
+        MediaStore.MediaColumns.MIME_TYPE,
+        MediaStore.MediaColumns.SIZE,
+        MediaStore.MediaColumns.WIDTH,
+        MediaStore.MediaColumns.HEIGHT,
+        DURATION
+    )
+
+
     fun getAlbum(context: Context): List<String> {
         val mAllImage: ArrayList<String> = ArrayList()
-        val contentUri = MediaStore.Files.getContentUri("external")
-        val sortOrder = MediaStore.Files.FileColumns.DATE_MODIFIED + " DESC"
-        val selection =
-            "(" + MediaStore.Files.FileColumns.MEDIA_TYPE + "=?)" + " AND " + MediaStore.MediaColumns.SIZE + ">0"
-
         val contentResolver = context.contentResolver
-        val projections = arrayOf(
-            MediaStore.Files.FileColumns._ID, MediaStore.MediaColumns.DATA,
-            MediaStore.MediaColumns.DISPLAY_NAME, MediaStore.MediaColumns.DATE_MODIFIED,
-            MediaStore.MediaColumns.MIME_TYPE, MediaStore.MediaColumns.WIDTH,
-            MediaStore.MediaColumns.HEIGHT, MediaStore.MediaColumns.SIZE
-        )
-
         //TODO:需要权限判断(READ_EXTERNAL_STORAGE,WRITE_EXTERNAL_STORAGE)
         val cursor = contentResolver.query(
-            contentUri,
-            projections,
-            selection,
-            arrayOf(MediaStore.Files.FileColumns.MEDIA_TYPE_IMAGE.toString()),
-            sortOrder
+            QUERY_URI,
+            PROJECTION,
+            SELECTION_ALL,
+            SELECTION_ALL_ARGS,
+            ORDER_BY_DESC
         )
         if (cursor != null && cursor.moveToFirst()) {
-            val pathIndex: Int = cursor.getColumnIndex(MediaStore.MediaColumns.DATA)
-            val mimeTypeIndex: Int = cursor.getColumnIndex(MediaStore.MediaColumns.MIME_TYPE)
-            val sizeIndex: Int = cursor.getColumnIndex(MediaStore.MediaColumns.SIZE)
+            val pathIndex: Int = cursor.getColumnIndex(PROJECTION[1])
+            val mimeTypeIndex: Int = cursor.getColumnIndex(PROJECTION[2])
+            val sizeIndex: Int = cursor.getColumnIndex(PROJECTION[3])
             do {
                 val size: Long = cursor.getLong(sizeIndex)
                 // 图片大小不得小于 1 KB
@@ -148,4 +256,5 @@ import java.io.File
         }
         return mAllImage;
     }
+
 }

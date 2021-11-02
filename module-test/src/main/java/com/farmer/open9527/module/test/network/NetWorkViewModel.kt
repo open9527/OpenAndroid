@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 
 import com.farmer.open9527.network.StateLiveData
+import kotlinx.coroutines.async
 import kotlinx.coroutines.launch
 
 
@@ -22,6 +23,7 @@ class NetWorkViewModel : ViewModel() {
         viewModelScope.launch {
             userLiveData.value = repository.login(username, password)
         }
+
     }
 
     fun fetchWxArticleFromNet() {

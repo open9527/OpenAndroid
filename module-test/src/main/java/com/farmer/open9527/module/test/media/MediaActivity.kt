@@ -2,18 +2,19 @@ package com.farmer.open9527.module.test.media
 
 import android.Manifest
 import android.content.Intent
-import android.graphics.Bitmap
 import android.net.Uri
 import android.os.Bundle
 import android.view.View
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.*
-import com.blankj.utilcode.util.ThreadUtils.SimpleTask
 import com.farmer.open9527.base.BaseActivity
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.module.test.BR
 import com.farmer.open9527.module.test.R
 import com.farmer.open9527.module.test.network.NetWorkActivity
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
 
 
 /**
@@ -42,27 +43,20 @@ class MediaActivity : BaseActivity() {
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
-        initStatusBar();
+        initStatusBar()
         super.onCreate(savedInstanceState)
+        mViewModel?.albumLiveData?.observe(this, {
+            LogUtils.i(TAG, "viewModelScope:$it")
+        })
+        mViewModel?.viewModelScope?.launch(Dispatchers.IO) {
+            mViewModel?.albumLiveData?.postValue(MediaFileUtils.getAlbum(this@MediaActivity))
+        }
+        mViewModel?.getMediaAlbum(this)
     }
 
     private fun initStatusBar() {
         BarUtils.transparentStatusBar(this)
         BarUtils.setStatusBarLightMode(this, true)
-    }
-
-    private fun getAlbum(){
-        ThreadUtils.executeByIo(object : SimpleTask<List<String>>() {
-            @Throws(Throwable::class)
-            override fun doInBackground(): List<String> {
-                return MediaFileUtils.getAlbum(this@MediaActivity)
-            }
-
-            override fun onSuccess(result: List<String>) {
-                LogUtils.i(TAG, "albumData:$result")
-            }
-        })
-
     }
 
 
