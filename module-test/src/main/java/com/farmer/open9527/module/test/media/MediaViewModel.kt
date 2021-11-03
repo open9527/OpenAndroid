@@ -20,9 +20,6 @@ class MediaViewModel : ViewModel() {
     val valueImageUri = ObservableField<Uri>()
     val albumLiveData = MutableLiveData<List<String>>()
 
-    fun getMediaAlbum(context: Context) {
-
-    }
 
 
 }

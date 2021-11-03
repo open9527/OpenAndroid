@@ -10,6 +10,7 @@ import androidx.lifecycle.viewModelScope
 import com.blankj.utilcode.util.*
 import com.farmer.open9527.base.BaseActivity
 import com.farmer.open9527.base.page.DataBindingConfig
+import com.farmer.open9527.common.dialog.CommonTipDialog
 import com.farmer.open9527.module.test.BR
 import com.farmer.open9527.module.test.R
 import com.farmer.open9527.module.test.network.NetWorkActivity
@@ -51,7 +52,28 @@ class MediaActivity : BaseActivity() {
         mViewModel?.viewModelScope?.launch(Dispatchers.IO) {
             mViewModel?.albumLiveData?.postValue(MediaFileUtils.getAlbum(this@MediaActivity))
         }
-        mViewModel?.getMediaAlbum(this)
+        CommonTipDialog.with(this)
+            .setTitle(StringUtils.getString(R.string.media_dialog_title))
+            .setOnlyConfirm(true)
+            .setConfirmContent(StringUtils.getString(R.string.media_dialog_confirm))
+            .setConfirmTextColor(ColorUtils.getColor(R.color.common_accent_color))
+            .addListener(object : CommonTipDialog.ICommonTipDialog {
+                override fun onConfirm() {
+                    CommonTipDialog.with(this@MediaActivity)
+                        .setTitle(StringUtils.getString(R.string.media_dialog_title))
+                        .setWindowAnimations(com.farmer.open9527.common.R.style.AlphaAnimationStyle)
+                        .addListener(object : CommonTipDialog.ICommonTipDialog {
+                            override fun onConfirm() {
+
+                            }
+
+                            override fun onCancel() {
+
+                            }
+                        }).showDialog()
+                }
+            }).showDialog()
+
     }
 
     private fun initStatusBar() {
@@ -60,7 +82,21 @@ class MediaActivity : BaseActivity() {
     }
 
 
-    //TODO:registerForActivityResult 方法必须在 onStart之前注册
+    //TODO:registerForActivityResult 方法必须在 STARTED之前注册
+    //    // RequestPermission()请求单个权限
+    //    // RequestMultiplePermissions()请求多个权限
+    //    // TakePicturePreview()拍照预览，返回 Bitmap
+    //    // TakePicture()拍照，返回 Uri
+    //    // TakeVideo()录像，返回 Uri
+    //    // GetContent()获取单个内容文件
+    //    // GetMultipleContents()获取多个内容文件
+    //    // CreateDocument()创建文档
+    //    // OpenDocument()打开单个文档
+    //    // OpenMultipleDocuments()打开多个文档
+    //    // OpenDocumentTree()打开文档目录
+    //    // PickContact()选择联系人
+    //    // StartActivityForResult()通用协议
+
     /**
      * StartActivityForResult
      */
@@ -214,5 +250,6 @@ class MediaActivity : BaseActivity() {
 //        contentResolver.delete(uri, null, null);
         return FileUtils.delete(UriUtils.uri2File(uri))
     }
+
 
 }

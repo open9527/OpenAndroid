@@ -11,7 +11,6 @@ import java.util.concurrent.CancellationException
  *Create at 2021/10/18
  **/
 
-
 enum class HttpError(var code: Int, var errorMsg: String) {
     TOKEN_EXPIRE(401, "token is expired"),
     PARAMS_ERROR(4003, "params is error")

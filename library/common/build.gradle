@@ -3,6 +3,7 @@ import com.farmer.open9527.buildsrc.Libs
 apply {
     plugin 'com.android.library'
     plugin 'kotlin-android'
+    plugin 'kotlin-kapt'
     from '../../common.gradle'
 }
 
@@ -21,9 +22,12 @@ android {
             )
         }
     }
+
 }
 
 dependencies {
-    implementation project(':library:base')
+    api project(':library:base')
+    api project(':library:dialog')
+    api Libs.Androidx.Layout.ConstraintLayout
     api Libs.Utils.UtilCode
 }

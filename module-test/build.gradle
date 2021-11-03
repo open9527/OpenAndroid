@@ -28,7 +28,7 @@ android {
 }
 
 dependencies {
-    api project(':library:base')
+    implementation project(':library:common')
     implementation project(':library:network')
     implementation Libs.Androidx.Layout.ConstraintLayout
     implementation Libs.Utils.UtilCode

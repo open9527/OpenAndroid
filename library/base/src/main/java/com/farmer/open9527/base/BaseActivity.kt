@@ -10,7 +10,7 @@ import com.farmer.open9527.base.page.DataBindingActivity
  * @author   open_9527
  * Create at 2021/5/18
  */
-abstract class BaseActivity : DataBindingActivity() {
+ abstract class BaseActivity : DataBindingActivity() {
 
 
     protected val TAG = javaClass.simpleName

@@ -7,19 +7,9 @@ apply {
 }
 
 android {
-
     defaultConfig {
         // 模块混淆配置
         consumerProguardFiles 'proguard-common.pro'
-    }
-
-    sourceSets {
-        main {
-            // res 资源目录配置
-            res.srcDirs(
-                    'src/main/res',
-            )
-        }
     }
 }
 

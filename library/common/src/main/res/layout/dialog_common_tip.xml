@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="dialog"
+            type="com.farmer.open9527.common.dialog.CommonTipDialog" />
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        bindDrawableRadius="@{10}"
+        bindDrawableSolidColor="@{@color/common_primary_color}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/size_50"
+        android:layout_marginEnd="@dimen/size_50"
+        android:minHeight="@dimen/size_130"
+        tools:background="@color/common_primary_color">
+
+        <TextView
+            android:id="@+id/tv_title"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginEnd="@dimen/size_10"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@{dialog.valueTitle}"
+            android:textColor="@color/common_text_color"
+            android:textSize="@dimen/font_16"
+            app:layout_constraintBottom_toTopOf="@+id/tv_content"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed"
+            tools:ignore="HardcodedText,SpUsage"
+            tools:text="@string/common_test_text" />
+
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_10"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginEnd="@dimen/size_10"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@{dialog.valueContent}"
+            android:textColor="@color/common_text_hint_color"
+            android:textSize="@dimen/font_14"
+            app:layout_constraintBottom_toBottomOf="@+id/view_line"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_title"
+            tools:ignore="HardcodedText,SpUsage"
+            tools:text="@string/common_test_text" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/space_1"
+            android:background="@color/common_line_color"
+            app:layout_constraintBottom_toTopOf="@+id/tv_confirm" />
+
+
+        <TextView
+            android:id="@+id/tv_confirm"
+            bindViewClick="@{dialog.confirmClick}"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="@dimen/size_50"
+            android:layout_marginStart="@dimen/size_10"
+            android:layout_marginEnd="@dimen/size_10"
+            android:gravity="center"
+            android:text="@{dialog.valueConfirmContent}"
+            android:textColor="@{dialog.valueConfirmTextColor}"
+            android:textSize="@dimen/font_18"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_cancel"
+            app:layout_constraintStart_toStartOf="parent"
+            tools:ignore="HardcodedText,SpUsage"
+            tools:text="确认"
+            tools:textColor="@color/common_text_hint_color" />
+
+
+        <View
+            android:layout_width="@dimen/space_1"
+            android:layout_height="@dimen/size_0"
+            android:background="@color/common_line_color"
+            android:visibility="@{dialog.valueOnlyConfirm}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_line" />
+
+        <TextView
+            android:id="@+id/tv_cancel"
+            bindViewClick="@{dialog.cancelClick}"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="@dimen/size_0"
+            android:layout_marginStart="@dimen/size_10"
+            android:layout_marginEnd="@dimen/size_10"
+            android:gravity="center"
+            android:text="@{dialog.valueCancelContent}"
+            android:textColor="@{dialog.valueCancelTextColor}"
+            android:textSize="@dimen/font_18"
+            android:visibility="@{dialog.valueOnlyConfirm}"
+            app:layout_constraintBottom_toBottomOf="@+id/tv_confirm"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/tv_confirm"
+            app:layout_constraintTop_toTopOf="@+id/tv_confirm"
+            tools:ignore="HardcodedText,SpUsage"
+            tools:text="取消" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

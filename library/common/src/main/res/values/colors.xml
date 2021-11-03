@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--    &lt;!&ndash; 透明色 &ndash;&gt;-->
+    <!--    <color name="transparent">#00000000</color>-->
+    <!--    &lt;!&ndash; 白色 &ndash;&gt;-->
+    <!--    <color name="white">#FFFFFFFF</color>-->
+    <!--    &lt;!&ndash; 黑色 &ndash;&gt;-->
+    <!--    <color name="black">#FF000000</color>-->
+    <!--    &lt;!&ndash; 灰色 &ndash;&gt;-->
+    <!--    <color name="gray">#FF808080</color>-->
+    <!--    &lt;!&ndash; 红色 &ndash;&gt;-->
+    <!--    <color name="red">#FFFF0000</color>-->
+    <!--    &lt;!&ndash; 金色 &ndash;&gt;-->
+    <!--    <color name="gold">#FFFFD700</color>-->
+    <!--    &lt;!&ndash; 黄色 &ndash;&gt;-->
+    <!--    <color name="yellow">#FFFFFF00</color>-->
+    <!--    &lt;!&ndash; 绿色 &ndash;&gt;-->
+    <!--    <color name="green">#FF008000</color>-->
+    <!--    &lt;!&ndash; 蓝色 &ndash;&gt;-->
+    <!--    <color name="blue">#FF0000FF</color>-->
+    <!--    &lt;!&ndash; 紫色 &ndash;&gt;-->
+    <!--    <color name="purple">#FF800080</color>-->
+    <!--    &lt;!&ndash; 粉色 &ndash;&gt;-->
+    <!--    <color name="pink">#FFFFC0CB</color>-->
+    <!--    &lt;!&ndash; 橙色 &ndash;&gt;-->
+    <!--    <color name="orange">#FFFFA500</color>-->
+
+
+    <!--请以 模块 + 作用 + color 来命名-->
+    <color name="common_primary_color">#FFFFFFFF</color>
+    <color name="common_primary_dark_color">#FF000000</color>
+    <color name="common_accent_color">#FF5A8DDF</color>
+    <color name="common_window_background_color">#FFF4F4F4</color>
+    <color name="common_text_color">#FF333333</color>
+    <color name="common_text_hint_color">#FFA3A7AD</color>
+    <color name="common_line_color">#FFECECEC</color>
+    <color name="common_shadow_color">#FF5A8DDF</color>
+
+</resources>
