@@ -1,4 +1,5 @@
 package com.farmer.open9527.network
+
 import kotlinx.coroutines.delay
 
 
@@ -9,7 +10,7 @@ import kotlinx.coroutines.delay
 open class BaseRepository {
 
     suspend fun <T> executeHttp(block: suspend () -> ApiResponse<T>): ApiResponse<T> {
-//        delay(500)
+        delay(500)
         runCatching {
             block.invoke()
         }.onSuccess { data: ApiResponse<T> ->

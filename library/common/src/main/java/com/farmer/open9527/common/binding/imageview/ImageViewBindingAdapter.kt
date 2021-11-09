@@ -1,4 +1,4 @@
-package com.farmer.open9527.module.test
+package com.farmer.open9527.common.binding.imageview
 
 import android.net.Uri
 import android.widget.ImageView
@@ -7,9 +7,9 @@ import androidx.databinding.BindingAdapter
 
 /**
  *@author   open_9527
- *Create at 2021/11/2
+ *Create at 2021/11/4
  **/
-object ViewAdapter {
+object ImageViewBindingAdapter {
 
     @BindingAdapter(value = ["bindImageViewUri"], requireAll = false)
     @JvmStatic

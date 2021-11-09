@@ -1,61 +1,48 @@
-package com.farmer.open9527.module.test.network
+package com.farmer.open9527.module.test.ui
 
-import android.app.Activity
 import android.content.Intent
-import android.os.Bundle
 import android.view.View
-import com.blankj.utilcode.util.BarUtils
+import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.LogUtils
-import com.farmer.open9527.base.BaseActivity
 import com.farmer.open9527.base.page.DataBindingConfig
+import com.farmer.open9527.common.base.CommonActivity
 import com.farmer.open9527.module.test.BR
 import com.farmer.open9527.module.test.R
+import com.farmer.open9527.module.test.viewmodel.NetWorkViewModel
+import com.farmer.open9527.recycleview.decoration.SpacesItemDecoration
+import com.farmer.open9527.recycleview.layoutmanager.WrapContentLinearLayoutManager
 
 
 /**
  *@author   open_9527
  *Create at 2021/10/18
  **/
-class NetWorkActivity : BaseActivity() {
-
-    protected var mActivity: Activity? = null
+class NetWorkActivity : CommonActivity() {
 
     private var mViewModel: NetWorkViewModel? = null
 
-
-//    private val mViewModel by viewModels<NetWorkViewModel>()
 
     override fun initViewModel() {
         mViewModel = getActivityScopeViewModel(NetWorkViewModel::class.java);
 
     }
 
+//    private val mViewModel by viewModels<NetWorkViewModel>()
+
+
+
     override fun getDataBindingConfig(): DataBindingConfig {
-        return DataBindingConfig(R.layout.network_activity, BR.vm, mViewModel!!)
+        return DataBindingConfig(R.layout.net_work__activity, BR.vm, mViewModel!!)
             .addBindingParam(BR.click, ClickProxy())
     }
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        mActivity = this
-        initStatusBar();
-        super.onCreate(savedInstanceState)
-        initView(intent.extras)
-
-    }
-
-    private fun initStatusBar() {
-        BarUtils.transparentStatusBar(this)
-        BarUtils.setStatusBarLightMode(this, true)
-    }
-
-    private fun initView(extras: Bundle?) {
-
+    override fun initEvent() {
         mViewModel?.userLiveData?.observeState(this) {
             onSuccess {
                 LogUtils.i(TAG, "userLiveData: onSuccess")
 //                LogUtils.i(TAG, "userLiveData: " + it.toString())
-                mViewModel?.fetchWxArticleFromNet();
+                mViewModel?.fetchWxArticleFromNet()
             }
         }
         mViewModel?.wxArticleLiveData?.observeState(this) {
@@ -65,13 +52,13 @@ class NetWorkActivity : BaseActivity() {
             }
 
         }
-
-
+        mViewModel?.initRecycleView(
+            WrapContentLinearLayoutManager(this),
+            SpacesItemDecoration(this, RecyclerView.VERTICAL)
+        )
     }
 
-
     inner class ClickProxy {
-
         var requestClick = View.OnClickListener {
             LogUtils.i(TAG, "requestClick")
             mViewModel?.fetchWxArticleFromNet();

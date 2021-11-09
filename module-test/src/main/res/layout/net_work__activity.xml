@@ -6,11 +6,11 @@
 
         <variable
             name="vm"
-            type="com.farmer.open9527.module.test.network.NetWorkViewModel" />
+            type="com.farmer.open9527.module.test.viewmodel.NetWorkViewModel" />
 
         <variable
             name="click"
-            type="com.farmer.open9527.module.test.network.NetWorkActivity.ClickProxy" />
+            type="com.farmer.open9527.module.test.ui.NetWorkActivity.ClickProxy" />
 
     </data>
 
@@ -32,10 +32,19 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:gravity="center"
-            android:text="media"
             android:onClick="@{click.loginClick}"
+            android:text="media"
             app:layout_constraintTop_toBottomOf="@+id/tv_request" />
 
+        <com.farmer.open9527.recycleview.WrapRecyclerView
+            bindRecycleViewAdapter="@{vm.valueAdapter}"
+            bindRecycleViewItemDecoration="@{vm.valueItemDecoration}"
+            bindRecycleViewLayoutManager="@{vm.valueLayoutManager}"
+            bindRecycleViewListData="@{vm.valueListData}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/tv_media" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

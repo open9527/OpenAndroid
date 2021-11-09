@@ -7,6 +7,7 @@ import android.net.Uri
 import android.os.Environment
 import android.provider.MediaStore
 import android.text.TextUtils
+import com.blankj.utilcode.util.FileUtils
 import com.blankj.utilcode.util.LogUtils
 import com.blankj.utilcode.util.UriUtils
 import java.io.File
@@ -257,4 +258,7 @@ object MediaFileUtils {
         return mAllImage;
     }
 
+    fun delFileByUri(uri: Uri): Boolean {
+        return FileUtils.delete(UriUtils.uri2File(uri))
+    }
 }

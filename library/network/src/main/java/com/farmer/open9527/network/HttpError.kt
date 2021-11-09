@@ -15,6 +15,8 @@ enum class HttpError(var code: Int, var errorMsg: String) {
     TOKEN_EXPIRE(401, "token is expired"),
     PARAMS_ERROR(4003, "params is error")
     // ...... more
+
+
 }
 
 internal fun handlingApiExceptions(code: Int?, errorMsg: String?) = when (code) {

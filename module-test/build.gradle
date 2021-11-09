@@ -22,14 +22,12 @@ android {
             )
         }
     }
-    buildFeatures {
-        viewBinding true
-    }
+//    // 资源前缀限制
+//    resourcePrefix "test_"
 }
 
 dependencies {
     implementation project(':library:common')
-    implementation project(':library:network')
     implementation Libs.Androidx.Layout.ConstraintLayout
     implementation Libs.Utils.UtilCode
     implementation Libs.Androidx.Kotlin.ViewModelKtx

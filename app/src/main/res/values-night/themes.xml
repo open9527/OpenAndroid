@@ -26,11 +26,13 @@
         <!-- 关闭 RecyclerView ScrollView ViewPager 水波纹效果 -->
         <item name="android:overScrollMode">never</item>
         <item name="android:scrollbars">none</item>
-
+        <!--RecyclerView ListView 默认分割线-->
+        <item name="android:listDivider">@drawable/list_divider</item>
         <!--状态栏颜色-->
         <item name="android:statusBarColor" tools:targetApi="l">@android:color/white</item>
         <!--android 10暗黑模式-->
         <item name="android:forceDarkAllowed" tools:targetApi="q">true</item>
+
 
     </style>
 </resources>

@@ -1,0 +1,18 @@
+import com.farmer.open9527.buildsrc.*
+
+apply {
+    plugin 'com.android.library'
+    plugin 'kotlin-android'
+    from '../../common.gradle'
+}
+
+android {
+    defaultConfig {
+        // 模块混淆配置
+        consumerProguardFiles 'proguard-recycleview.pro'
+    }
+}
+
+dependencies {
+    api Libs.Androidx.Layout.RecyclerView
+}

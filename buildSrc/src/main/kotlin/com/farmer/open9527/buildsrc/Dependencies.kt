@@ -76,7 +76,7 @@ object Libs {
     private const val AndroidxVersion = "1.0.0"
 
     object Google {
-        const val Material = "com.google.android.material:material:1.3.0"
+        const val Material = "com.google.android.material:material:1.4.0"
 
         const val Gson = "com.google.code.gson:gson:2.8.7"
 
@@ -126,15 +126,14 @@ object Libs {
 
         object Layout {
             const val ConstraintLayout = "androidx.constraintlayout:constraintlayout:2.0.4"
-        }
 
-        object View {
             const val RecyclerView = "androidx.recyclerview:recyclerview:1.2.0"
 
             const val Viewpager2 = "androidx.viewpager2:viewpager2:1.0.0"
 
             const val CardView = "androidx.cardview:cardview:1.0.0"
         }
+
 
 
         object Lifecycle {
