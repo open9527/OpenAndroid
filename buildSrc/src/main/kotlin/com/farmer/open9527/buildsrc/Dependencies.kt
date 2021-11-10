@@ -78,7 +78,7 @@ object Libs {
     object Google {
         const val Material = "com.google.android.material:material:1.4.0"
 
-        const val Gson = "com.google.code.gson:gson:2.8.7"
+        const val Gson = "com.google.code.gson:gson:2.8.9"
 
 
         object Exoplayer {
@@ -111,13 +111,13 @@ object Libs {
 
     object SquareUp {
         object OkHttp3 {
-            const val OkHttp ="com.squareup.okhttp3:okhttp:4.1.0"
-            const val OkHttpLogging ="com.squareup.okhttp3:logging-interceptor:4.9.0"
+            const val OkHttp = "com.squareup.okhttp3:okhttp:4.1.0"
+            const val OkHttpLogging = "com.squareup.okhttp3:logging-interceptor:4.9.0"
         }
 
         object RetroFit2 {
-            const val RetroFit ="com.squareup.retrofit2:retrofit:2.9.0"
-            const val RetroFitConverterGson ="com.squareup.retrofit2:converter-gson:2.9.0"
+            const val RetroFit = "com.squareup.retrofit2:retrofit:2.9.0"
+            const val RetroFitConverterGson = "com.squareup.retrofit2:converter-gson:2.9.0"
         }
     }
 
@@ -133,7 +133,6 @@ object Libs {
 
             const val CardView = "androidx.cardview:cardview:1.0.0"
         }
-
 
 
         object Lifecycle {
@@ -170,7 +169,8 @@ object Libs {
             private const val KotlinLifecycleVersion = "2.2.0"
 
             const val ktx = "androidx.core:core-ktx:1.5.0"
-            const val ViewModelKtx = "androidx.lifecycle:lifecycle-viewmodel-ktx:$KotlinLifecycleVersion"
+            const val ViewModelKtx =
+                "androidx.lifecycle:lifecycle-viewmodel-ktx:$KotlinLifecycleVersion"
 
         }
 
@@ -189,6 +189,16 @@ object Libs {
             "jp.wasabeef:glide-transformations:$GlideTransformationsVersion"
 
     }
+
+    object Coil {
+        private const val CoilVersion = "1.4.0"
+
+        const val Coil = "io.coil-kt:coil:${CoilVersion}"
+        const val CoilGif = "io.coil-kt:coil-gif:${CoilVersion}"
+        const val CoilSvg = "io.coil-kt:coil-svg:${CoilVersion}"
+        const val CoilVideo = "io.coil-kt:coil-video:${CoilVersion}"
+    }
+
 
     object Sdk {
 

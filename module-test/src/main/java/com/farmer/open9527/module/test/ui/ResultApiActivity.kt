@@ -89,6 +89,7 @@ class ResultApiActivity : CommonActivity() {
             .setConfirmTextColor(ColorUtils.getColor(R.color.common_accent_color))
             .addListener(object : CommonTipDialog.ICommonTipDialog {
                 override fun onConfirm() {
+                    startActivity(ImageLoadActivity::class.java)
                 }
             }).showDialog()
 

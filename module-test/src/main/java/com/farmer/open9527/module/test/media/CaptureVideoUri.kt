@@ -21,6 +21,6 @@ public class CaptureVideoUri : ActivityResultContract<Any, Uri>() {
     }
 
     override fun parseResult(resultCode: Int, intent: Intent?): Uri? {
-        return uri;
+        return uri
     }
 }

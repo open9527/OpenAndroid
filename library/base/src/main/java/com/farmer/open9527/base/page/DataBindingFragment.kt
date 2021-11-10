@@ -58,9 +58,12 @@ abstract class DataBindingFragment : Fragment() {
         return binding.root
     }
 
+
+
+
     override fun onDestroyView() {
         super.onDestroyView()
-        mBinding!!.unbind()
+        mBinding?.unbind()
         mBinding = null
     }
 }

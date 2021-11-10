@@ -10,7 +10,7 @@ import retrofit2.http.POST
  *@author   open_9527
  *Create at 2021/10/18
  **/
-interface ApiService {
+interface WanApiService {
 
     companion object {
         const val BASE_URL = "https://wanandroid.com/"

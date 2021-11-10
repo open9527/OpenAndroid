@@ -34,6 +34,6 @@
     <color name="common_text_color">#FF333333</color>
     <color name="common_text_hint_color">#FFA3A7AD</color>
     <color name="common_line_color">#FFECECEC</color>
-    <color name="common_shadow_color">#FF5A8DDF</color>
+    <color name="common_shadow_color">#FF6A3DDF</color>
 
 </resources>

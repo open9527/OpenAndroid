@@ -30,8 +30,10 @@ dependencies {
     implementation project(':library:common')
     implementation Libs.Androidx.Layout.ConstraintLayout
     implementation Libs.Utils.UtilCode
+    implementation Libs.Google.Gson
     implementation Libs.Androidx.Kotlin.ViewModelKtx
 //    implementation Libs.Androidx.Lifecycle.LifecycleExtensions
     implementation 'androidx.fragment:fragment-ktx:1.3.2'
     implementation "androidx.activity:activity-ktx:1.3.1"
+
 }

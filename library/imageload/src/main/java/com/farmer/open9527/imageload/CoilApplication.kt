@@ -1,4 +1,4 @@
-package com.farmer.open9527
+package com.farmer.open9527.imageload
 
 import android.app.Application
 import android.os.Build
@@ -14,16 +14,14 @@ import coil.util.DebugLogger
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 
-/**
- * @author open_9527
- * Create at 2021/10/20
- */
-class App : Application(), ImageLoaderFactory {
 
-    override fun onCreate() {
-        super.onCreate()
-//        CrashHandler.register(this, BuildConfig.DEBUG)
-    }
+/**
+ *@author   open_9527
+ *Create at 2021/11/9
+ *
+ * DESC:Sample
+ **/
+class CoilApplication : Application(), ImageLoaderFactory {
 
     override fun newImageLoader(): ImageLoader {
         return ImageLoader.Builder(this)
@@ -45,10 +43,10 @@ class App : Application(), ImageLoaderFactory {
             }
             .crossfade(true)
             .apply {
-                if (BuildConfig.DEBUG) {
-                    logger(DebugLogger(Log.VERBOSE))
-                }
+                logger(DebugLogger(Log.VERBOSE))
             }
             .build()
     }
+
 }
+

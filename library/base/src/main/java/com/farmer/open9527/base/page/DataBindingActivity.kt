@@ -11,34 +11,35 @@ import androidx.databinding.ViewDataBinding
  **/
 abstract class DataBindingActivity : AppCompatActivity() {
 
-    //  ::mBinding.isInitialized
-//    private lateinit var mBinding: ViewDataBinding
-
     private var mBinding: ViewDataBinding? = null
-
-    protected abstract fun initViewModel()
-
-    protected abstract fun getDataBindingConfig(): DataBindingConfig
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModel()
 
         val dataBindingConfig = getDataBindingConfig()
+        if (dataBindingConfig != null) {
+            val binding = DataBindingUtil.setContentView<ViewDataBinding>(
+                this, dataBindingConfig.layout
+            )
 
-        val binding = DataBindingUtil.setContentView<ViewDataBinding>(
-            this, dataBindingConfig.layout
-        )
+            binding?.lifecycleOwner = this
 
-        binding?.lifecycleOwner = this
+            binding?.setVariable(dataBindingConfig.vmVariableId, dataBindingConfig.stateViewModel)
 
-        binding?.setVariable(dataBindingConfig.vmVariableId, dataBindingConfig.stateViewModel)
+            BindingVariableUtils.bindingVariable(binding, dataBindingConfig.getBindingParams())
 
-        BindingVariableUtils.bindingVariable(binding!!, dataBindingConfig.getBindingParams())
+            this.mBinding = binding
+        }
+    }
 
-        this.mBinding = binding
+    open fun initViewModel() {
 
+    }
+
+    open fun getDataBindingConfig(): DataBindingConfig? {
+
+        return null
     }
 
 
@@ -46,15 +47,11 @@ abstract class DataBindingActivity : AppCompatActivity() {
     protected open fun getBinding(): ViewDataBinding? {
         return mBinding
     }
-//
-//    fun setDebugText(){
-//        addContentView(mBinding?.root,)
-//    }
 
 
     override fun onDestroy() {
         super.onDestroy()
-        mBinding!!.unbind()
+        mBinding?.unbind()
         mBinding = null
     }
 }

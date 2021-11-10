@@ -8,14 +8,21 @@
             android:name=".ui.ResultApiActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="ResultApi"
-            android:launchMode="singleTop"
+            android:launchMode="standard"
             android:screenOrientation="portrait" />
 
         <activity
             android:name=".ui.NetWorkActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="NetWork"
-            android:launchMode="singleTop"
+            android:launchMode="standard"
+            android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".ui.ImageLoadActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="NetWork"
+            android:launchMode="standard"
             android:screenOrientation="portrait" />
 
 

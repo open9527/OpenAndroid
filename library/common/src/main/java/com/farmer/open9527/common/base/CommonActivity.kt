@@ -40,10 +40,8 @@ abstract class CommonActivity : BaseActivity() {
 
     }
 
-
-    open fun startActivity(context: Context, cls: Class<*>) {
-        context.startActivity(Intent(context, cls))
+    open fun startActivity(cls: Class<*>) {
+        startActivity(Intent(this, cls))
     }
-
 
 }

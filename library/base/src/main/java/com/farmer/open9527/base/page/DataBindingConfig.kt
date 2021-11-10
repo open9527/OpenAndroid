@@ -7,14 +7,21 @@ import androidx.lifecycle.ViewModel
  *@author   open_9527
  *Create at 2021/5/18
  **/
-class DataBindingConfig(
-    val layout: Int,
-    val vmVariableId: Int,
-    val stateViewModel: ViewModel
-) {
+class DataBindingConfig {
     private val bindingParams = SparseArray<Any?>()
     fun getBindingParams(): SparseArray<*> {
         return bindingParams
+    }
+    var layout: Int= 0
+    var vmVariableId: Int = 0
+    var stateViewModel: ViewModel? = null
+
+    constructor(layout: Int) : this(layout, 0, null)
+
+    constructor(layout: Int, vmVariableId: Int, stateViewModel: ViewModel?) {
+        this.layout = layout
+        this.vmVariableId = vmVariableId
+        this.stateViewModel = stateViewModel
     }
 
     fun addBindingParam(

@@ -30,6 +30,7 @@ dependencies {
     api project(':library:network')
     api project(':library:dialog')
     api project(':library:recycleview')
+    api project(':library:imageload')
     api Libs.Androidx.Layout.ConstraintLayout
     api Libs.Google.Material
     api Libs.Utils.UtilCode
