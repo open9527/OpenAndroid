@@ -1,0 +1,21 @@
+import com.farmer.open9527.buildsrc.*
+
+apply {
+    plugin 'com.android.library'
+    plugin 'kotlin-android'
+    from '../../common.gradle'
+}
+
+android {
+    defaultConfig {
+        // 模块混淆配置
+        consumerProguardFiles 'proguard-refresh.pro'
+    }
+}
+
+dependencies {
+    api Libs.UI.Refresh.RefreshKernel
+    api Libs.UI.Refresh.RefreshHeaderClassics
+    api Libs.UI.Refresh.RefreshFooterClassics
+    api Libs.UI.Refresh.RefreshHeaderClassics
+}

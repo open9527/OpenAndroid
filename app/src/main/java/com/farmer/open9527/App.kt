@@ -1,6 +1,5 @@
 package com.farmer.open9527
 
-import android.app.Application
 import android.os.Build
 import android.util.Log
 import coil.ImageLoader
@@ -11,6 +10,7 @@ import coil.decode.SvgDecoder
 import coil.decode.VideoFrameDecoder
 import coil.util.CoilUtils
 import coil.util.DebugLogger
+import com.farmer.open9527.common.application.CommonApplication
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
 
@@ -18,7 +18,7 @@ import okhttp3.OkHttpClient
  * @author open_9527
  * Create at 2021/10/20
  */
-class App : Application(), ImageLoaderFactory {
+class App : CommonApplication(), ImageLoaderFactory {
 
     override fun onCreate() {
         super.onCreate()
@@ -51,4 +51,6 @@ class App : Application(), ImageLoaderFactory {
             }
             .build()
     }
+
+
 }

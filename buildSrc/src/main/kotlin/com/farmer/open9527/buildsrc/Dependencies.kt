@@ -32,6 +32,8 @@ object Configs {
 
     object App {
         const val applicationId = "com.farmer.open9527"
+
+        const val appDebug = true
     }
 
 }
@@ -239,7 +241,6 @@ object Libs {
 
     object UI {
 
-
         object Refresh {
             private const val RefreshVersion = "2.0.3"
 
@@ -250,6 +251,9 @@ object Libs {
 
             const val RefreshFooterClassics =
                 "com.scwang.smart:refresh-footer-classics:$RefreshVersion"
+
+            const val RefreshHeaderMaterial =
+                "com.scwang.smart:refresh-header-material:$RefreshVersion"
         }
 
         const val Banner = "com.github.zhpanvip:BannerViewPager:3.5.1"

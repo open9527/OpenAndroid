@@ -1,7 +1,8 @@
 package com.farmer.open9527.module.test.network
 
-import com.farmer.open9527.network.ApiResponse
-import com.farmer.open9527.network.BaseRepository
+import com.farmer.open9527.state.base.BaseRepository
+import com.farmer.open9527.state.entity.ApiResponse
+
 
 /**
  *@author   open_9527

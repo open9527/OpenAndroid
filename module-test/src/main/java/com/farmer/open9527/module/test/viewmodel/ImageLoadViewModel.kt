@@ -2,6 +2,7 @@ package com.farmer.open9527.module.test.viewmodel
 
 import androidx.annotation.RawRes
 import androidx.databinding.ObservableArrayList
+import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -32,7 +33,9 @@ class ImageLoadViewModel : ViewModel() {
     val valueAdapter = ObservableField<BaseBindingCellListAdapter<BaseBindingCell<*>>>()
     val valueListData = ObservableArrayList<BaseBindingCell<*>>()
 
-    fun loadImages(@RawRes  resId: Int) {
+    val valueNoMoreData = ObservableBoolean(false)
+
+    fun loadImages(@RawRes resId: Int) {
         viewModelScope.launch {
             getRawFileList(resId).forEach {
                 valueListData.add(ImageLoadCell(it))
@@ -41,7 +44,7 @@ class ImageLoadViewModel : ViewModel() {
     }
 
 
-    private fun getRawFileList(@RawRes  resId: Int): List<ImageVo> {
+    private fun getRawFileList(@RawRes resId: Int): List<ImageVo> {
         val adapterSetting: Map<Type, Any> = JsonApiUtils.defaultAdapterSetting()
         val gson: Gson = JsonApiUtils.buildGson(adapterSetting)
         return gson.fromJson(

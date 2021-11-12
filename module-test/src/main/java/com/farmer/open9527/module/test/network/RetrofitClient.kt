@@ -1,6 +1,6 @@
 package com.farmer.open9527.module.test.network
 
-import com.farmer.open9527.network.BaseRetrofitClient
+import com.farmer.open9527.state.base.BaseRetrofitClient
 import okhttp3.OkHttpClient
 
 /**

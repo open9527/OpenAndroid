@@ -43,26 +43,6 @@ abstract class BaseBindingCell<CELL : BaseBindingCell<CELL>> : IBaseCellClick<CE
         return onCellLongClick(v, this as CELL)
     }
 
-//    override fun equals(other: Any?): Boolean {
-//        if (this === other) return true
-//        if (javaClass != other?.javaClass) return false
-//
-//        other as BaseBindingCell<*>
-//
-//        if (TAG != other.TAG) return false
-//        if (mViewType != other.mViewType) return false
-//
-//        return true
-//    }
-//
-//    override fun hashCode(): Int {
-//        var result = TAG.hashCode() ?: 0
-//        result = 31 * result + mViewType
-//        return result
-//    }
-
-    /* -------------------------------------------------------------------------------------------- */
-
     abstract fun bindBaseBindingCellViewHolder(
         holder: BaseBindingCellViewHolder<ViewDataBinding>,
         position: Int

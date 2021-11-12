@@ -20,6 +20,7 @@
         <!--
          bindImageViewLoadHeight="@{cell.valueHeight}"
          bindImageViewLoadWidth="@{cell.valueWidth}"
+         bindImageViewLoadRoundRadius="@{10}"
         -->
         <androidx.constraintlayout.utils.widget.ImageFilterView
             bindImageViewLoadPlaceholderDrawable="@{cell.valuePlaceholderDrawable}"
@@ -28,10 +29,12 @@
             bindImageViewLoadUrl="@{cell.valueUrl}"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_0"
+            android:adjustViewBounds="true"
             android:scaleType="centerCrop"
             app:layout_constraintDimensionRatio="1:1"
             app:layout_constraintTop_toTopOf="parent"
-            app:round="@dimen/size_10" />
+            app:round="@dimen/size_10"
+            tools:background="@color/common_accent_color" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

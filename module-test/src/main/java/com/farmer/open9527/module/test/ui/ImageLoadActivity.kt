@@ -5,12 +5,15 @@ import com.blankj.utilcode.util.SizeUtils
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
 import com.farmer.open9527.module.test.BR
+import com.farmer.open9527.module.test.CommonClickProxy
 import com.farmer.open9527.module.test.R
 import com.farmer.open9527.module.test.viewmodel.ImageLoadViewModel
 import com.farmer.open9527.module.test.vo.image.RawType
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.decoration.GridSpaceItemDecoration
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentGridLayoutManager
+import com.farmer.open9527.refresh.IRefreshView
+import com.scwang.smart.refresh.layout.api.RefreshLayout
 
 
 /**
@@ -27,6 +30,7 @@ class ImageLoadActivity : CommonActivity() {
 
     override fun getDataBindingConfig(): DataBindingConfig {
         return DataBindingConfig(R.layout.image_load__activity, BR.vm, mViewModel!!)
+            .addBindingParam(BR.click, ClickProxy())
     }
 
 
@@ -35,6 +39,10 @@ class ImageLoadActivity : CommonActivity() {
     }
 
     override fun initRequest() {
+        requestImages()
+    }
+
+    private fun requestImages() {
         mViewModel?.loadImages(RawType.GIF.resId)
         mViewModel?.loadImages(RawType.SVG.resId)
         mViewModel?.loadImages(RawType.JPG.resId)
@@ -47,5 +55,22 @@ class ImageLoadActivity : CommonActivity() {
             GridSpaceItemDecoration(SizeUtils.dp2px(10f), true)
         )
         mViewModel?.valueAdapter?.set(BaseBindingCellListAdapter())
+    }
+
+    inner class ClickProxy : CommonClickProxy() {
+        override fun onBack() {
+            finish()
+        }
+
+        val iRefreshView = object : IRefreshView {
+            override fun onRefresh(refreshLayout: RefreshLayout?, hasRefresh: Boolean) {
+                if (hasRefresh) {
+                    mViewModel?.loadImages(RawType.GIF.resId)
+                } else {
+                    mViewModel?.loadImages(RawType.SVG.resId)
+                }
+                mViewModel?.valueNoMoreData?.set(hasRefresh)
+            }
+        }
     }
 }

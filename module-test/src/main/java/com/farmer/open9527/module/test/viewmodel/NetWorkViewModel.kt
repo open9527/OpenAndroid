@@ -9,10 +9,10 @@ import com.farmer.open9527.module.test.cell.EmptyCell
 import com.farmer.open9527.module.test.cell.HeaderCell
 import com.farmer.open9527.module.test.network.WxArticleRepository
 
-import com.farmer.open9527.network.StateLiveData
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.cell.BaseBindingCell
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentLinearLayoutManager
+import com.farmer.open9527.state.observer.StateLiveData
 import kotlinx.coroutines.launch
 
 

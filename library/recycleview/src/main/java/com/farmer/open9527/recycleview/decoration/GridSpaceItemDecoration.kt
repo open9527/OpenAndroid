@@ -62,7 +62,7 @@ class GridSpaceItemDecoration : ItemDecoration {
                 fullSpan = params.isFullSpan
                 mSpanCount = layoutManager.spanCount
             }
-            position = position - mStartFromSize
+            position -= mStartFromSize
             if (mIncludeEdge) {
                 /*
                  *eg

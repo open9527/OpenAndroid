@@ -1,0 +1,21 @@
+import com.farmer.open9527.buildsrc.Libs
+
+apply {
+    plugin 'com.android.library'
+    plugin 'kotlin-android'
+    from '../../common.gradle'
+}
+
+android {
+    defaultConfig {
+        // 模块混淆配置
+        consumerProguardFiles 'proguard-common.pro'
+    }
+}
+
+dependencies {
+    api Libs.SquareUp.OkHttp3.OkHttp
+    api Libs.SquareUp.OkHttp3.OkHttpLogging
+    api Libs.SquareUp.RetroFit2.RetroFit
+    api Libs.SquareUp.RetroFit2.RetroFitConverterGson
+}

@@ -27,11 +27,12 @@ android {
 
 dependencies {
     api project(':library:base')
-    api project(':library:network')
     api project(':library:dialog')
     api project(':library:recycleview')
     api project(':library:imageload')
+    api project(':library:refresh')
     api Libs.Androidx.Layout.ConstraintLayout
     api Libs.Google.Material
     api Libs.Utils.UtilCode
+    api Libs.Androidx.Kotlin.ViewModelKtx
 }

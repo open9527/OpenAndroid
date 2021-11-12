@@ -7,5 +7,5 @@ apply {
 
 dependencies {
     implementation project(':library:common')
-    implementation project(':module-test')
+    implementation project(':module:launcher')
 }
