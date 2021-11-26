@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cell"
+            type="com.farmer.open9527.demo.load_image.TestImageLoadCell" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        bindViewClick="@{v->cell.onCellClick(v,cell)}"
+        bindViewClickViewScale="@{true}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <!--
+         bindImageViewLoadHeight="@{cell.valueHeight}"
+         bindImageViewLoadWidth="@{cell.valueWidth}"
+         bindImageViewLoadRoundRadius="@{10}"
+        -->
+        <androidx.constraintlayout.utils.widget.ImageFilterView
+            bindImageViewLoadPlaceholderDrawable="@{cell.valuePlaceholderDrawable}"
+            bindImageViewLoadRound="{true}"
+            bindImageViewLoadRoundRadius="@{10}"
+            bindImageViewLoadUrl="@{cell.valueUrl}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0"
+            android:adjustViewBounds="true"
+            android:scaleType="centerCrop"
+            app:layout_constraintDimensionRatio="1:1"
+            app:layout_constraintTop_toTopOf="parent"
+            app:round="@dimen/size_10"
+            tools:background="@color/common_accent_color" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

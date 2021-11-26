@@ -1,4 +1,0 @@
-<resources>
-    <string name="media_dialog_title" translatable="false">这个类是为了展示 registerForActivityResult API 的使用</string>
-    <string name="media_dialog_confirm" translatable="false">我知道了</string>
-</resources>

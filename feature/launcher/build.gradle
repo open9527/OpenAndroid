@@ -1,0 +1,11 @@
+
+apply {
+    from '../../launcher_app.gradle'
+}
+
+dependencies {
+    implementation project(':feature:demo')
+    implementation project(':feature:rmt:pkg')
+}
+
+

@@ -171,9 +171,17 @@ object Libs {
             private const val KotlinLifecycleVersion = "2.2.0"
 
             const val ktx = "androidx.core:core-ktx:1.5.0"
+            const val ktx_coroutines = "org.jetbrains.kotlinx:kotlinx-coroutines-core:1.3.9"
+
+            //ViewModel
             const val ViewModelKtx =
                 "androidx.lifecycle:lifecycle-viewmodel-ktx:$KotlinLifecycleVersion"
-
+            //LiveData
+            const val LiveDataKtx =
+                "androidx.lifecycle:lifecycle-livedata-ktx:$KotlinLifecycleVersion"
+            //Lifecycles
+            const val runtimeKtx =
+                "androidx.lifecycle:lifecycle-runtime-ktx:$KotlinLifecycleVersion"
         }
 
     }

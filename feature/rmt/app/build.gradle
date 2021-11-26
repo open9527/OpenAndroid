@@ -1,0 +1,9 @@
+apply {
+    from '../../../feature_app.gradle'
+}
+
+dependencies {
+    implementation project(':feature:rmt:pkg')
+}
+
+
