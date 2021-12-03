@@ -1,0 +1,34 @@
+import com.farmer.open9527.buildsrc.Libs
+
+apply {
+    plugin 'com.android.library'
+    plugin 'kotlin-android'
+    from '../lib.gradle'
+}
+android {
+
+    defaultConfig {
+        // 模块混淆配置
+        consumerProguardFiles 'proguard-net.pro'
+    }
+
+    sourceSets {
+        main {
+            // res 资源目录配置
+            res.srcDirs(
+                    'src/main/res',
+            )
+        }
+    }
+
+    // 资源前缀限制
+    resourcePrefix "net_"
+}
+//
+dependencies {
+    implementation project(':library:common')
+    implementation 'com.github.getActivity:EasyHttp:10.6'
+    implementation Libs.SquareUp.OkHttp3.OkHttp
+    implementation Libs.SquareUp.OkHttp3.OkHttpLogging
+
+}

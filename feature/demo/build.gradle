@@ -1,10 +1,10 @@
 import com.farmer.open9527.buildsrc.*
 
 apply {
-    plugin 'com.android.library'
-    plugin 'kotlin-android'
-    plugin 'kotlin-kapt'
-    from '../../common.gradle'
+    plugin Apply.Plugin.LIBRARY_PLUGIN
+    plugin Apply.Plugin.KOTLIN_PLUGIN
+    plugin Apply.Plugin.KOTLIN_KAPT_PLUGIN
+    from "${Apply.Path.DEFAULT_PATH}${Apply.Path.DEFAULT_PATH}${Apply.From.COMMON_GRADLE}"
 }
 
 android {
