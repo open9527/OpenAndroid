@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--用于测试更换主题修改字体大小,字体颜色,背景,图片资源等-->
+    <attr name="testBgColor" format="color" />
+    <attr name="testTextColor" format="color" />
+    <attr name="testImageSrc" format="reference" />
+    <attr name="testTextSize" format="dimension" />
+</resources>

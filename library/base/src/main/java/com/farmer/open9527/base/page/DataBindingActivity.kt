@@ -16,7 +16,6 @@ abstract class DataBindingActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         initViewModel()
-
         val dataBindingConfig = getDataBindingConfig()
         if (dataBindingConfig != null) {
             val binding = DataBindingUtil.setContentView<ViewDataBinding>(

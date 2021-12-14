@@ -11,4 +11,7 @@
     <string name="launch_module_rmt">rmt</string>
     <string name="launch_module_test_image_load">ImageLoad</string>
     <string name="launch_module_test_result_api">ResultApi</string>
+    <string name="launch_module_test_night">夜间模式</string>
+    <string name="launch_module_test_day">日间模式</string>
+    <string name="launch_module_test_day_night">DayNight</string>
 </resources>

@@ -18,5 +18,12 @@
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".night.TestDayNightActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="DayNight"
+            android:launchMode="singleTop"
+            android:screenOrientation="portrait" />
+
     </application>
 </manifest>

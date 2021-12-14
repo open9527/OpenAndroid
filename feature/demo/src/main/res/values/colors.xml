@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--请以 模块 + 作用 + color 来命名-->
+    <color name="test_primary_color">#FFFFFFFF</color>
+    <color name="test_primary_dark_color">#FF000000</color>
+    <color name="test_accent_color">#FF5A8DDF</color>
+    <color name="test_window_background_color">#FFF4F4F4</color>
+    <color name="test_text_color">#FF333333</color>
+    <color name="test_text_hint_color">#FFA3A7AD</color>
+    <color name="test_line_color">#FFECECEC</color>
+    <color name="test_shadow_color">#FF6A3DDF</color>
+
+</resources>

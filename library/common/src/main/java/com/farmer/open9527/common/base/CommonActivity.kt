@@ -1,6 +1,5 @@
 package com.farmer.open9527.common.base
 
-import android.content.Context
 import android.content.Intent
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
@@ -16,11 +15,16 @@ abstract class CommonActivity : BaseActivity() {
     protected var mActivity: AppCompatActivity? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         mActivity = this
+        initTheme();
         super.onCreate(savedInstanceState)
         initStatusBar()
         initEvent()
         initView(savedInstanceState)
         initRequest()
+    }
+
+    open fun initTheme() {
+
     }
 
     open fun initStatusBar() {

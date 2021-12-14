@@ -10,6 +10,7 @@ import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.cell.BaseBindingCell
 import com.farmer.open9527.demo.activity_result.TestResultApiActivity
 import com.farmer.open9527.demo.load_image.TestImageLoadActivity
+import com.farmer.open9527.demo.night.TestDayNightActivity
 import kotlinx.coroutines.launch
 
 
@@ -48,6 +49,14 @@ class LauncherViewModel : ViewModel() {
                 LauncherCell(
                     StringUtils.getString(R.string.launch_module_test_result_api),
                     TestResultApiActivity::class.java,
+                    valueILauncherCell.get()!!
+                )
+            )
+
+            valueListData.add(
+                LauncherCell(
+                    StringUtils.getString(R.string.launch_module_test_day_night),
+                    TestDayNightActivity::class.java,
                     valueILauncherCell.get()!!
                 )
             )

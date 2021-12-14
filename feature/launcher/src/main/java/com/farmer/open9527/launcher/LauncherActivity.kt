@@ -2,6 +2,7 @@ package com.farmer.open9527.launcher
 
 import android.os.Bundle
 import com.blankj.utilcode.util.AppUtils
+import com.blankj.utilcode.util.SPUtils
 import com.blankj.utilcode.util.ToastUtils
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
@@ -29,6 +30,7 @@ class LauncherActivity : CommonActivity() {
     override fun initView(bundle: Bundle?) {
         initRecycleView()
         mViewModel?.valueILauncherCell?.set(iLauncherCell)
+
     }
 
     override fun initRequest() {
