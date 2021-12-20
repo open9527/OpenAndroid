@@ -21,7 +21,6 @@ class TestDayNightActivity : CommonActivity() {
 
     override fun initTheme() {
         mDayNightDelegate = TestDayNightDelegate(mActivity)
-
     }
 
     override fun initView(bundle: Bundle?) {
@@ -30,8 +29,17 @@ class TestDayNightActivity : CommonActivity() {
     }
 
     override fun initEvent() {
-        mViewModel?.eventChangeThemeClick?.observe(this, {
-//            mDayNightDelegate?.onClickChangeTheme()
+
+        mViewModel?.getBackClickEvent()?.observe(this, {
+            mDayNightDelegate?.onBack()
+        })
+
+        mViewModel?.getChangeThemeEvent()?.observe(this, {
+            mDayNightDelegate?.onClickChangeTheme()
+        })
+
+        mViewModel?.getChangeGrayModelClickEvent()?.observe(this, {
+            mDayNightDelegate?.changeGrayModel()
         })
     }
 

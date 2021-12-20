@@ -15,7 +15,7 @@ abstract class CommonActivity : BaseActivity() {
     protected var mActivity: AppCompatActivity? = null
     override fun onCreate(savedInstanceState: Bundle?) {
         mActivity = this
-        initTheme();
+        initTheme()
         super.onCreate(savedInstanceState)
         initStatusBar()
         initEvent()

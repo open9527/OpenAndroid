@@ -9,13 +9,15 @@ import com.blankj.utilcode.util.SPUtils
 
 import android.util.TypedValue
 import android.view.View
+import com.farmer.open9527.demo.delegate.CommonDelegate
 
 
-class TestDayNightDelegate : TestIDayNightDelegate {
+class TestDayNightDelegate : CommonDelegate, TestIDayNightDelegate {
+
     private var mActivity: AppCompatActivity? = null
 
-    constructor(activity: AppCompatActivity?) {
-        mActivity = activity
+    constructor(activity: AppCompatActivity?) : super(activity) {
+        this.mActivity = activity
         onClickChangeTheme()
     }
 
@@ -23,14 +25,13 @@ class TestDayNightDelegate : TestIDayNightDelegate {
         mActivity?.setTheme(DayNightModel.DAY.theme)
         save(false)
         refreshStatusBar(true)
-        setGrayModel(0f)
+
     }
 
     override fun onNightTheme() {
         mActivity?.setTheme(DayNightModel.NIGHT.theme)
         save(true)
         refreshStatusBar(false)
-        setGrayModel(1f)
     }
 
     override fun onClickChangeTheme() {
@@ -39,20 +40,19 @@ class TestDayNightDelegate : TestIDayNightDelegate {
         } else {
             onNightTheme()
         }
-
     }
 
     override fun refreshStatusBar(light: Boolean) {
-        BarUtils.setStatusBarLightMode(mActivity!!, !light)
+        BarUtils.setStatusBarLightMode(mActivity!!, light)
+    }
+
+    override fun onBack() {
+        mActivity?.finish()
     }
 
 
-    private fun save(night: Boolean) {
-        SPUtils.getInstance().put("dayNight", night)
-    }
-
-    private fun getNight(): Boolean {
-        return SPUtils.getInstance().getBoolean("dayNight", false)
+    fun changeGrayModel() {
+        setGrayModel(if (getNight()) 1f else 0f)
     }
 
     fun getColor(resId: Int): Int {
@@ -63,6 +63,7 @@ class TestDayNightDelegate : TestIDayNightDelegate {
         return typedValue.data
     }
 
+
     private fun setGrayModel(saturation: Float) {
         val paint = Paint()
         val colorMatrix = ColorMatrix()
@@ -71,4 +72,11 @@ class TestDayNightDelegate : TestIDayNightDelegate {
         mActivity?.window?.decorView?.setLayerType(View.LAYER_TYPE_HARDWARE, paint)
     }
 
+    private fun save(night: Boolean) {
+        SPUtils.getInstance().put("dayNight", night)
+    }
+
+    private fun getNight(): Boolean {
+        return SPUtils.getInstance().getBoolean("dayNight", false)
+    }
 }

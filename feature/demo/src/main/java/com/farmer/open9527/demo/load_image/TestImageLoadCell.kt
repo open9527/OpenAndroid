@@ -48,6 +48,7 @@ class TestImageLoadCell : BaseBindingCell<TestImageLoadCell> {
         position: Int
     ) {
         holder.addBindingParam(BR.cell, this)
+
     }
 
     override fun onCellClick(view: View, cell: TestImageLoadCell) {

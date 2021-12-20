@@ -1,9 +1,12 @@
 package com.farmer.open9527.common.binding.recycleview
 
 import androidx.databinding.BindingAdapter
+import androidx.databinding.ObservableList
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
+import com.farmer.open9527.recycleview.animator.BaseAnimation
 import com.farmer.open9527.recycleview.cell.BaseBindingCell
 import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
 
@@ -22,6 +25,7 @@ object RecycleViewBindingAdapter {
             "bindRecycleViewListData",
             "bindRecycleViewHasFixedSize",
             "bindRecycleViewHasAnim",
+            "bindRecycleViewAnim",
         ], requireAll = false
     )
     @JvmStatic
@@ -31,9 +35,10 @@ object RecycleViewBindingAdapter {
         itemDecoration: RecyclerView.ItemDecoration?,
         itemAnimator: RecyclerView.ItemAnimator?,
         adapter: ListAdapter<BaseBindingCell<*>, BaseBindingCellViewHolder<ViewDataBinding>>?,
-        list: List<BaseBindingCell<*>>?,
+        list: ObservableList<BaseBindingCell<*>>?,
         hasFixedSize: Boolean,
-        hasAnim: Boolean
+        hasAnim: Boolean,
+        animator: BaseAnimation?,
     ) {
         if (recyclerView == null || adapter == null) return
 
@@ -47,9 +52,13 @@ object RecycleViewBindingAdapter {
         }
         recyclerView.itemAnimator = itemAnimator
         recyclerView.setHasFixedSize(hasFixedSize)
+
+        (adapter as BaseBindingCellListAdapter<BaseBindingCell<*>>).animationEnable = hasAnim
+        adapter.adapterAnimation = animator
+
+
         recyclerView.adapter = adapter
-        if (list != null) {
-            adapter.submitList(list)
-        }
+//        (adapter as BaseBindingCellListAdapter<BaseBindingCell<*>>).submitList(list!!)
+        adapter.submitList(list)
     }
 }

@@ -21,7 +21,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:onClick="@{v->vm.changeTheme(v)}"
+            android:onClick="@{v->vm.back(v)}"
             android:text="@string/common_test_text"
             android:textColor="?attr/testTextColor"
             android:textSize="?attr/testTextSize"
@@ -37,6 +37,7 @@
             android:layout_height="@dimen/size_50"
             android:layout_marginTop="@dimen/font_20"
             android:background="?attr/testImageSrc"
+            android:onClick="@{v->vm.changeGrayModel(v)}"
             android:src="?attr/testImageSrc"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -48,13 +49,13 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:onClick="@{v->vm.changeTheme(v)}"
             android:text="@string/common_test_text"
             android:textColor="@{vm.valueTitleColor}"
             android:textSize="@dimen/font_18"
-            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_pic"
             app:layout_constraintVertical_chainStyle="packed" />
 
 

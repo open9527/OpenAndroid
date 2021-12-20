@@ -18,7 +18,6 @@ import okhttp3.OkHttpClient
 /**
  *@author   open_9527
  *Create at 2021/11/9
- *
  * DESC:Sample
  **/
 class CoilApplication : Application(), ImageLoaderFactory {

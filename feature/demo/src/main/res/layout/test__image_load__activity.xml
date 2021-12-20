@@ -7,17 +7,13 @@
         <variable
             name="vm"
             type="com.farmer.open9527.demo.load_image.TestImageLoadViewModel" />
-
-        <variable
-            name="click"
-            type="com.farmer.open9527.demo.load_image.TestImageLoadActivity.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <View
+        <Space
             android:id="@+id/view_status_bar"
             bindStatusBar="@{0}"
             android:layout_width="match_parent"
@@ -25,7 +21,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <com.scwang.smart.refresh.layout.SmartRefreshLayout
-            bindRefreshListener="@{click.IRefreshView}"
+            bindRefreshListener="@{vm.valueRefreshEvent}"
             bindRefreshNoMoreData="@{vm.valueNoMoreData}"
             android:layout_width="match_parent"
             android:layout_height="@dimen/size_0"
@@ -36,7 +32,9 @@
                 bindRecycleViewAdapter="@{vm.valueAdapter}"
                 bindRecycleViewItemDecoration="@{vm.valueItemDecoration}"
                 bindRecycleViewLayoutManager="@{vm.valueLayoutManager}"
+                bindRecycleViewItemAnimator="@{vm.valueItemAnimator}"
                 bindRecycleViewListData="@{vm.valueListData}"
+                bindRecycleViewAnim="@{vm.valueAnimation}"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent" />
         </com.scwang.smart.refresh.layout.SmartRefreshLayout>

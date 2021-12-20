@@ -17,7 +17,7 @@ class BaseBindingCellViewHolder<BINDING : ViewDataBinding> : BaseCellViewHolder 
 
 
     fun addBindingParam(variableId: Int, `object`: Any) {
-        mBinding!!.setVariable(variableId, `object`)
+        mBinding?.setVariable(variableId, `object`)
     }
 
     fun getBinding(): ViewDataBinding? {

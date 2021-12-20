@@ -10,8 +10,4 @@ interface TestIDayNightDelegate {
 
     fun refreshStatusBar(light: Boolean)
 
-
-
-
-
 }

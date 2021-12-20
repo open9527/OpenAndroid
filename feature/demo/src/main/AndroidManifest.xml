@@ -20,6 +20,7 @@
 
         <activity
             android:name=".night.TestDayNightActivity"
+            android:theme="@style/TestDayTheme"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:label="DayNight"
             android:launchMode="singleTop"
