@@ -59,8 +59,8 @@ object DialogUtils {
         return if (!isActivityAlive(activity)) null else activity
     }
 
-    private fun getActivityByContextInner(context: Context): Activity? {
-        var context: Context? = context ?: return null
+    private fun getActivityByContextInner( context: Context): Activity? {
+        var context: Context? = context
         val list: MutableList<Context> = ArrayList()
         while (context is ContextWrapper) {
             if (context is Activity) {
@@ -119,19 +119,16 @@ object DialogUtils {
 
     private fun hideSoftInput(activity: Activity, view: View) {
         val imm = activity.getSystemService(Context.INPUT_METHOD_SERVICE) as InputMethodManager
-            ?: return
         imm.hideSoftInputFromWindow(view.windowToken, 0)
     }
 
 
-     fun closeSoftInput(activity: Activity, dialog: Dialog) {
-        if (dialog != null) {
-            val view = dialog.currentFocus
-            if (view is TextView) {
-                hideSoftInput(activity, view)
-            }
-        }
-    }
+     fun closeSoftInput(activity: Activity, dialog: Dialog?) {
+         val view = dialog?.currentFocus
+         if (view is TextView) {
+             hideSoftInput(activity, view)
+         }
+     }
 
      fun bindingVariable(binding: ViewDataBinding, bindingParams: SparseArray<*>) {
         var i = 0

@@ -3,6 +3,9 @@ package com.farmer.open9527.launcher
 import android.view.View
 import androidx.databinding.ObservableField
 import androidx.databinding.ViewDataBinding
+import com.farmer.open9527.demo.starter.ActionUtils
+import com.farmer.open9527.demo.starter.ActionVo
+import com.farmer.open9527.demo.starter.BaseStarter
 import com.farmer.open9527.recycleview.cell.BaseBindingCell
 import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
 
@@ -13,16 +16,15 @@ import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
  **/
 class LauncherCell : BaseBindingCell<LauncherCell> {
     var valueTitle = ObservableField<String>()
-    private var valueClass = ObservableField<Class<*>>()
+    var valueSample = ObservableField<String>()
     private var valueILauncherCell = ObservableField<ILauncherCell>()
 
     constructor(
-        title: String,
-        cls: Class<*>?,
+        actionVo: ActionVo?,
         iLauncherCell: ILauncherCell
     ) : super(R.layout.launcher__cell) {
-        valueTitle.set(title)
-        valueClass.set(cls)
+        valueTitle.set(actionVo?.title)
+        valueSample.set(actionVo?.sample)
         valueILauncherCell.set(iLauncherCell)
     }
 
@@ -34,7 +36,8 @@ class LauncherCell : BaseBindingCell<LauncherCell> {
     }
 
     override fun onCellClick(view: View, cell: LauncherCell) {
-        cell.valueClass.get()?.let { valueILauncherCell.get()?.launcherActivity(it) }
+//        ActionUtils.jump(cell.valueSample.get() )
+        ActionUtils.jumpJson(cell.valueSample.get())
     }
 
     interface ILauncherCell {

@@ -3,6 +3,7 @@ import com.farmer.open9527.buildsrc.Libs
 apply {
     plugin 'com.android.library'
     plugin 'kotlin-android'
+    plugin 'kotlin-kapt'
     from '../../../common.gradle'
 }
 android {
@@ -23,7 +24,7 @@ android {
 }
 dependencies {
     api project(':library:common')
-    api 'com.github.getActivity:EasyHttp:10.6'
+    api 'com.github.getActivity:EasyHttp:10.8'
     api 'com.github.getActivity:XXPermissions:13.2'
     api Libs.SquareUp.OkHttp3.OkHttp
     api Libs.SquareUp.OkHttp3.OkHttpLogging

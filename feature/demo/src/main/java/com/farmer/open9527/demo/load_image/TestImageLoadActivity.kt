@@ -1,6 +1,5 @@
 package com.farmer.open9527.demo.load_image
 
-import android.annotation.SuppressLint
 import android.content.Intent
 import android.os.Bundle
 import android.view.animation.OvershootInterpolator
@@ -12,7 +11,8 @@ import com.farmer.open9527.demo.R
 import com.farmer.open9527.demo.api.vo.image.RawType
 import com.farmer.open9527.demo.delegate.TestImageLoadDelegate
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
-import com.farmer.open9527.recycleview.animator.*
+import com.farmer.open9527.recycleview.animator.ScaleInAnimation
+import com.farmer.open9527.recycleview.animator.SlideInUpAnimator
 import com.farmer.open9527.recycleview.decoration.GridSpaceItemDecoration
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentGridLayoutManager
 import com.farmer.open9527.refresh.IRefreshView
@@ -72,7 +72,6 @@ class TestImageLoadActivity : CommonActivity(), IRefreshView {
         mViewModel?.valueAdapter?.set(BaseBindingCellListAdapter())
     }
 
-    @SuppressLint("NotifyDataSetChanged")
     override fun onRefresh(refreshLayout: RefreshLayout?, hasRefresh: Boolean) {
         if (hasRefresh) {
             mPage = 1

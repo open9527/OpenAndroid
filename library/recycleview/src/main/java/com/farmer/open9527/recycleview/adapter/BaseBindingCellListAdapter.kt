@@ -1,9 +1,7 @@
 package com.farmer.open9527.recycleview.adapter
 
 import android.animation.Animator
-import android.annotation.SuppressLint
 import android.view.ViewGroup
-import androidx.databinding.ObservableList
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.*
 import com.farmer.open9527.recycleview.animator.*

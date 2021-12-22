@@ -35,11 +35,8 @@ class TestImageLoadViewModel : ViewModel() {
     val valueAnimation = ObservableField<BaseAnimation>()
     val valueAdapter = ObservableField<BaseBindingCellListAdapter<BaseBindingCell<*>>>()
 
-//    private val cellList = ArrayList<BaseBindingCell<*>>()
-//    val valueListData = ObservableField<List<BaseBindingCell<*>>>()
 
     var valueListData = ObservableArrayList<BaseBindingCell<*>>()
-
     val valueRefreshEvent = ObservableField<IRefreshView>()
     val valueNoMoreData = ObservableBoolean(false)
 

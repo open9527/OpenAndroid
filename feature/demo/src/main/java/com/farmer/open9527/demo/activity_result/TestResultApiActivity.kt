@@ -16,10 +16,12 @@ import com.farmer.open9527.demo.activity_result.media.CropImageResult
 import com.farmer.open9527.demo.activity_result.media.MediaFileUtils
 import com.farmer.open9527.demo.activity_result.media.TakePictureUri
 import com.farmer.open9527.demo.load_image.TestImageLoadActivity
+import com.farmer.open9527.demo.starter.ActionUtils
+import com.farmer.open9527.demo.starter.BaseStarter
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.decoration.SpacesItemDecoration
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentLinearLayoutManager
-
+import java.util.ArrayList
 
 
 /**
@@ -49,6 +51,11 @@ class TestResultApiActivity : CommonActivity() {
         super.initView(bundle)
         initRecycleView()
         initDialog()
+        if (intent.hasExtra("json")) {
+            val json = intent.getStringExtra("json")
+            LogUtils.i(TAG, "json:" + GsonUtils.toJson(json))
+        }
+
     }
 
 
@@ -236,6 +243,32 @@ class TestResultApiActivity : CommonActivity() {
         //根据图片uri 裁剪
         //  registerCustomCropImage.launch(CropImageResult(uri, 1, 1))
         onRegisterCustomTakePicture()
+    }
+
+
+    class Starter : BaseStarter() {
+        override fun name(serviceName: String): String {
+            return PAGE_NAME
+        }
+
+        override fun usage(serviceName: String): String {
+            return APP_SCHEMA + SERVICE
+        }
+
+        override fun supportService(): List<String> {
+            val serviceList: MutableList<String> = ArrayList()
+            serviceList.add(SERVICE)
+            return serviceList
+        }
+
+        override fun startActivity(serviceName: String, queryParams: Map<String, String>?) {
+            ActionUtils.startActivity(TestResultApiActivity::class.java)
+        }
+
+        companion object {
+            private const val SERVICE = "result_api_page"
+            private const val PAGE_NAME = "跳转到\"TestResultApiActivity\"页"
+        }
     }
 
 }

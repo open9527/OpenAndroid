@@ -1,4 +1,3 @@
-
 apply {
     from '../../launcher_app.gradle'
 }
