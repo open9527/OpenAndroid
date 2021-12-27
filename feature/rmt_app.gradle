@@ -9,7 +9,7 @@ apply {
 
 android {
     defaultConfig {
-        applicationId Configs.App.applicationId
+        applicationId Configs.App.applicationIdRmt
         resConfigs 'zh'
         resConfigs 'xxhdpi'
         proguardFiles 'proguard-sdk.pro', 'proguard-app.pro'
@@ -53,7 +53,9 @@ android {
             signingConfig signingConfigs.config
             // 添加清单占位符
             addManifestPlaceholders([
-                    'app_name': 'OpenAndroid'
+                    'app_name'      : '@string/app_name_debug',
+                    'app_icon'      : '@mipmap/ic_launcher',
+                    'app_round_icon': '@mipmap/ic_launcher_round'
             ])
             // 调试模式下只保留一种架构的 so 库，提升打包速度
             ndk {
@@ -66,7 +68,9 @@ android {
             applicationIdSuffix ''
             // 添加清单占位符
             addManifestPlaceholders([
-                    'app_name': 'OpenAndroid Preview 版'
+                    'app_name'      : '@string/app_name_preview',
+                    'app_icon'      : '@mipmap/ic_launcher',
+                    'app_round_icon': '@mipmap/ic_launcher_round'
             ])
         }
 
@@ -84,7 +88,9 @@ android {
             signingConfig signingConfigs.config
             // 添加清单占位符
             addManifestPlaceholders([
-                    'app_name': '@string/app_name'
+                    'app_name'      : '@string/app_name_release',
+                    'app_icon'      : '@mipmap/ic_launcher',
+                    'app_round_icon': '@mipmap/ic_launcher_round'
             ])
             // 仅保留两种架构的 so 库，根据 Bugly 统计得出
             ndk {

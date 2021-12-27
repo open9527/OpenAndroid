@@ -32,7 +32,7 @@ object Configs {
 
     object App {
         const val applicationId = "com.farmer.open9527"
-
+        const val applicationIdRmt = "com.wdit.shrmt"
         const val appDebug = true
     }
 
@@ -176,9 +176,11 @@ object Libs {
             //ViewModel
             const val ViewModelKtx =
                 "androidx.lifecycle:lifecycle-viewmodel-ktx:$KotlinLifecycleVersion"
+
             //LiveData
             const val LiveDataKtx =
                 "androidx.lifecycle:lifecycle-livedata-ktx:$KotlinLifecycleVersion"
+
             //Lifecycles
             const val runtimeKtx =
                 "androidx.lifecycle:lifecycle-runtime-ktx:$KotlinLifecycleVersion"

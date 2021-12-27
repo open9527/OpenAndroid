@@ -1,17 +1,13 @@
 package com.farmer.open9527.launcher
 
 import android.os.Bundle
-import com.blankj.utilcode.util.*
+import com.blankj.utilcode.util.AppUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
-import com.farmer.open9527.demo.api.JsonApiUtils
-import com.farmer.open9527.demo.starter.ActionVo
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.decoration.GridSpaceItemDecoration
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentGridLayoutManager
-import com.google.gson.Gson
-import com.google.gson.reflect.TypeToken
-import java.lang.reflect.Type
 
 
 /**

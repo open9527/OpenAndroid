@@ -16,7 +16,6 @@ abstract class CommonApplication : BaseApplication() {
     override fun onCreate() {
         super.onCreate()
     }
-
     init {
         SmartRefreshLayout.setDefaultRefreshHeaderCreator { context, layout ->
             layout.setPrimaryColorsId(android.R.color.transparent, R.color.common_text_color)
@@ -27,5 +26,19 @@ abstract class CommonApplication : BaseApplication() {
             layout.setPrimaryColorsId(android.R.color.transparent, R.color.common_text_color)
             ClassicsFooter(context).setDrawableSize(20f)
         }
+
+        // 设置全局初始化器
+//        SmartRefreshLayout.setDefaultRefreshInitializer { context: Context, layout: RefreshLayout ->
+//            // 刷新头部是否跟随内容偏移
+//            layout.setEnableHeaderTranslationContent(true)
+//                // 刷新尾部是否跟随内容偏移
+//                .setEnableFooterTranslationContent(true)
+//                // 加载更多是否跟随内容偏移
+//                .setEnableFooterFollowWhenNoMoreData(true)
+//                // 内容不满一页时是否可以上拉加载更多
+//                .setEnableLoadMoreWhenContentNotFull(false)
+//                // 仿苹果越界效果开关
+//                .setEnableOverScrollDrag(false)
+//        }
     }
 }

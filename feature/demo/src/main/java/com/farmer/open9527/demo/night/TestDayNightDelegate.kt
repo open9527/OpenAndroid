@@ -5,16 +5,18 @@ import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
 import com.blankj.utilcode.util.BarUtils
-import com.blankj.utilcode.util.SPUtils
 
 import android.util.TypedValue
 import android.view.View
 import com.farmer.open9527.demo.delegate.CommonDelegate
+import com.tencent.mmkv.MMKV
 
 
 class TestDayNightDelegate : CommonDelegate, TestIDayNightDelegate {
 
     private var mActivity: AppCompatActivity? = null
+    private val mmkv: MMKV = MMKV.mmkvWithID("TestDayNightDelegate")
+
 
     constructor(activity: AppCompatActivity?) : super(activity) {
         this.mActivity = activity
@@ -73,10 +75,12 @@ class TestDayNightDelegate : CommonDelegate, TestIDayNightDelegate {
     }
 
     private fun save(night: Boolean) {
-        SPUtils.getInstance().put("dayNight", night)
+        mmkv.putBoolean("dayNight", night)
+//        SPUtils.getInstance().put("dayNight", night)
     }
 
     private fun getNight(): Boolean {
-        return SPUtils.getInstance().getBoolean("dayNight", false)
+//        return SPUtils.getInstance().getBoolean("dayNight", false)
+        return mmkv.getBoolean("dayNight", false)
     }
 }

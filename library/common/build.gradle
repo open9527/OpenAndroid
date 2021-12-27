@@ -32,6 +32,7 @@ dependencies {
     api project(':library:imageload')
     api project(':library:refresh')
     api project(':widget:common')
+    api Libs.Google.Gson
     api Libs.Androidx.Layout.ConstraintLayout
     api Libs.Google.Material
     api Libs.Utils.UtilCode

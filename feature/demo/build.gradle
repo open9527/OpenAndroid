@@ -1,11 +1,11 @@
 import com.farmer.open9527.buildsrc.*
-
 apply {
-    plugin Apply.Plugin.LIBRARY_PLUGIN
-    plugin Apply.Plugin.KOTLIN_PLUGIN
-    plugin Apply.Plugin.KOTLIN_KAPT_PLUGIN
-    from "${Apply.Path.DEFAULT_PATH}${Apply.Path.DEFAULT_PATH}${Apply.From.COMMON_GRADLE}"
+    plugin 'com.android.library'
+    plugin 'kotlin-android'
+    plugin 'kotlin-kapt'
+    from '../../common.gradle'
 }
+
 
 android {
 
@@ -28,10 +28,9 @@ android {
 
 dependencies {
     implementation project(':library:common')
-    implementation project(':network:state')
-    api Libs.Google.Gson
     implementation Libs.Androidx.Kotlin.ViewModelKtx
     implementation 'androidx.fragment:fragment-ktx:1.3.2'
     implementation "androidx.activity:activity-ktx:1.3.1"
+    implementation 'com.tencent:mmkv-static:1.2.10'
 
 }

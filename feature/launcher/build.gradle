@@ -1,5 +1,5 @@
 apply {
-    from '../../launcher_app.gradle'
+    from '../launcher_app.gradle'
 }
 
 dependencies {

@@ -2,7 +2,9 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <item android:drawable="@color/launch_splash_background_color" />
+    <item
+        android:drawable="@color/launch_splash_background_color"
+        android:gravity="fill" />
     <item>
         <bitmap
             android:gravity="center"

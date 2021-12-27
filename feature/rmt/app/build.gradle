@@ -1,5 +1,5 @@
 apply {
-    from '../../../feature_app.gradle'
+    from '../../rmt_app.gradle'
 }
 
 dependencies {
