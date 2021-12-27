@@ -5,7 +5,6 @@ import androidx.databinding.ObservableField
 import androidx.databinding.ViewDataBinding
 import com.farmer.open9527.demo.starter.ActionUtils
 import com.farmer.open9527.demo.starter.ActionVo
-import com.farmer.open9527.demo.starter.BaseStarter
 import com.farmer.open9527.recycleview.cell.BaseBindingCell
 import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
 
@@ -36,7 +35,9 @@ class LauncherCell : BaseBindingCell<LauncherCell> {
     }
 
     override fun onCellClick(view: View, cell: LauncherCell) {
+        //第一种方案 创建activity的静态内部内
 //        ActionUtils.jump(cell.valueSample.get() )
+        //第二种方案 配置json 实现
         ActionUtils.jumpJson(cell.valueSample.get())
     }
 

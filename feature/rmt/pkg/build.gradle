@@ -8,7 +8,7 @@ android {
 
     defaultConfig {
         // 模块混淆配置
-        consumerProguardFiles 'proguard-base.pro'
+        consumerProguardFiles 'proguard-rmt.pro'
     }
 
     sourceSets {

@@ -1,27 +1,11 @@
 import com.farmer.open9527.buildsrc.Libs
-
 apply {
     plugin 'com.android.library'
     plugin 'kotlin-android'
     plugin 'kotlin-kapt'
     from '../../../common.gradle'
 }
-android {
 
-    defaultConfig {
-        // 模块混淆配置
-        consumerProguardFiles 'proguard-base.pro'
-    }
-
-    sourceSets {
-        main {
-            // res 资源目录配置
-            res.srcDirs(
-                    'src/main/res',
-            )
-        }
-    }
-}
 dependencies {
     api project(':library:common')
     api 'com.github.getActivity:EasyHttp:10.8'

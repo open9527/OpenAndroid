@@ -12,10 +12,13 @@ import java.net.URI
 import java.util.HashMap
 import android.content.ComponentName
 import com.blankj.utilcode.util.*
+import com.farmer.open9527.demo.load_image.TestImageLoadActivity
+import com.farmer.open9527.demo.night.TestDayNightActivity
 
 
 object ActionUtils {
     private const val TAG = "ActionUtils"
+    const val ACTION_BUNDLE_NAME = "ACTION_BUNDLE_DATA"
 
     private var mActionList: List<ActionVo>? = null
 
@@ -23,6 +26,8 @@ object ActionUtils {
         val starterManager: StarterManager = StarterManager.instance()!!
         if (!starterManager.ready()) {
             starterManager.register(TestResultApiActivity.Starter())
+            starterManager.register(TestImageLoadActivity.Starter())
+            starterManager.register(TestDayNightActivity.Starter())
         }
         return starterManager
     }
@@ -103,7 +108,7 @@ object ActionUtils {
         val intent = Intent()
         val componentName = ComponentName(AppUtils.getAppPackageName(), cls!!)
         intent.component = componentName
-        intent.putExtra("json", json)
+        intent.putExtra(ACTION_BUNDLE_NAME, json)
         Utils.getApp().startActivity(intent)
     }
 

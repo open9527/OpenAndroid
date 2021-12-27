@@ -8,8 +8,11 @@ import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
 import com.farmer.open9527.demo.BR
 import com.farmer.open9527.demo.R
+import com.farmer.open9527.demo.activity_result.TestResultApiActivity
 import com.farmer.open9527.demo.api.vo.image.RawType
 import com.farmer.open9527.demo.delegate.TestImageLoadDelegate
+import com.farmer.open9527.demo.starter.ActionUtils
+import com.farmer.open9527.demo.starter.BaseStarter
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.animator.ScaleInAnimation
 import com.farmer.open9527.recycleview.animator.SlideInUpAnimator
@@ -17,6 +20,7 @@ import com.farmer.open9527.recycleview.decoration.GridSpaceItemDecoration
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentGridLayoutManager
 import com.farmer.open9527.refresh.IRefreshView
 import com.scwang.smart.refresh.layout.api.RefreshLayout
+import java.util.ArrayList
 
 
 /**
@@ -93,5 +97,28 @@ class TestImageLoadActivity : CommonActivity(), IRefreshView {
         }
     }
 
+    class Starter : BaseStarter() {
+        override fun name(serviceName: String): String {
+            return PAGE_NAME
+        }
 
+        override fun usage(serviceName: String): String {
+            return APP_SCHEMA + SERVICE
+        }
+
+        override fun supportService(): List<String> {
+            val serviceList: MutableList<String> = ArrayList()
+            serviceList.add(SERVICE)
+            return serviceList
+        }
+
+        override fun startActivity(serviceName: String, queryParams: Map<String, String>?) {
+            ActionUtils.startActivity(TestResultApiActivity::class.java)
+        }
+
+        companion object {
+            private const val SERVICE = "image_load_page"
+            private const val PAGE_NAME = "跳转到\"TestImageLoadActivity\"页"
+        }
+    }
 }

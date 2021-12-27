@@ -51,8 +51,8 @@ class TestResultApiActivity : CommonActivity() {
         super.initView(bundle)
         initRecycleView()
         initDialog()
-        if (intent.hasExtra("json")) {
-            val json = intent.getStringExtra("json")
+        if (intent.hasExtra(ActionUtils.ACTION_BUNDLE_NAME)) {
+            val json = intent.getStringExtra(ActionUtils.ACTION_BUNDLE_NAME)
             LogUtils.i(TAG, "json:" + GsonUtils.toJson(json))
         }
 
@@ -262,6 +262,7 @@ class TestResultApiActivity : CommonActivity() {
         }
 
         override fun startActivity(serviceName: String, queryParams: Map<String, String>?) {
+            LogUtils.i("TestResultApiActivity", "startActivity-queryParams:" + GsonUtils.toJson(queryParams))
             ActionUtils.startActivity(TestResultApiActivity::class.java)
         }
 

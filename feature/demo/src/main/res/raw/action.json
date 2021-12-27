@@ -1,7 +1,7 @@
 [
   {
     "title": "RMT",
-    "sample": "app://rmt_main_page",
+    "sample": "app://rmt_main_page?authorization=true&target=http%3a%2f%2fwww.baidu.com%3fq%3dabc",
     "serviceNames": [
       "rmt_main_page",
       "rmt_main_page1",
@@ -12,7 +12,7 @@
     "authorize": false
   }, {
     "title": "ResultApi",
-    "sample": "app://result_api_page",
+    "sample": "app://result_api_page?authorization=true&target=http%3a%2f%2fwww.baidu.com%3fq%3dabc",
     "serviceNames": [
       "result_api_page",
       "result_api_page1",
@@ -24,7 +24,7 @@
   },
   {
     "title": "ImageLoad",
-    "sample": "app://image_load_page",
+    "sample": "app://image_load_page?authorization=true&target=http%3a%2f%2fwww.baidu.com%3fq%3dabc",
     "serviceNames": [
       "image_load_page",
       "image_load_page1"
@@ -35,7 +35,7 @@
   },
   {
     "title": "夜间模式",
-    "sample": "app://night_page",
+    "sample": "app://night_page?authorization=true&target=http%3a%2f%2fwww.baidu.com%3fq%3dabc",
     "serviceNames": [
       "night_page"
     ],
@@ -45,7 +45,7 @@
   },
   {
     "title": "日间模式(需要授权验证)",
-    "sample": "app://day_page",
+    "sample": "app://day_page?authorization=true&target=http%3a%2f%2fwww.baidu.com%3fq%3dabc",
     "serviceNames": [
       "day_page"
     ],
