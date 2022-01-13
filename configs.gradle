@@ -29,8 +29,7 @@ ext {
     // 打印当前服务器配置
     println "GradleLog ServerTypeOutput " + serverType
 
-    // 友盟 AppKey
-    UMENG_APP_KEY = " "
+
     // QQ AppId
     QQ_APP_ID = " "
     // QQ Secret
@@ -44,7 +43,7 @@ ext {
         case SERVER_TYPE_TEST:
         case SERVER_TYPE_PREVIEW:
             LOG_ENABLE = true
-            BUGLY_ID = "请自行替换 Bugly 上面的 AppID"
+
             if (serverType == SERVER_TYPE_PREVIEW) {
                 HOST_URL = "https://www.pre.baidu.com/"
             } else {
@@ -53,7 +52,6 @@ ext {
             break
         case SERVER_TYPE_PRODUCT:
             LOG_ENABLE = false
-            BUGLY_ID = "请自行替换 Bugly 上面的 AppID"
             HOST_URL = "https://www.baidu.com/"
             break
     }

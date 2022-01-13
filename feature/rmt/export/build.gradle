@@ -1,8 +1,9 @@
-import com.farmer.open9527.buildsrc.Libs
+import com.farmer.open9527.buildsrc.*
+
 apply {
-    plugin 'com.android.library'
-    plugin 'kotlin-android'
-    plugin 'kotlin-kapt'
+    plugin PluginsConfigs.Ids.Library
+    plugin PluginsConfigs.Ids.Kotlin
+    plugin PluginsConfigs.Ids.KotlinKapt
     from '../../../common.gradle'
 }
 
@@ -11,8 +12,8 @@ dependencies {
     api 'com.github.getActivity:EasyHttp:10.8'
     api 'com.github.getActivity:XXPermissions:13.2'
     api 'com.tencent:mmkv-static:1.2.10'
-    api Libs.SquareUp.OkHttp3.OkHttp
-    api Libs.SquareUp.OkHttp3.OkHttpLogging
+    api LibsConfigs.OkHttp
+    api LibsConfigs.OkHttpLogging
 
     // # 必选，内部默认使用系统mediaplayer进行解码
     implementation 'xyz.doikki.android.dkplayer:dkplayer-java:3.3.5'

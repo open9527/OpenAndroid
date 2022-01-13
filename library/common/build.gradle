@@ -1,9 +1,9 @@
-import com.farmer.open9527.buildsrc.Libs
+import com.farmer.open9527.buildsrc.*
 
 apply {
-    plugin 'com.android.library'
-    plugin 'kotlin-android'
-    plugin 'kotlin-kapt'
+    plugin PluginsConfigs.Ids.Library
+    plugin PluginsConfigs.Ids.Kotlin
+    plugin PluginsConfigs.Ids.KotlinKapt
     from '../../common.gradle'
 }
 
@@ -32,9 +32,9 @@ dependencies {
     api project(':library:imageload')
     api project(':library:refresh')
     api project(':widget:common')
-    api Libs.Google.Gson
-    api Libs.Androidx.Layout.ConstraintLayout
-    api Libs.Google.Material
-    api Libs.Utils.UtilCode
-    api Libs.Androidx.Kotlin.ViewModelKtx
+    api LibsConfigs.Gson
+    api LibsConfigs.ConstraintLayout
+    api LibsConfigs.Material
+    api LibsConfigs.UtilCode
+    api LibsConfigs.LifecycleViewModelKtx
 }

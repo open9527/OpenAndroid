@@ -1,31 +1,29 @@
 import com.farmer.open9527.buildsrc.*
 
-//apply from: 'configs.gradle'
-
 apply {
-    from 'configs.gradle'
+    from PluginsConfigs.Ids.Configs
 }
 
 buildscript {
     // 导入通用的 Maven 库配置
-    apply from: 'maven.gradle'
+    apply {
+        from PluginsConfigs.Ids.CommonMaven
+    }
     repositories {
-        maven { url 'https://maven.aliyun.com/repository/gradle-plugin' }
+        maven { url PluginsConfigs.Maven.AliPlugin }
         addCommonMaven(repositories)
     }
 
 
     dependencies {
-        classpath Plugins.Gradle.GradlePlugin
-        classpath Plugins.Kotlin.KotlinPlugin
-        classpath Plugins.Aop.AspectjxPlugin
-        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.30-RC'
+        classpath PluginsConfigs.Plugins.Gradle
+        classpath PluginsConfigs.Plugins.AspectJx
+        classpath PluginsConfigs.Plugins.Kotlin
     }
 }
 
 allprojects {
     repositories {
-        maven { url 'https://repo1.maven.org/maven2' }
         addCommonMaven(repositories)
     }
 

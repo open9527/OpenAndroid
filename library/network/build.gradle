@@ -1,8 +1,9 @@
-import com.farmer.open9527.buildsrc.Libs
+import com.farmer.open9527.buildsrc.*
 
 apply {
-    plugin 'com.android.library'
-    plugin 'kotlin-android'
+    plugin PluginsConfigs.Ids.Library
+    plugin PluginsConfigs.Ids.Kotlin
+    plugin PluginsConfigs.Ids.KotlinKapt
     from '../../common.gradle'
 }
 
@@ -14,6 +15,6 @@ android {
 }
 
 dependencies {
-    api Libs.SquareUp.OkHttp3.OkHttp
-    api Libs.SquareUp.OkHttp3.OkHttpLogging
+    api LibsConfigs.OkHttp
+    api LibsConfigs.OkHttpLogging
 }

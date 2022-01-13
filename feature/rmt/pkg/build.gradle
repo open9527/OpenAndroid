@@ -1,7 +1,9 @@
+import com.farmer.open9527.buildsrc.PluginsConfigs
+
 apply {
-    plugin 'com.android.library'
-    plugin 'kotlin-android'
-    plugin 'kotlin-kapt'
+    plugin PluginsConfigs.Ids.Library
+    plugin PluginsConfigs.Ids.Kotlin
+    plugin PluginsConfigs.Ids.KotlinKapt
     from '../../../common.gradle'
 }
 android {

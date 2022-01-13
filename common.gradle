@@ -3,14 +3,14 @@ import com.farmer.open9527.buildsrc.*
 // 通用配置
 android {
     // 编译源码版本
-    compileSdkVersion Versions.Sdk.compileSdk
+    compileSdkVersion AppConfigs.compileSdk
     defaultConfig {
         // 最低安装版本
-        minSdkVersion Versions.Sdk.minSdk
+        minSdkVersion AppConfigs.minSdk
         // 目标适配版本
-        targetSdkVersion Versions.Sdk.targetSdk
-        versionName Versions.App.versionName
-        versionCode Versions.App.versionCode
+        targetSdkVersion AppConfigs.targetSdk
+        versionName AppConfigs.versionName
+        versionCode AppConfigs.versionCode
     }
 
     // 支持 Java JDK 8
@@ -51,8 +51,8 @@ android {
 }
 
 afterEvaluate {
-    // 前提条件是这个 Module 工程必须是 Library 类型，并且排除名为 umeng 的 Module 工程
-    if (android.defaultConfig.applicationId == null && "umeng" != getName()) {
+    // 前提条件是这个 Module 工程必须是 Library 类型
+    if (android.defaultConfig.applicationId == null) {
         // 排除 BuildConfig.class
         generateReleaseBuildConfig.enabled = false
         generatePreviewBuildConfig.enabled = false
@@ -63,6 +63,7 @@ afterEvaluate {
 dependencies {
     // 依赖 libs 目录下所有的 jar 和 aar 包
     api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
-    implementation Libs.Androidx.Appcompat
-    implementation Libs.Androidx.Kotlin.ktx
+    implementation LibsConfigs.Appcompat
+    implementation LibsConfigs.KotlinxCoroutinesCore
+    implementation LibsConfigs.KotlinxCoroutinesAndroid
 }

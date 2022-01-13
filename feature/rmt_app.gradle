@@ -1,23 +1,24 @@
 import com.farmer.open9527.buildsrc.*
 
 apply {
-    plugin 'com.android.application'
-    plugin 'kotlin-android'
-    plugin 'kotlin-kapt'
+    plugin PluginsConfigs.Ids.Application
+    plugin PluginsConfigs.Ids.Kotlin
+    plugin PluginsConfigs.Ids.KotlinKapt
     from '../../../common.gradle'
 }
 
 android {
     defaultConfig {
-        applicationId Configs.App.applicationIdRmt
+        applicationId AppConfigs.Rmt.applicationId
+        versionName AppConfigs.Rmt.versionName
+        versionCode AppConfigs.Rmt.versionCode
+
         resConfigs 'zh'
         resConfigs 'xxhdpi'
         proguardFiles 'proguard-sdk.pro', 'proguard-app.pro'
 
         // 日志打印开关
         buildConfigField('boolean', 'LOG_ENABLE', '' + LOG_ENABLE + '')
-        // 测试包下的 BuglyId
-        buildConfigField('String', 'BUGLY_ID', '"' + BUGLY_ID + '"')
         // 测试服务器的主机地址
         buildConfigField('String', 'HOST_URL', '"' + HOST_URL + '"')
     }
@@ -131,7 +132,7 @@ android {
 }
 
 dependencies {
-    implementation Libs.Google.Material
-    implementation Libs.Utils.UtilCode
-    implementation Libs.Androidx.Layout.ConstraintLayout
+    implementation LibsConfigs.Material
+    implementation LibsConfigs.UtilCode
+    implementation LibsConfigs.ConstraintLayout
 }

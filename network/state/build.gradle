@@ -1,8 +1,10 @@
-import com.farmer.open9527.buildsrc.Libs
+import com.farmer.open9527.buildsrc.LibsConfigs
+import com.farmer.open9527.buildsrc.PluginsConfigs
 
 apply {
-    plugin 'com.android.library'
-    plugin 'kotlin-android'
+    plugin PluginsConfigs.Ids.Library
+    plugin PluginsConfigs.Ids.Kotlin
+    plugin PluginsConfigs.Ids.KotlinKapt
     from '../../common.gradle'
 }
 
@@ -14,9 +16,9 @@ android {
 }
 
 dependencies {
-    implementation Libs.Google.Gson
-    implementation Libs.SquareUp.OkHttp3.OkHttp
-    implementation Libs.SquareUp.OkHttp3.OkHttpLogging
-    api Libs.SquareUp.RetroFit2.RetroFit
-    implementation Libs.SquareUp.RetroFit2.RetroFitConverterGson
+    implementation LibsConfigs.Gson
+    implementation LibsConfigs.OkHttp
+    implementation LibsConfigs.OkHttpLogging
+    implementation LibsConfigs.Retrofit2
+    implementation LibsConfigs.Retrofit2ConverterGson
 }

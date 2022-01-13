@@ -1,8 +1,8 @@
 import com.farmer.open9527.buildsrc.*
 apply {
-    plugin 'com.android.library'
-    plugin 'kotlin-android'
-    plugin 'kotlin-kapt'
+    plugin PluginsConfigs.Ids.Library
+    plugin PluginsConfigs.Ids.Kotlin
+    plugin PluginsConfigs.Ids.KotlinKapt
     from '../../common.gradle'
 }
 
@@ -28,7 +28,6 @@ android {
 
 dependencies {
     implementation project(':library:common')
-    implementation Libs.Androidx.Kotlin.ViewModelKtx
     implementation 'androidx.fragment:fragment-ktx:1.3.2'
     implementation "androidx.activity:activity-ktx:1.3.1"
     implementation 'com.tencent:mmkv-static:1.2.10'
