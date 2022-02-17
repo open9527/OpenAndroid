@@ -1,9 +1,36 @@
 <?xml version="1.0" encoding="utf-8"?>
 <paths>
-    <external-path
-        name="files_root"
-        path="Android/data/com.farmer.open9527/" />
-    <external-path
-        name="external_storage_root"
+
+    <!-- 代表设备的根目录 new File("/") -->
+    <root-path
+        name="root"
         path="." />
+    <!-- context.getFilesDir() -->
+    <files-path
+        name="files"
+        path="." />
+    <!-- context.getCacheDir() -->
+    <cache-path
+        name="cache"
+        path="." />
+    <!-- context.getExternalFilesDirs() -->
+    <external-files-path
+        name="name"
+        path="path" />
+    <!-- context.getExternalCacheDirs() -->
+    <external-cache-path
+        name="name"
+        path="path" />
+    <!-- Environment.getExternalStorageDirectory() -->
+    <external-path
+        name="external"
+        path="." />
+
+    <!--QQ 分享,登录-->
+    <external-files-path
+        name="opensdk_external"
+        path="Images/tmp" />
+    <root-path
+        name="opensdk_root"
+        path="" />
 </paths>

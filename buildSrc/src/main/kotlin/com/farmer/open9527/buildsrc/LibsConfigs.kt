@@ -61,7 +61,7 @@ object LibsConfigs {
         const val QQ = "com.tencent.tauth:qqopensdk:3.51.2"
         const val WeChat = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.6.5"
         const val TBS = "com.tencent.tbs.tbssdk:sdk:43993"
-        const val WeiBo = "com.sina.weibo.sdk:core:10.10.0:openDefaultRelease@aar"
+        const val Sina = "io.github.sinaweibosdk:core:11.12.0@aar"
     }
 
     const val Banner = "com.github.zhpanvip:BannerViewPager:3.5.1"

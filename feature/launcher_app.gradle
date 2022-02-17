@@ -18,6 +18,22 @@ android {
         buildConfigField('boolean', 'LOG_ENABLE', '' + LOG_ENABLE + '')
         // 测试服务器的主机地址
         buildConfigField('String', 'HOST_URL', '"' + HOST_URL + '"')
+
+
+        // 构建配置字段
+        buildConfigField('String', 'QQ_ID', '\"' + QQ_APP_ID + '\"')
+        buildConfigField('String', 'QQ_SECRET', '\"' + QQ_APP_SECRET + '\"')
+        buildConfigField('String', 'WX_ID', '\"' + WX_APP_ID + '\"')
+        buildConfigField('String', 'WX_SECRET', '\"' + WX_APP_SECRET + '\"')
+
+        // 清单占位符
+        addManifestPlaceholders([
+                'QQ_ID' : QQ_APP_ID,
+                'QQ_SECRET' : QQ_APP_SECRET,
+                'WX_ID' : WX_APP_ID,
+                'WX_SECRET' : WX_APP_SECRET
+        ])
+
     }
 
     signingConfigs {

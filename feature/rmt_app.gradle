@@ -9,9 +9,9 @@ apply {
 
 android {
     defaultConfig {
-        applicationId AppConfigs.Rmt.applicationId
-        versionName AppConfigs.Rmt.versionName
-        versionCode AppConfigs.Rmt.versionCode
+        applicationId AppConfigs.HK.applicationId
+        versionName AppConfigs.HK.versionName
+        versionCode AppConfigs.HK.versionCode
 
         resConfigs 'zh'
         resConfigs 'xxhdpi'
@@ -24,7 +24,8 @@ android {
     }
 
     signingConfigs {
-        File signPropertiesFile = file("${rootDir.path}/sign/keystore.properties")
+//        File signPropertiesFile = file("${rootDir.path}/sign/keystore.properties")
+        File signPropertiesFile = file("${rootDir.path}/sign/test/keystore.properties")
         if (!signPropertiesFile.exists()) return
         Properties properties = new Properties()
         properties.load(new FileInputStream(signPropertiesFile))
@@ -40,7 +41,7 @@ android {
     buildTypes {
         debug {
             // 给包名添加后缀
-            applicationIdSuffix '.debug'
+            applicationIdSuffix '.test'
             // 调试模式开关
             debuggable true
             jniDebuggable true

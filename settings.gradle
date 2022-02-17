@@ -16,4 +16,5 @@ include ':feature:rmt:app'
 include ':feature:rmt:export'
 include ':feature:rmt:pkg'
 
-
+//include ':third'
+include ':third:share'

@@ -17,4 +17,10 @@ object AppConfigs {
         const val versionName = "2.0.0"
     }
 
+    object HK {
+        const val applicationId = "com.wdit.shrmthk"
+        const val versionCode = 200
+        const val versionName = "2.0.0"
+    }
+
 }

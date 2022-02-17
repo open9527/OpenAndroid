@@ -12,6 +12,9 @@ import coil.decode.VideoFrameDecoder
 import coil.util.CoilUtils
 import coil.util.DebugLogger
 import com.farmer.open9527.common.application.CommonApplication
+import com.farmer.open9527.share.core.Share
+import com.farmer.open9527.share.core.model.ShareData
+import com.farmer.open9527.share.core.model.ShareModel
 import com.tencent.mmkv.MMKV
 import okhttp3.Dispatcher
 import okhttp3.OkHttpClient
@@ -29,9 +32,18 @@ class App : CommonApplication(), ImageLoaderFactory {
     }
 
     companion object {
+        private const val TAG = "App"
+
         fun initSdk(application: Application) {
             MMKV.initialize(application)
 
+            Share.init(
+                application,
+                BuildConfig.LOG_ENABLE,
+                ShareData(ShareModel.QQ, BuildConfig.QQ_ID, BuildConfig.QQ_SECRET, ""),
+                ShareData(ShareModel.WECHAT, BuildConfig.WX_ID, BuildConfig.WX_SECRET, ""),
+                ShareData(ShareModel.SINA, "xxx", "xxx", "")
+            )
         }
 
     }

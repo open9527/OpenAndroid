@@ -1,0 +1,61 @@
+import com.farmer.open9527.buildsrc.*
+
+// 通用配置
+android {
+    // 编译源码版本
+    compileSdkVersion AppConfigs.compileSdk
+    defaultConfig {
+        // 最低安装版本
+        minSdkVersion AppConfigs.minSdk
+        // 目标适配版本
+        targetSdkVersion AppConfigs.targetSdk
+
+    }
+
+    // 设置存放 so 文件的目录
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+    buildTypes {
+        // 调试版本
+        debug {}
+        // 预览版本
+        preview {}
+        // 正式版本
+        release {}
+    }
+
+    // 代码警告配置
+    lintOptions {
+        // 禁用文本硬编码警告
+        disable 'HardcodedText'
+        // 禁用图片描述警告
+        disable 'ContentDescription'
+    }
+
+    //支持dataBinding
+    dataBinding {
+        enabled true
+    }
+}
+
+afterEvaluate {
+    // 前提条件是这个 Module 工程必须是 Library 类型
+    if (android.defaultConfig.applicationId == null) {
+        // 排除 BuildConfig.class
+        generateReleaseBuildConfig.enabled = false
+        generatePreviewBuildConfig.enabled = false
+        generateDebugBuildConfig.enabled = false
+    }
+}
+
+dependencies {
+    implementation LibsConfigs.Appcompat
+    implementation LibsConfigs.KotlinxCoroutinesCore
+    implementation LibsConfigs.KotlinxCoroutinesAndroid
+    api LibsConfigs.Sdk.WeChat
+    api LibsConfigs.Sdk.QQ
+    api LibsConfigs.Sdk.Sina
+}
