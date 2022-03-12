@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <!--    &lt;!&ndash; 透明色 &ndash;&gt;-->
-    <!--    <color name="transparent">#00000000</color>-->
-    <!--    &lt;!&ndash; 白色 &ndash;&gt;-->
-    <!--    <color name="white">#FFFFFFFF</color>-->
-    <!--    &lt;!&ndash; 黑色 &ndash;&gt;-->
-    <!--    <color name="black">#FF000000</color>-->
+        <!-- 透明色 -->
+        <color name="transparent">#00000000</color>
+        <!-- 白色 -->
+        <color name="white">#FFFFFFFF</color>
+        <!-- 黑色 -->
+        <color name="black">#FF000000</color>
     <!--    &lt;!&ndash; 灰色 &ndash;&gt;-->
     <!--    <color name="gray">#FF808080</color>-->
     <!--    &lt;!&ndash; 红色 &ndash;&gt;-->

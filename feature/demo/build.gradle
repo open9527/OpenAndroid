@@ -33,16 +33,10 @@ android {
 
 dependencies {
     implementation project(':library:common')
+    api project(':third:share')
     implementation 'androidx.fragment:fragment-ktx:1.3.2'
     implementation "androidx.activity:activity-ktx:1.3.1"
-    implementation 'com.tencent:mmkv-static:1.2.10'
+    api LibsConfigs.MMKV
 
-//    // Cling library
-//    implementation 'org.fourthline.cling:cling-core:2.1.1'
-//    implementation 'org.fourthline.cling:cling-support:2.1.1'
-//    // Jetty library
-//    implementation 'org.eclipse.jetty:jetty-server:8.1.12.v20130726'
-//    implementation 'org.eclipse.jetty:jetty-servlet:8.1.12.v20130726'
-//    implementation 'org.eclipse.jetty:jetty-client:8.1.12.v20130726'
 
 }

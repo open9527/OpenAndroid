@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.farmer.open9527.webview">
+
+    <application>
+
+        <!--该Service仅在TBS内核首次Dex加载时触发并执行dex2oat任务，任务完成后自动结束。-->
+        <service
+            android:name="com.tencent.smtt.export.external.DexClassLoaderProviderService"
+            android:label="dexopt"
+            android:process=":dexopt" />
+
+    </application>
+</manifest>

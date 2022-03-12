@@ -60,12 +60,42 @@ object LibsConfigs {
     object Sdk {
         const val QQ = "com.tencent.tauth:qqopensdk:3.51.2"
         const val WeChat = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.6.5"
-        const val TBS = "com.tencent.tbs.tbssdk:sdk:43993"
+        const val TBS = "com.tencent.tbs:tbssdk:44165"
         const val Sina = "io.github.sinaweibosdk:core:11.12.0@aar"
     }
 
+    const val MMKV = "com.tencent:mmkv-static:1.2.10"
+
     const val Banner = "com.github.zhpanvip:BannerViewPager:3.5.1"
     const val PhotoView = "com.github.chrisbanes:PhotoView:2.3.0"
-    const val UtilCode = "com.blankj:utilcodex:1.30.5"
+    const val UtilCode = "com.blankj:utilcodex:1.31.0"
+
+    const val EasyHttp = "com.github.getActivity:EasyHttp:10.8"
+    const val GsonFactory = "com.github.getActivity:GsonFactory:5.2"
+    const val XXPermissions = "com.github.getActivity:XXPermissions:13.2"
+
+    object DKPlayer {
+        private const val DKPlayerVersion = "3.3.5"
+
+        // # 必选，内部默认使用系统mediaplayer进行解码
+        const val Java = "xyz.doikki.android.dkplayer:dkplayer-java:$DKPlayerVersion"
+
+        // # 可选，包含StandardVideoController的实现
+        const val UI = "xyz.doikki.android.dkplayer:dkplayer-ui:$DKPlayerVersion"
+
+        // #可选，使用exoplayer进行解码
+        const val EXO = "xyz.doikki.android.dkplayer:player-exo:$DKPlayerVersion"
+
+        // # 可选，使用ijkplayer进行解码
+        const val IJK = "xyz.doikki.android.dkplayer:player-ijk:$DKPlayerVersion"
+
+        // # 可选，如需要缓存或者抖音预加载功能请引入此库
+        const val VideoCache = "xyz.doikki.android.dkplayer:videocache:$DKPlayerVersion"
+
+    }
+    //二维码
+    //    implementation 'com.google.zxing:core:3.3.3'
+    //    implementation('com.journeyapps:zxing-android-embedded:3.6.0') { transitive = false }
+
 
 }

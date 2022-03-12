@@ -14,24 +14,20 @@ android {
         resConfigs 'xxhdpi'
         proguardFiles 'proguard-sdk.pro', 'proguard-app.pro'
 
-        // 日志打印开关
-        buildConfigField('boolean', 'LOG_ENABLE', '' + LOG_ENABLE + '')
-        // 测试服务器的主机地址
-        buildConfigField('String', 'HOST_URL', '"' + HOST_URL + '"')
+        buildConfigField('boolean', 'LOG_ENABLE', '' + AppConfigs.logEnable + '')
+        buildConfigField('String', 'HOST_URL', '"' + AppConfigs.hostUrl + '"')
+        buildConfigField('String', 'HOST_TEST_URL', '"' + AppConfigs.hostTestUrl + '"')
 
+        buildConfigField('String', 'QQ_ID', '"' + AppConfigs.qqId + '"')
+        buildConfigField('String', 'QQ_SECRET', '"' + AppConfigs.qqSecret + '"')
+        buildConfigField('String', 'WX_ID', '"' + AppConfigs.wxId + '"')
+        buildConfigField('String', 'WX_SECRET', '"' + AppConfigs.wxSecret + '"')
 
-        // 构建配置字段
-        buildConfigField('String', 'QQ_ID', '\"' + QQ_APP_ID + '\"')
-        buildConfigField('String', 'QQ_SECRET', '\"' + QQ_APP_SECRET + '\"')
-        buildConfigField('String', 'WX_ID', '\"' + WX_APP_ID + '\"')
-        buildConfigField('String', 'WX_SECRET', '\"' + WX_APP_SECRET + '\"')
-
-        // 清单占位符
         addManifestPlaceholders([
-                'QQ_ID' : QQ_APP_ID,
-                'QQ_SECRET' : QQ_APP_SECRET,
-                'WX_ID' : WX_APP_ID,
-                'WX_SECRET' : WX_APP_SECRET
+                'QQ_ID'    : AppConfigs.qqId,
+                'QQ_SECRET': AppConfigs.qqSecret,
+                'WX_ID'    : AppConfigs.wxId,
+                'WX_SECRET': AppConfigs.wxSecret
         ])
 
     }
@@ -146,6 +142,5 @@ android {
 
 dependencies {
     implementation LibsConfigs.Material
-    implementation LibsConfigs.UtilCode
     implementation LibsConfigs.ConstraintLayout
 }

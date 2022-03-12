@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--请以 模块 + 作用 + color 来命名-->
+
+    <!--主色调-->
+    <color name="meeting__primary__color">#A40001</color>
+    <color name="meeting__primary_dark__color">#A40001</color>
+
+    <!--强调色-->
+    <color name="meeting__accent_red__color">#CB2E2E</color>
+    <color name="meeting__accent_orange__color">#FD8939</color>
+    <color name="meeting__accent_green__color">#56C145</color>
+
+    <!--文本-->
+    <color name="meeting__text_title__color">#121212</color>
+    <color name="meeting__text_title_dark__color">#B0B0B0</color>
+    <color name="meeting__text_sub_title__color">#666666</color>
+    <color name="meeting__text_content__color">#999999</color>
+
+    <!--按钮边框,分隔线-->
+    <color name="meeting__border_bg__color">#CCCCCC</color>
+    <color name="meeting__line_bg__color">#EEEEEE</color>
+    <color name="meeting__line_bg_dark__color">#333333</color>
+
+    <!--背景-->
+    <color name="meeting__window_bg__color">#F6F6F6</color>
+    <color name="meeting__window_bg_dark__color">#000000</color>
+    <color name="meeting__white__color">#FFFFFF</color>
+    <color name="meeting__black__color">#000000</color>
+    <color name="meeting__white_dark__color">#ABABAB</color>
+
+    <!--渐变-->
+    <color name="meeting__gradient_blue_start__color">#0094F7</color>
+    <color name="meeting__gradient_blue_end__color">#00C6FC</color>
+
+    <color name="meeting__gradient_orange_start__color">#F76F3B</color>
+    <color name="meeting__gradient_orange_end__color">#FFB470</color>
+
+    <color name="meeting__gradient_red_start__color">#F34444</color>
+    <color name="meeting__gradient_red_end__color">#FF8365</color>
+
+    <color name="meeting__gradient_green_start__color">#14BD48</color>
+    <color name="meeting__gradient_green_end__color">#3ACD67</color>
+
+    <!--透明度色值-->
+    <!--255 * 透明度百分比 = 值  再转成16进制 -->
+    <!--    00%=FF（不透明）-->
+    <!--    5%=F2    10%=E5    15%=D8      20%=CC     25%=BF-->
+    <!--    25%=BF   30%=B2    35%=A5      40%=99     40%=99-->
+    <!--    40%=99   45%=8c    50%=7F      60%=66     70%=4c-->
+    <!--    75%=3F   80%=33    85%=21      90%=19     95%=0c-->
+    <!--    100%=00（全透明）-->
+
+    <color name="meeting__accent_red_alpha_60__color">#66F34444</color>
+    <color name="meeting__primary_alpha_60__color">#660094F7</color>
+    <color name="meeting__accent_green_alpha_60__color">#6656C145</color>
+    <color name="meeting__black_alpha_20__color">#CC000000</color>
+    <color name="meeting__black_alpha_40__color">#99000000</color>
+    <color name="meeting__black_alpha_60__color">#66000000</color>
+    <color name="meeting__black_alpha_85__color">#21000000</color>
+</resources>

@@ -66,4 +66,10 @@ abstract class DataBindingFragment : Fragment() {
         mBinding?.unbind()
         mBinding = null
     }
+
+
+    override fun onDetach() {
+        super.onDetach()
+        mActivity = null
+    }
 }

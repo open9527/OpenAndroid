@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--更换主题配置 (可以修改字体大小,字体颜色,背景,图片资源等)-->
+
+    <!--
+    1. Color  format color
+    2. Background  format="color|reference"
+    3. TextSize  format="dimension"
+    4. Src  format="reference"
+-->
+
+    <attr name="rmt_primary_color" format="color" />
+    <attr name="rmt_window_bg_color" format="color" />
+    <attr name="rmt_text_title_color" format="color" />
+    <attr name="rmt_text_sub_title_color" format="color" />
+    <attr name="rmt_text_content_color" format="color" />
+    <attr name="rmt_border_bg_color" format="color" />
+    <attr name="rmt_line_bg_color" format="color" />
+
+</resources>

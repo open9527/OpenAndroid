@@ -64,6 +64,8 @@ dependencies {
     // 依赖 libs 目录下所有的 jar 和 aar 包
     api fileTree(include: ['*.jar', '*.aar'], dir: 'libs')
     implementation LibsConfigs.Appcompat
+    implementation LibsConfigs.Material
     implementation LibsConfigs.KotlinxCoroutinesCore
+    implementation LibsConfigs.KotlinxCoroutinesAndroid
     implementation LibsConfigs.KotlinxCoroutinesAndroid
 }

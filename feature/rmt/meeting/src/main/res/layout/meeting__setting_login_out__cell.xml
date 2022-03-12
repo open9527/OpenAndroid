@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cell"
+            type="com.farmer.open9527.meeting.main.setting.SettingLoginOutCell" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        bindViewClick="@{v->cell.onCellClick(v,cell)}"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_52"
+        android:background="@color/meeting__white__color">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_key"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="match_parent"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/meeting__setting_login_out"
+            android:textColor="@color/meeting__accent_red__color"
+            android:textSize="@dimen/font_18"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/meeting__setting_login_out" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

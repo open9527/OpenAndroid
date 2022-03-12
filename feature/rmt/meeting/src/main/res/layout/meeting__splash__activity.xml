@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.farmer.open9527.meeting.splash.SplashViewModel" />
+
+        <variable
+            name="click"
+            type="com.farmer.open9527.meeting.splash.SplashActivity.ClickProxy" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/meeting__splash__drawable">
+
+
+        <Button
+            android:id="@+id/ibt_skip"
+            bindDrawablePressedRadius="@{20}"
+            bindDrawablePressedSolidColor="@{@color/meeting__black_alpha_85__color}"
+            bindDrawableRadius="@{20}"
+            bindDrawableSolidColor="@{@color/meeting__black_alpha_60__color}"
+            bindDrawableStrokeColor="@{@color/meeting__border_bg__color}"
+            bindDrawableStrokeWidth="@{0.5f}"
+            bindViewClick="@{click.onSkipClick}"
+            bindViewClickViewScale="@{true}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginEnd="@dimen/size_10"
+            android:gravity="center"
+            android:minWidth="@dimen/size_0"
+            android:minHeight="@dimen/size_0"
+            android:paddingStart="@dimen/size_16"
+            android:paddingTop="@dimen/size_6"
+            android:paddingEnd="@dimen/size_16"
+            android:paddingBottom="@dimen/size_6"
+            android:text="@{@string/meeting__splash_skip}"
+            android:textColor="@color/meeting__white__color"
+            android:textSize="@dimen/font_14"
+            android:visibility="invisible"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

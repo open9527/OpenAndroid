@@ -15,7 +15,7 @@ import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
  *@author   open_9527
  *Create at 2021/11/4
  **/
-open class BaseBindingCellListAdapter<CELL : BaseBindingCell<*>> :
+open class BaseBindingCellListAdapter<CELL : BaseBindingCell<CELL>> :
     ListAdapter<CELL, BaseBindingCellViewHolder<ViewDataBinding>> {
 
     constructor() : super(DiffUtilCallbacks<CELL>().getCellItemCallback())
@@ -40,9 +40,9 @@ open class BaseBindingCellListAdapter<CELL : BaseBindingCell<*>> :
 
     }
 
-
     override fun getItemViewType(position: Int): Int {
-        val cell = currentList[position]
+        val cell: CELL = currentList[position]
+        cell.setAdapter(this)
         return cell.getViewType()
     }
 
@@ -63,6 +63,9 @@ open class BaseBindingCellListAdapter<CELL : BaseBindingCell<*>> :
         return super.getCurrentList()
     }
 
+    override fun submitList(list: MutableList<CELL>?) {
+        super.submitList(list)
+    }
 
 
     override fun onViewAttachedToWindow(holder: BaseBindingCellViewHolder<ViewDataBinding>) {
@@ -70,6 +73,7 @@ open class BaseBindingCellListAdapter<CELL : BaseBindingCell<*>> :
 //        val type = holder.itemViewType
         addAnimation(holder)
     }
+
     /*************************** Animation ******************************************/
 
     var animationEnable: Boolean = false

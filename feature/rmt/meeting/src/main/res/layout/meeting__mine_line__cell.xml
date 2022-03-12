@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cell"
+            type="com.farmer.open9527.meeting.main.mine.cell.MineLineCell" />
+
+    </data>
+
+    <View
+        android:id="@+id/view_line"
+        bindDrawableSolidColor="@{cell.valueBgColor}"
+        bindViewHeight="@{cell.valueHeight}"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/space_1"
+        app:layout_constraintEnd_toEndOf="parent"
+        tools:background="@color/meeting__line_bg__color" />
+</layout>

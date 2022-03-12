@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.farmer.open9527.rmt.pkg.splash.SplashViewModel" />
+
+        <variable
+            name="click"
+            type="com.farmer.open9527.rmt.pkg.splash.SplashActivity.ClickProxy" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:background="@drawable/rmt__splash__drawable"
+        android:layout_height="match_parent">
+
+        <com.farmer.open9527.rmt.export.widget.BannerView
+            android:id="@+id/banner"
+            bindBillboardBannerAdapter="@{vm.valueBannerAdapter}"
+            bindBillboardBannerData="@{vm.valueBannerData}"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="@{vm.valueBannerVisibility}" />
+
+        <Button
+            android:id="@+id/ibt_skip"
+            bindDrawablePressedRadius="@{20}"
+            bindDrawablePressedSolidColor="@{@color/rmt__black_alpha_85__color}"
+            bindDrawableRadius="@{20}"
+            bindDrawableSolidColor="@{@color/rmt__black_alpha_60__color}"
+            bindDrawableStrokeColor="@{@color/rmt__border_bg__color}"
+            bindDrawableStrokeWidth="@{0.5f}"
+            bindViewClick="@{click.onSkipClick}"
+            bindViewClickViewScale="@{true}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="@dimen/size_10"
+            android:layout_marginEnd="@dimen/size_10"
+            android:gravity="center"
+            android:minWidth="@dimen/size_0"
+            android:minHeight="@dimen/size_0"
+            android:paddingStart="@dimen/size_16"
+            android:paddingTop="@dimen/size_6"
+            android:paddingEnd="@dimen/size_16"
+            android:paddingBottom="@dimen/size_6"
+            android:text="@{@string/rmt__splash_skip}"
+            android:textColor="@color/rmt__white__color"
+            android:textSize="@dimen/font_14"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/rmt__splash_skip"
+            tools:textColor="?attr/rmt_text_title_color" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

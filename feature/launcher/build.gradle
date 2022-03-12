@@ -1,5 +1,6 @@
 apply {
     from '../launcher_app.gradle'
+//    from '../rmt_app.gradle'
 }
 
 dependencies {

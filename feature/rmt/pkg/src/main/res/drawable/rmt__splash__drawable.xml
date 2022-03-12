@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layer-list xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item>
+        <bitmap android:src="@drawable/rmt__splash__bg"
+            android:gravity="fill"/>
+    </item>
+    <item
+
+        android:gravity="bottom"
+        android:bottom="@dimen/size_100">
+        <bitmap
+            android:gravity="center"
+            android:src="@drawable/rmt__app__icon" />
+    </item>
+
+</layer-list>

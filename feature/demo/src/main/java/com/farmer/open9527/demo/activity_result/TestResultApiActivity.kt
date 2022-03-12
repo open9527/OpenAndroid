@@ -5,7 +5,11 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import androidx.activity.result.contract.ActivityResultContracts
-import com.blankj.utilcode.util.*
+import androidx.core.content.ContextCompat
+import com.blankj.utilcode.util.GsonUtils
+import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.SizeUtils
+import com.blankj.utilcode.util.ToastUtils
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
 import com.farmer.open9527.common.dialog.CommonTipDialog
@@ -53,7 +57,7 @@ class TestResultApiActivity : CommonActivity() {
         initDialog()
         if (intent.hasExtra(ActionUtils.ACTION_BUNDLE_NAME)) {
             val json = intent.getStringExtra(ActionUtils.ACTION_BUNDLE_NAME)
-            LogUtils.i(TAG, "json:" + GsonUtils.toJson(json))
+//            LogUtils.i(TAG, "json:" + Gson.toJson(json))
         }
 
     }
@@ -89,10 +93,11 @@ class TestResultApiActivity : CommonActivity() {
 
     private fun initDialog() {
         CommonTipDialog.with(this)
-            .setTitle(StringUtils.getString(R.string.test_media_dialog_title))
+            .setTitle(resources.getString(R.string.test_media_dialog_title))
             .setOnlyConfirm(true)
-            .setConfirmContent(StringUtils.getString(R.string.test_media_dialog_confirm))
-            .setConfirmTextColor(ColorUtils.getColor(R.color.common_accent_color))
+            .setConfirmContent(resources.getString(R.string.test_media_dialog_confirm))
+            .setConfirmTextColor(
+                ContextCompat.getColor(this,R.color.common_accent_color))
             .addListener(object : CommonTipDialog.ICommonTipDialog {
                 override fun onConfirm() {
                     startActivity(TestImageLoadActivity::class.java)
@@ -139,9 +144,9 @@ class TestResultApiActivity : CommonActivity() {
     private val registerMultiplePermissions =
         registerForActivityResult(ActivityResultContracts.RequestMultiplePermissions()) {
             if (it[permissions[0]]!! && it[permissions[1]]!! && it[permissions[2]]!!) {
-                ToastUtils.showShort("权限获取成功!")
+               toast("权限获取成功!")
             } else {
-                ToastUtils.showShort("权限获取失败!")
+                toast("权限获取失败!")
             }
             LogUtils.i(TAG, "result:" + GsonUtils.toJson(it))
         }

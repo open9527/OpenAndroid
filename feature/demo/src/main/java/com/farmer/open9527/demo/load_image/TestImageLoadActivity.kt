@@ -11,6 +11,7 @@ import com.farmer.open9527.demo.R
 import com.farmer.open9527.demo.activity_result.TestResultApiActivity
 import com.farmer.open9527.demo.api.vo.image.RawType
 import com.farmer.open9527.demo.delegate.TestImageLoadDelegate
+import com.farmer.open9527.demo.dialog.ListDialog
 import com.farmer.open9527.demo.starter.ActionUtils
 import com.farmer.open9527.demo.starter.BaseStarter
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
@@ -90,12 +91,20 @@ class TestImageLoadActivity : CommonActivity(), IRefreshView {
 
     private val iRegisterCallBack = object : TestImageLoadCell.IImageLoadCell {
         override fun registerCallBack(url: String?) {
+            showListDialog()
             val intent = Intent()
             intent.putExtra("url", url)
             setResult(RESULT_OK, intent)
-            finish()
+//            finish()
         }
     }
+
+    private fun showListDialog() {
+        ListDialog.with(this)
+            .setDataList(mViewModel?.valueListData!!)
+            .showDialog()
+    }
+
 
     class Starter : BaseStarter() {
         override fun name(serviceName: String): String {

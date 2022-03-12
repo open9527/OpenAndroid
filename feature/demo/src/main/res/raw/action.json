@@ -7,10 +7,11 @@
       "rmt_main_page1",
       "rmt_main_page2"
     ],
-    "classPath": "com.farmer.open9527.rmt.pkg.main.RmtMainActivity",
+    "classPath": "com.farmer.open9527.rmt.pkg.main.MainActivity",
     "desc": "跳转到\"RMT\"页",
     "authorize": false
-  }, {
+  },
+  {
     "title": "ResultApi",
     "sample": "app://result_api_page?authorization=true&target=http%3a%2f%2fwww.baidu.com%3fq%3dabc",
     "serviceNames": [
@@ -52,5 +53,15 @@
     "classPath": "com.farmer.open9527.demo.night.TestDayNightActivity",
     "desc": "跳转到\"日/夜间模式\"页",
     "authorize": true
+  },
+  {
+    "title": "ShareSdk",
+    "sample": "app://share_page?authorization=false&target=http%3a%2f%2fwww.baidu.com%3fq%3dabc",
+    "serviceNames": [
+      "share_page"
+    ],
+    "classPath": "com.farmer.open9527.demo.share.ShareActivity",
+    "desc": "跳转到\"ShareSdk\"页",
+    "authorize": false
   }
 ]

@@ -31,6 +31,7 @@ dependencies {
     api project(':library:recycleview')
     api project(':library:imageload')
     api project(':library:refresh')
+    api project(':library:webview')
     api project(':widget:common')
     api LibsConfigs.Gson
     api LibsConfigs.ConstraintLayout

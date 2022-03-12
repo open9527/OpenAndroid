@@ -7,7 +7,7 @@
 
         <variable
             name="vm"
-            type="com.farmer.open9527.rmt.pkg.main.RmtMainViewModel" />
+            type="com.farmer.open9527.rmt.pkg.main.MainViewModel" />
 
     </data>
 
@@ -15,22 +15,45 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/tv_title"
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/vp2_main"
+            bindViewPager2Adapter="@{vm.valueViewPager2Adapter}"
+            bindViewPager2CurrentItem="@{vm.valueViewPager2CurrentItem}"
+            bindViewPager2IsUserInputEnabled="@{vm.valueViewPager2IsUserInputEnabled}"
+            bindViewPager2OffscreenPageLimit="@{vm.valueViewPager2OffscreenPageLimit}"
+            bindViewPager2PageChangeCallback="@{vm.valueViewPager2PageChangeCallback}"
+            bindViewPager2SmoothScroll="@{vm.valueViewPager2SmoothScroll}"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:gravity="center"
-            android:text="@{vm.valueTitle}"
-            android:textColor="@color/common_text_color"
-            android:textSize="@dimen/font_18"
-            tools:text="title" />
+            android:layout_height="@dimen/size_0"
+            app:layout_constraintBottom_toTopOf="@+id/rv_main_navigation"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <!--        <WebView-->
-        <!--            app:layout_constraintTop_toTopOf="parent"-->
-        <!--            android:id="@+id/web"-->
-        <!--            android:layout_width="match_parent"-->
-        <!--            android:layout_height="match_parent" />-->
 
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_main_navigation"
+            bindRecycleViewAdapter="@{vm.valueNavigationAdapter}"
+            bindRecycleViewLayoutManager="@{vm.valueLayoutManager}"
+            bindRecycleViewListData="@{vm.valueListData}"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:elevation="@dimen/size_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:itemCount="5"
+            tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
+            tools:listitem="@layout/rmt__main_navigation__cell"
+            tools:orientation="vertical" />
+
+        <!--        <androidx.appcompat.widget.AppCompatImageView-->
+        <!--            android:id="@+id/iv_moment_icon"-->
+        <!--            android:layout_width="@dimen/size_60"-->
+        <!--            android:layout_height="@dimen/size_60"-->
+        <!--            android:layout_marginBottom="@dimen/size_25"-->
+        <!--            android:src="@drawable/main__moment__icon"-->
+        <!--            app:layout_constraintBottom_toBottomOf="parent"-->
+        <!--            app:layout_constraintEnd_toEndOf="parent"-->
+        <!--            app:layout_constraintStart_toStartOf="parent" />-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

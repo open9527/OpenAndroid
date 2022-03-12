@@ -19,6 +19,7 @@ buildscript {
         classpath PluginsConfigs.Plugins.Gradle
         classpath PluginsConfigs.Plugins.AspectJx
         classpath PluginsConfigs.Plugins.Kotlin
+        classpath 'org.jetbrains.kotlin:kotlin-gradle-plugin:1.5.20'
     }
 }
 

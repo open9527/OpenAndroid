@@ -2,14 +2,16 @@ package com.farmer.open9527.launcher
 
 import androidx.databinding.ObservableArrayList
 import androidx.databinding.ObservableField
+import androidx.databinding.ViewDataBinding
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import com.blankj.utilcode.util.ResourceUtils
 import com.farmer.open9527.demo.api.JsonApiUtils
 import com.farmer.open9527.demo.starter.ActionVo
-import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.cell.BaseBindingCell
+import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.coroutines.launch
@@ -25,7 +27,7 @@ class LauncherViewModel : ViewModel() {
 
     val valueLayoutManager = ObservableField<RecyclerView.LayoutManager>()
     val valueItemDecoration = ObservableField<RecyclerView.ItemDecoration>()
-    val valueAdapter = ObservableField<BaseBindingCellListAdapter<BaseBindingCell<*>>>()
+    val valueAdapter =  ObservableField<ListAdapter<BaseBindingCell<*>, BaseBindingCellViewHolder<ViewDataBinding>>>()
     val valueListData = ObservableArrayList<BaseBindingCell<*>>()
 
     val valueILauncherCell = ObservableField<LauncherCell.ILauncherCell>()

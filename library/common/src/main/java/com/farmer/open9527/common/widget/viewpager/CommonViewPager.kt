@@ -13,8 +13,11 @@ import androidx.viewpager.widget.ViewPager
 class CommonViewPager : ViewPager {
     private var mHasScroll: Boolean = false
 
-    constructor(context: Context) : super(context)
-    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs)
+    constructor(context: Context) : this(context, null)
+
+    constructor(context: Context, attrs: AttributeSet?) : super(context, attrs) {
+        importantForAccessibility = IMPORTANT_FOR_ACCESSIBILITY_NO
+    }
 
     override fun onInterceptTouchEvent(ev: MotionEvent?): Boolean {
         return mHasScroll && super.onInterceptTouchEvent(ev)

@@ -9,23 +9,36 @@ apply {
 
 android {
     defaultConfig {
-        applicationId AppConfigs.HK.applicationId
-        versionName AppConfigs.HK.versionName
-        versionCode AppConfigs.HK.versionCode
+        applicationId AppConfigs.Rmt.applicationId
+        versionName AppConfigs.Rmt.versionName
+        versionCode AppConfigs.Rmt.versionCode
 
         resConfigs 'zh'
         resConfigs 'xxhdpi'
         proguardFiles 'proguard-sdk.pro', 'proguard-app.pro'
 
-        // 日志打印开关
-        buildConfigField('boolean', 'LOG_ENABLE', '' + LOG_ENABLE + '')
-        // 测试服务器的主机地址
-        buildConfigField('String', 'HOST_URL', '"' + HOST_URL + '"')
+        buildConfigField('boolean', 'LOG_ENABLE', '' + AppConfigs.Rmt.logEnable + '')
+        buildConfigField('String', 'HOST_URL', '"' + AppConfigs.Rmt.hostUrl + '"')
+        buildConfigField('String', 'HOST_TEST_URL', '"' + AppConfigs.Rmt.hostTestUrl + '"')
+        buildConfigField('String', 'SITE_ID', '"' + AppConfigs.Rmt.siteId + '"')
+
+        buildConfigField('String', 'QQ_ID', '"' + AppConfigs.Rmt.qqId + '"')
+        buildConfigField('String', 'QQ_SECRET', '"' + AppConfigs.Rmt.qqSecret + '"')
+        buildConfigField('String', 'WX_ID', '"' + AppConfigs.Rmt.wxId + '"')
+        buildConfigField('String', 'WX_SECRET', '"' + AppConfigs.Rmt.wxSecret + '"')
+
+        addManifestPlaceholders([
+                'QQ_ID'    : AppConfigs.Rmt.qqId,
+                'QQ_SECRET': AppConfigs.Rmt.qqSecret,
+                'WX_ID'    : AppConfigs.Rmt.wxId,
+                'WX_SECRET': AppConfigs.Rmt.wxSecret
+        ])
+
     }
 
     signingConfigs {
-//        File signPropertiesFile = file("${rootDir.path}/sign/keystore.properties")
-        File signPropertiesFile = file("${rootDir.path}/sign/test/keystore.properties")
+        File signPropertiesFile = file("${rootDir.path}/sign/keystore.properties")
+//        File signPropertiesFile = file("${rootDir.path}/sign/test/keystore.properties")
         if (!signPropertiesFile.exists()) return
         Properties properties = new Properties()
         properties.load(new FileInputStream(signPropertiesFile))
@@ -55,9 +68,9 @@ android {
             signingConfig signingConfigs.config
             // 添加清单占位符
             addManifestPlaceholders([
-                    'app_name'      : '@string/app_name_debug',
-                    'app_icon'      : '@mipmap/ic_launcher',
-                    'app_round_icon': '@mipmap/ic_launcher_round'
+                    'app_name'      : '@string/rmt_name_debug',
+                    'app_icon'      : '@mipmap/rmt__app__icon',
+                    'app_round_icon': '@mipmap/rmt__app__icon'
             ])
             // 调试模式下只保留一种架构的 so 库，提升打包速度
             ndk {
@@ -70,9 +83,9 @@ android {
             applicationIdSuffix ''
             // 添加清单占位符
             addManifestPlaceholders([
-                    'app_name'      : '@string/app_name_preview',
-                    'app_icon'      : '@mipmap/ic_launcher',
-                    'app_round_icon': '@mipmap/ic_launcher_round'
+                    'app_name'      : '@string/rmt_name_preview',
+                    'app_icon'      : '@mipmap/rmt__app__icon',
+                    'app_round_icon': '@mipmap/rmt__app__icon'
             ])
         }
 
@@ -90,9 +103,9 @@ android {
             signingConfig signingConfigs.config
             // 添加清单占位符
             addManifestPlaceholders([
-                    'app_name'      : '@string/app_name_release',
-                    'app_icon'      : '@mipmap/ic_launcher',
-                    'app_round_icon': '@mipmap/ic_launcher_round'
+                    'app_name'      : '@string/rmt_name',
+                    'app_icon'      : '@mipmap/rmt__app__icon',
+                    'app_round_icon': '@mipmap/rmt__app__icon'
             ])
             // 仅保留两种架构的 so 库，根据 Bugly 统计得出
             ndk {
@@ -134,6 +147,5 @@ android {
 
 dependencies {
     implementation LibsConfigs.Material
-    implementation LibsConfigs.UtilCode
     implementation LibsConfigs.ConstraintLayout
 }

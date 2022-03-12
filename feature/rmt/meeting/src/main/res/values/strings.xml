@@ -1,0 +1,51 @@
+<resources>
+
+    <!-- Splash -->
+    <string name="meeting__splash_skip">跳过</string>
+    <!--mine-->
+    <string name="meeting__mine_qr_code">我的二维码</string>
+    <string name="meeting__mine_setting">设置</string>
+
+    <string name="meeting__mine_info_avatar">头像</string>
+    <string name="meeting__mine_info_name">姓名</string>
+    <string name="meeting__mine_info_gender">性别</string>
+    <string name="meeting__mine_info_alias">别名</string>
+    <string name="meeting__mine_info_unit">所属单位</string>
+
+    <string name="meeting__mine_info_mobile">手机</string>
+    <string name="meeting__mine_info_landline">座机</string>
+
+    <string name="meeting__mine_info_job">职务</string>
+    <string name="meeting__mine_info_retinue">随行人员</string>
+    <!--setting-->
+    <string name="meeting__setting_account">账号与安全</string>
+
+    <string name="meeting__setting_notify">新消息通知</string>
+    <string name="meeting__setting_common">通用</string>
+
+    <string name="meeting__setting_help">帮助与反馈</string>
+    <string name="meeting__setting_about">关于</string>
+
+    <string name="meeting__setting_server">服务器设置</string>
+
+    <string name="meeting__setting_unit">管理单位</string>
+
+    <string name="meeting__setting_permission">个人信息与系统权限管理</string>
+
+    <string name="meeting__setting_login_out">退出登录</string>
+
+    <!--login-->
+
+
+    <string name="meeting__login_password">密码登录</string>
+    <string name="meeting__login_mobile_hint">请输入手机号</string>
+    <string name="meeting__login_password_hint">请输入密码</string>
+    <string name="meeting__login_verification_code_hint">请输入验证码</string>
+    <string name="meeting__login">登录</string>
+
+    <string name="meeting__login_protocol">我已阅读并同意服务协议、隐私权政策</string>
+
+    <string name="meeting__login_verification_code">验证码登录</string>
+    <string name="meeting__login_get_verification_code">获取验证码</string>
+    <string name="meeting__login_account_password">账号密码登录</string>
+</resources>

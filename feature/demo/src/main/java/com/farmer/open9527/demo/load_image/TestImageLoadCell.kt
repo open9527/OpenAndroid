@@ -1,11 +1,11 @@
 package com.farmer.open9527.demo.load_image
 
+import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.graphics.drawable.Drawable
 import android.view.View
 import androidx.databinding.ObservableField
 import androidx.databinding.ViewDataBinding
-import com.blankj.utilcode.util.ColorUtils
 import com.farmer.open9527.demo.R
 import com.farmer.open9527.demo.BR
 import com.farmer.open9527.demo.api.vo.image.GifsVo
@@ -22,10 +22,10 @@ import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
  **/
 class TestImageLoadCell : BaseBindingCell<TestImageLoadCell> {
     val valueUrl = ObservableField<String>()
-    val valueWidth = ObservableField<Int>()
-    val valueHeight = ObservableField<Int>()
+    private val valueWidth = ObservableField<Int>()
+    private val valueHeight = ObservableField<Int>()
     val valuePlaceholderDrawable =
-        ObservableField<Drawable>(ColorDrawable(ColorUtils.getColor(R.color.common_line_color)))
+        ObservableField<Drawable>(ColorDrawable(Color.GRAY))
     val valueIImageLoadCell = ObservableField<IImageLoadCell>()
 
     constructor(

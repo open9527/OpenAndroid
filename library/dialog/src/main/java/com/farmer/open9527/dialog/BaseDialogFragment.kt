@@ -18,17 +18,15 @@ import androidx.fragment.app.FragmentActivity
  *@author   open_9527
  *Create at 2021/11/3
  **/
-abstract class BaseDialogFragment : DialogFragment, IBaseDialogFragment,
+abstract class BaseDialogFragment(private val mContext: Context) : DialogFragment(), IBaseDialogFragment,
     DialogInterface.OnKeyListener {
-
-    protected val TAG = javaClass.simpleName
 
     private var mActivity: FragmentActivity? = null
 
-
-    constructor(context: Context) : super() {
-        mActivity = DialogUtils.getFragmentActivity(context)
+    init {
+        mActivity = DialogUtils.getFragmentActivity(mContext)
     }
+
 
 
     override fun onStart() {
@@ -129,4 +127,5 @@ abstract class BaseDialogFragment : DialogFragment, IBaseDialogFragment,
         val mDialog = dialog
         mDialog?.setCanceledOnTouchOutside(cancel)
     }
+
 }

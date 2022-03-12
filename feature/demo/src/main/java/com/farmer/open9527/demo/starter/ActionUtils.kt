@@ -1,19 +1,19 @@
 package com.farmer.open9527.demo.starter
 
+import android.content.ComponentName
 import android.content.Intent
 import android.text.TextUtils
+import com.blankj.utilcode.util.*
 import com.farmer.open9527.demo.R
 import com.farmer.open9527.demo.activity_result.TestResultApiActivity
 import com.farmer.open9527.demo.api.JsonApiUtils
+import com.farmer.open9527.demo.load_image.TestImageLoadActivity
+import com.farmer.open9527.demo.night.TestDayNightActivity
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import java.lang.reflect.Type
 import java.net.URI
-import java.util.HashMap
-import android.content.ComponentName
-import com.blankj.utilcode.util.*
-import com.farmer.open9527.demo.load_image.TestImageLoadActivity
-import com.farmer.open9527.demo.night.TestDayNightActivity
+import java.util.*
 
 
 object ActionUtils {
@@ -28,6 +28,7 @@ object ActionUtils {
             starterManager.register(TestResultApiActivity.Starter())
             starterManager.register(TestImageLoadActivity.Starter())
             starterManager.register(TestDayNightActivity.Starter())
+//            starterManager.register(ShareActivity.Starter())
         }
         return starterManager
     }
@@ -69,7 +70,6 @@ object ActionUtils {
             if (actionVo != null) {
                 if (actionVo.authorize == true) {
                     LogUtils.i(TAG, "需要判断执行登陆...")
-                    ToastUtils.showLong("需要授权验证")
                     return
                 }
 
@@ -117,7 +117,7 @@ object ActionUtils {
     }
 
     private fun toDecode(url: String): String {
-        return EncodeUtils.urlDecode(url, "UTF-8")
+        return EncodeUtils.urlDecode(url)
     }
 
     private fun getRawFileList(): List<ActionVo> {

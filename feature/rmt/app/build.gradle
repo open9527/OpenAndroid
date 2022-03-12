@@ -1,32 +1,13 @@
-import com.farmer.open9527.buildsrc.ThirdConfigs
+import com.farmer.open9527.buildsrc.*
 
 apply {
-    from '../../rmt_app.gradle'
+//    from '../../rmt_app.gradle'
+    from '../../meeting_app.gradle'
 }
-
-
-android {
-    defaultConfig {
-        // 构建配置字段
-        buildConfigField('String', 'QQ_ID', '\"' + QQ_APP_ID + '\"')
-        buildConfigField('String', 'QQ_SECRET', '\"' + QQ_APP_SECRET + '\"')
-        buildConfigField('String', 'WX_ID', '\"' + WX_APP_ID + '\"')
-        buildConfigField('String', 'WX_SECRET', '\"' + WX_APP_SECRET + '\"')
-
-
-        // 清单占位符
-        addManifestPlaceholders([
-                'QQ_ID' : QQ_APP_ID,
-                'QQ_SECRET' : QQ_APP_SECRET,
-                'WX_ID' : WX_APP_ID,
-                'WX_SECRET' : WX_APP_SECRET
-        ])
-    }
-}
-
 
 dependencies {
-    implementation project(':feature:rmt:pkg')
+//    implementation project(':feature:rmt:pkg')
+    implementation project(':feature:rmt:meeting')
 }
 
 

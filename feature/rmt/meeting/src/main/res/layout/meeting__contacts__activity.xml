@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="vm"
+            type="com.farmer.open9527.meeting.main.contacts.ContactsActivityViewModel" />
+
+        <variable
+            name="click"
+            type="com.farmer.open9527.meeting.main.contacts.ContactsActivity.ClickProxy" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            android:id="@+id/title_bar"
+            TitleBarBack="@{click.onBackClick}"
+            TitleBarShowBack="@{vm.valueShowBack}"
+            TitleBarTitle="@{vm.valueTitle}"
+            layout="@layout/meeting_title_bar"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/rv_main_navigation"
+            bindRecycleViewAdapter="@{vm.valueAdapter}"
+            bindRecycleViewLayoutManager="@{vm.valueLayoutManager}"
+            bindRecycleViewListData="@{vm.valueListData}"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_0"
+            android:background="@color/white"
+            android:elevation="@dimen/size_10"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/title_bar"
+            tools:itemCount="5"
+            tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            tools:listitem="@layout/meeting__contacts__cell"
+            tools:orientation="vertical" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -9,6 +9,7 @@ import androidx.annotation.LayoutRes
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.RecyclerView
+import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
 import com.farmer.open9527.recycleview.click.IBaseCellClick
 import java.util.*
@@ -33,7 +34,6 @@ abstract class BaseBindingCell<CELL : BaseBindingCell<CELL>> : IBaseCellClick<CE
         mViewType = getViewTypeByView(view)
         VIEW_SPARSE_ARRAY.put(mViewType, view)
     }
-
 
     override fun onClick(v: View) {
         onCellClick(v, this as CELL)
@@ -107,6 +107,37 @@ abstract class BaseBindingCell<CELL : BaseBindingCell<CELL>> : IBaseCellClick<CE
         return layoutId + javaClass.hashCode()
     }
 
+    private var mAdapter: BaseBindingCellListAdapter<CELL>? = null
+
+    fun getAdapter(): BaseBindingCellListAdapter<CELL>? {
+        return mAdapter
+    }
+
+    fun setAdapter(adapter: BaseBindingCellListAdapter<CELL>) {
+        this.mAdapter = adapter
+    }
+
+    fun getDataList(): List<BaseBindingCell<CELL>>? {
+        return mAdapter?.currentList
+    }
+
+
+    fun updateCell(cell: CELL) {
+        val cellIndex: Int? = getDataList()?.indexOf(cell)
+        if (cellIndex != -1) {
+            getAdapter()?.notifyItemChanged(cellIndex!!)
+        }
+    }
+
+    fun updateCell(cellIndex: Int) {
+        if (cellIndex != -1) {
+            getAdapter()?.notifyItemChanged(cellIndex)
+        }
+    }
+
+    fun getCell(cellIndex: Int): CELL? {
+        return mAdapter?.currentList?.get(cellIndex)
+    }
 
     fun getItemId(): Long {
         return RecyclerView.NO_ID

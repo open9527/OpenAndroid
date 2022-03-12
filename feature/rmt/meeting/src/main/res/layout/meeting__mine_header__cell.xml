@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cell"
+            type="com.farmer.open9527.meeting.main.mine.cell.MineHeaderCell" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        bindDrawableRadius="@{5}"
+        bindDrawableSolidColor="@{@color/meeting__white__color}"
+        bindDrawableStrokeColor="@{@color/meeting__line_bg__color}"
+        bindDrawableStrokeWidth="@{0.5f}"
+        bindViewClick="@{v->cell.onCellClick(v,cell)}"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_200"
+        android:layout_margin="@dimen/size_16">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_avatar"
+            bindImageViewResource="@{cell.valueRes}"
+            android:layout_width="@dimen/size_55"
+            android:layout_height="@dimen/size_55"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginEnd="@dimen/size_20"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/meeting__line_bg__color" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_title"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_20"
+            android:layout_marginEnd="@dimen/size_20"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{cell.valueTitle}"
+            android:textColor="@color/meeting__text_content__color"
+            android:textSize="@dimen/font_16"
+            app:layout_constraintStart_toEndOf="@+id/iv_avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/common_test_text" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_name"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_20"
+            android:layout_marginTop="@dimen/size_40"
+            android:layout_marginEnd="@dimen/size_20"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{cell.valueName}"
+            android:textColor="@color/meeting__line_bg_dark__color"
+            android:textSize="@dimen/font_22"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toStartOf="@+id/iv_avatar"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_avatar"
+            tools:text="@string/common_test_text" />
+
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="@dimen/space_1"
+            android:layout_marginTop="@dimen/size_15"
+            android:background="@color/meeting__line_bg__color"
+            app:layout_constraintEnd_toEndOf="@+id/iv_avatar"
+            app:layout_constraintStart_toStartOf="@+id/tv_name"
+            app:layout_constraintTop_toBottomOf="@+id/tv_name" />
+
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_qr_code"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_20"
+            android:layout_marginEnd="@dimen/size_10"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@string/meeting__mine_qr_code"
+            android:textColor="@color/meeting__text_content__color"
+            android:textSize="@dimen/font_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_qr_code"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_line"
+            tools:text="@string/meeting__mine_qr_code" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_qr_code"
+            android:layout_width="@dimen/size_15"
+            android:layout_height="@dimen/size_15"
+            android:layout_marginEnd="@dimen/size_20"
+            android:src="@drawable/meeting_mine_qr_code__icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/view_line"
+            tools:background="@color/meeting__line_bg__color" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

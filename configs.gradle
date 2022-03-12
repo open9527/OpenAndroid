@@ -30,15 +30,15 @@ ext {
     println "GradleLog ServerTypeOutput " + serverType
 
 
-    // QQ AppId
-    QQ_APP_ID = "101828450"
-    // QQ Secret
-    QQ_APP_SECRET = "bed1c221aabb4866a9c178384c6fbecd"
-
-    // 微信 AppId
-    WX_APP_ID = "wx5fa62a303821315d"
-    // 微信 Secret
-    WX_APP_SECRET = "cc8eb90aabf05b045cd99eee5c47e525"
+//    // QQ AppId
+//    QQ_APP_ID = " "
+//    // QQ Secret
+//    QQ_APP_SECRET = " "
+//
+//    // 微信 AppId
+//    WX_APP_ID = " "
+//    // 微信 Secret
+//    WX_APP_SECRET = " "
 
     switch (serverType) {
         case SERVER_TYPE_TEST:

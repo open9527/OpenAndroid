@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cell"
+            type="com.farmer.open9527.rmt.pkg.main.NavigationCell" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        bindViewClick="@{v->cell.onCellClick(v,cell)}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_main_navigation_icon"
+            bindImageViewResource="@{cell.valueRes}"
+            bindImageViewSelect="@{cell.valueSelect}"
+            bindImageViewSelectResource="@{cell.valueSelectRes}"
+            android:layout_width="@dimen/size_24"
+            android:layout_height="@dimen/size_24"
+            android:layout_marginTop="@dimen/size_10"
+            app:layout_constraintBottom_toTopOf="@+id/tv_main_navigation_title"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:srcCompat="@drawable/rmt__main_home__selector" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_main_navigation_title"
+            bindTextViewColor="@{@color/rmt__text_content__color}"
+            bindTextViewSelect="@{cell.valueSelect}"
+            bindTextViewSelectColor="@{@color/rmt__primary__color}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="@dimen/size_10"
+            android:singleLine="true"
+            android:text="@{cell.valueTitle}"
+            android:textSize="@dimen/font_14"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/iv_main_navigation_icon"
+            tools:text="@string/common_test_text"
+            tools:textColor="@color/rmt__text_content__color" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

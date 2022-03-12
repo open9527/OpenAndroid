@@ -3,8 +3,6 @@ package com.farmer.open9527.common.crash
 import android.app.Application
 import android.content.Context
 import android.os.Process
-import com.blankj.utilcode.util.AppUtils
-import com.blankj.utilcode.util.LogUtils
 import kotlin.system.exitProcess
 
 
@@ -43,14 +41,14 @@ class CrashHandler : Thread.UncaughtExceptionHandler {
         val deadlyCrash = currentCrashTime - lastCrashTime < 1000 * 60 * 5
 
         if (mDebug) {
-            LogUtils.i(
-                "CrashHandler",
-                " throwable: " + "class: " + throwable.javaClass.javaClass.name
-            )
+//            LogUtils.i(
+//                "CrashHandler",
+//                " throwable: " + "class: " + throwable.javaClass.javaClass.name
+//            )
         } else {
             if (!deadlyCrash) {
                 // 如果不是致命的异常就自动重启应用
-                AppUtils.relaunchApp()
+//                AppUtils.relaunchApp()
             }
         }
 

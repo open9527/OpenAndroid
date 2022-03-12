@@ -5,11 +5,16 @@
     <application>
 
         <activity
-            android:name=".main.RmtMainActivity"
+            android:name=".splash.SplashActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:label="RMT"
             android:launchMode="singleTop"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".main.MainActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:label="主页"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait" />
     </application>
 </manifest>

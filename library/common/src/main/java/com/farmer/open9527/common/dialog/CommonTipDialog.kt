@@ -9,13 +9,12 @@ import android.view.View
 import android.view.Window
 import androidx.annotation.ColorInt
 import androidx.annotation.StyleRes
+import androidx.core.content.ContextCompat
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableFloat
 import androidx.databinding.ObservableInt
-import com.blankj.utilcode.util.ColorUtils
 import com.blankj.utilcode.util.ScreenUtils
 import com.blankj.utilcode.util.SizeUtils
-import com.blankj.utilcode.util.StringUtils
 import com.farmer.open9527.common.R
 import com.farmer.open9527.common.BR
 import com.farmer.open9527.dialog.BaseDialogFragment
@@ -37,11 +36,11 @@ class CommonTipDialog(context: Context) : BaseDialogFragment(context) {
     val valueTitle = ObservableField<String>()
     val valueContent = ObservableField<CharSequence>()
     val valueCancelContent: ObservableField<String> =
-        ObservableField(StringUtils.getString(R.string.common_cancel))
+        ObservableField(getString(R.string.common_cancel))
     val valueConfirmContent: ObservableField<String?> =
-        ObservableField(StringUtils.getString(R.string.common_confirm))
-    val valueCancelTextColor = ObservableInt(ColorUtils.getColor(R.color.common_accent_color))
-    val valueConfirmTextColor = ObservableInt(ColorUtils.getColor(R.color.common_text_hint_color))
+        ObservableField(getString(R.string.common_confirm))
+    val valueCancelTextColor = ObservableInt(ContextCompat.getColor(context, R.color.common_accent_color))
+    val valueConfirmTextColor = ObservableInt(ContextCompat.getColor(context, R.color.common_text_hint_color))
     val valueOnlyConfirm = ObservableInt(View.VISIBLE)
 
 
@@ -186,4 +185,5 @@ class CommonTipDialog(context: Context) : BaseDialogFragment(context) {
         fun onConfirm() {}
         fun onCancel() {}
     }
+
 }

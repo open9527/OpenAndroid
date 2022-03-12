@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cell"
+            type="com.farmer.open9527.meeting.main.mine.cell.MineInfoContentCell" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        bindViewClick="@{v->cell.onCellClick(v,cell)}"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_50"
+        android:background="@color/meeting__white__color">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_key"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_16"
+            android:layout_marginEnd="@dimen/size_10"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{cell.valueKey}"
+            android:textColor="@color/meeting__line_bg_dark__color"
+            android:textSize="@dimen/font_18"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/meeting__mine_info_avatar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_value"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_20"
+            android:layout_marginEnd="@dimen/size_20"
+            android:ellipsize="end"
+            android:gravity="end"
+            android:singleLine="true"
+            android:text="@{cell.valueContent}"
+            android:textColor="@color/meeting__text_content__color"
+            android:textSize="@dimen/font_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/iv_into"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="@string/meeting__mine_info_avatar" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_mobile_hint"
+            android:layout_width="@dimen/size_15"
+            android:layout_height="@dimen/size_15"
+            android:layout_marginEnd="@dimen/size_10"
+            android:src="@drawable/meeting_mobile_hint__icon"
+            android:visibility="@{cell.valueMobileHint}"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/tv_value"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_into"
+            android:layout_width="@dimen/size_10"
+            android:layout_height="@dimen/size_14"
+            android:layout_marginEnd="@dimen/size_20"
+            android:src="@drawable/meeting_mine_info_into__icon"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="@dimen/space_1"
+            android:layout_marginTop="@dimen/size_15"
+            android:background="@color/meeting__line_bg__color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/tv_key" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -16,6 +16,54 @@ import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
  *Create at 2021/11/8
  **/
 object RecycleViewBindingAdapter {
+
+//    @BindingAdapter(
+//        value = [
+//            "bindRecycleViewLayoutManager",
+//            "bindRecycleViewItemDecoration",
+//            "bindRecycleViewItemAnimator",
+//            "bindRecycleViewAdapter",
+//            "bindRecycleViewListData",
+//            "bindRecycleViewHasFixedSize",
+//            "bindRecycleViewHasAnim",
+//            "bindRecycleViewAnim",
+//        ], requireAll = false
+//    )
+//    @JvmStatic
+//    fun setBindingRecycleView(
+//        recyclerView: RecyclerView?,
+//        layoutManager: RecyclerView.LayoutManager?,
+//        itemDecoration: RecyclerView.ItemDecoration?,
+//        itemAnimator: RecyclerView.ItemAnimator?,
+//        adapter: ListAdapter<BaseBindingCell<*>, BaseBindingCellViewHolder<ViewDataBinding>>?,
+//        list: ObservableList<BaseBindingCell<*>>?,
+//        hasFixedSize: Boolean,
+//        hasAnim: Boolean,
+//        animator: BaseAnimation?,
+//    ) {
+//        if (recyclerView == null || adapter == null) return
+//
+//        if (layoutManager != null) {
+//            recyclerView.layoutManager = layoutManager
+//        }
+//        if (itemDecoration != null) {
+//            if (recyclerView.itemDecorationCount == 0) {
+//                recyclerView.addItemDecoration(itemDecoration)
+//            }
+//        }
+//        recyclerView.itemAnimator = itemAnimator
+//        recyclerView.setHasFixedSize(hasFixedSize)
+//
+//        (adapter as BaseBindingCellListAdapter<BaseBindingCell<*>>).animationEnable = hasAnim
+//        adapter.adapterAnimation = animator
+//
+//
+//        recyclerView.adapter = adapter
+////        (adapter as BaseBindingCellListAdapter<BaseBindingCell<*>>).submitList(list!!)
+//        adapter.submitList(list)
+//    }
+
+
     @BindingAdapter(
         value = [
             "bindRecycleViewLayoutManager",
@@ -42,7 +90,7 @@ object RecycleViewBindingAdapter {
     ) {
         if (recyclerView == null || adapter == null) return
 
-        if (itemDecoration != null) {
+        if (layoutManager != null) {
             recyclerView.layoutManager = layoutManager
         }
         if (itemDecoration != null) {
@@ -53,7 +101,7 @@ object RecycleViewBindingAdapter {
         recyclerView.itemAnimator = itemAnimator
         recyclerView.setHasFixedSize(hasFixedSize)
 
-        (adapter as BaseBindingCellListAdapter<BaseBindingCell<*>>).animationEnable = hasAnim
+        (adapter as BaseBindingCellListAdapter).animationEnable = hasAnim
         adapter.adapterAnimation = animator
 
 

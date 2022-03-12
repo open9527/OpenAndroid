@@ -1,5 +1,6 @@
 package com.farmer.open9527.launcher
 
+import android.app.Activity
 import android.view.View
 import androidx.databinding.ObservableField
 import androidx.databinding.ViewDataBinding
@@ -42,6 +43,6 @@ class LauncherCell : BaseBindingCell<LauncherCell> {
     }
 
     interface ILauncherCell {
-        fun launcherActivity(cls: Class<*>)
+        fun launcherActivity(cls:  Class<out Activity>)
     }
 }

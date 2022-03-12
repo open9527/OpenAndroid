@@ -1,10 +1,13 @@
 package com.farmer.open9527.launcher
 
+import android.app.Activity
+import android.content.Context
 import android.os.Bundle
 import com.blankj.utilcode.util.AppUtils
-import com.blankj.utilcode.util.ToastUtils
+import com.blankj.utilcode.util.LogUtils
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
+import com.farmer.open9527.demo.leetcode.Leetcode
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.decoration.GridSpaceItemDecoration
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentGridLayoutManager
@@ -26,13 +29,16 @@ class LauncherActivity : CommonActivity() {
         return DataBindingConfig(R.layout.launcher__activity, BR.vm, mViewModel)
     }
 
+    override fun getContext(): Context {
+        TODO("Not yet implemented")
+    }
+
     override fun initView(bundle: Bundle?) {
         initRecycleView()
         mViewModel?.valueILauncherCell?.set(iLauncherCell)
 
+        LogUtils.i(TAG, "Leetcode: " + Leetcode.sum(intArrayOf(2, 7, 11, 15), 9).iterator().toString())
     }
-
-
 
 
     override fun initRequest() {
@@ -49,16 +55,17 @@ class LauncherActivity : CommonActivity() {
     }
 
     private var iLauncherCell = object : LauncherCell.ILauncherCell {
-        override fun launcherActivity(cls: Class<*>) {
+        override fun launcherActivity(cls: Class<out Activity>) {
             startActivity(cls)
         }
     }
+
 
     private var exitTime: Long = 0
 
     override fun onBackPressed() {
         if (System.currentTimeMillis() - exitTime > 2000) {
-            ToastUtils.showLong(getString(R.string.launch_exit_app))
+            toast(getString(R.string.launch_exit_app))
             exitTime = System.currentTimeMillis()
         } else {
             AppUtils.exitApp()

@@ -12,7 +12,6 @@ static def addCommonMaven(RepositoryHandler handler) {
 
     // MavenCentral 远程仓库：https://mvnrepository.com
     handler.mavenCentral()
-
     handler.google()
 
 }

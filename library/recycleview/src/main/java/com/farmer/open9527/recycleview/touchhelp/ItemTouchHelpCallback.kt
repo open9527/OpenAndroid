@@ -177,9 +177,9 @@ class ItemTouchHelpCallback : ItemTouchHelper.Callback {
         //不管是拖拽或是侧滑，背景色都要变化
         if (actionState != ItemTouchHelper.ACTION_STATE_IDLE) {
             if (color == -1) {
-                viewHolder!!.itemView.setBackgroundColor(Color.GRAY)
+                viewHolder?.itemView?.setBackgroundColor(Color.GRAY)
             } else {
-                viewHolder!!.itemView.setBackgroundColor(color)
+                viewHolder?.itemView?.setBackgroundColor(color)
             }
         }
     }

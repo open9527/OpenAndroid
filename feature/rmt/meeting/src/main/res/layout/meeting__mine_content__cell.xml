@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="cell"
+            type="com.farmer.open9527.meeting.main.mine.cell.MineContentCell" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        bindViewClick="@{v->cell.onCellClick(v,cell)}"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/size_46"
+        android:background="@color/meeting__white__color">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_msg_icon"
+            bindImageViewResource="@{cell.valueRes}"
+            android:layout_width="@dimen/size_18"
+            android:layout_height="@dimen/size_18"
+            android:layout_marginStart="@dimen/size_16"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:background="@color/meeting__line_bg__color" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/tv_msg_title"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/size_12"
+            android:layout_marginEnd="@dimen/size_10"
+            android:ellipsize="end"
+            android:singleLine="true"
+            android:text="@{cell.valueTitle}"
+            android:textColor="@color/meeting__text_title__color"
+            android:textSize="@dimen/font_18"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_msg_icon"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="spread"
+            tools:text="@string/meeting__mine_setting" />
+
+
+        <View
+            android:id="@+id/view_line"
+            android:layout_width="@dimen/size_0"
+            android:layout_height="@dimen/space_1"
+            android:background="@color/meeting__line_bg__color"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/iv_msg_icon" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

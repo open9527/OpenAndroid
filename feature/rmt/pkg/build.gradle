@@ -21,6 +21,9 @@ android {
             )
         }
     }
+    // 资源前缀限制
+//    resourcePrefix "rmt_"
+
 }
 //
 dependencies {

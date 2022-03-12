@@ -1,5 +1,6 @@
 package com.farmer.open9527.common.binding.imageview
 
+import android.graphics.drawable.Drawable
 import android.net.Uri
 import android.widget.ImageView
 import androidx.annotation.DrawableRes
@@ -20,10 +21,33 @@ object ImageViewBindingAdapter {
     }
 
 
-    @BindingAdapter(value = ["bindImageViewResource"], requireAll = false)
+    @BindingAdapter(
+        value = ["bindImageViewResource", "bindImageViewSelectResource", "bindImageViewSelect"],
+        requireAll = false
+    )
     @JvmStatic
-    fun setBindingImageView(imageView: ImageView?, @DrawableRes resId: Int?) {
-        if (imageView == null || resId == null) return
-        imageView.setImageResource(resId)
+    fun setBindingImageView(
+        imageView: ImageView?,
+        @DrawableRes resId: Int,
+        @DrawableRes selectResId: Int,
+        select: Boolean
+    ) {
+        if (imageView == null) return
+        imageView.setImageResource(if (select) selectResId else resId)
+    }
+
+    @BindingAdapter(
+        value = ["bindImageViewDrawable", "bindImageViewSelectDrawable", "bindImageViewSelect"],
+        requireAll = false
+    )
+    @JvmStatic
+    fun setBindingImageView(
+        imageView: ImageView?,
+        drawable: Drawable?,
+        selectDrawable: Drawable?,
+        select: Boolean
+    ) {
+        if (imageView == null || drawable == null) return
+        imageView.setImageDrawable(if (select) selectDrawable else drawable)
     }
 }

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <variable
+            name="dialog"
+            type="com.farmer.open9527.demo.dialog.ListDialog" />
+
+    </data>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_list"
+        android:background="@color/common_window_background_color"
+        bindRecycleViewAdapter="@{dialog.valueAdapter}"
+        bindRecycleViewAnim="@{dialog.valueAnimation}"
+        bindRecycleViewItemAnimator="@{dialog.valueItemAnimator}"
+        bindRecycleViewItemDecoration="@{dialog.valueItemDecoration}"
+        bindRecycleViewLayoutManager="@{dialog.valueLayoutManager}"
+        bindRecycleViewListData="@{dialog.valueListData}"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom">
+
+    </androidx.recyclerview.widget.RecyclerView>
+</layout>

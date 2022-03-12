@@ -4,10 +4,10 @@ import android.graphics.ColorMatrix
 import android.graphics.ColorMatrixColorFilter
 import android.graphics.Paint
 import androidx.appcompat.app.AppCompatActivity
-import com.blankj.utilcode.util.BarUtils
 
 import android.util.TypedValue
 import android.view.View
+import com.blankj.utilcode.util.BarUtils
 import com.farmer.open9527.demo.delegate.CommonDelegate
 import com.tencent.mmkv.MMKV
 
