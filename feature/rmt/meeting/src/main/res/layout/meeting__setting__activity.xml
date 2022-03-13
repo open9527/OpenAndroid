@@ -9,6 +9,10 @@
             name="vm"
             type="com.farmer.open9527.meeting.main.setting.SettingViewModel" />
 
+        <variable
+            name="click"
+            type="com.farmer.open9527.meeting.main.setting.SettingActivity.ClickProxy" />
+
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
@@ -18,13 +22,14 @@
 
         <include
             android:id="@+id/title_bar"
+            TitleBarBack="@{click.onBackClick}"
             TitleBarShowBack="@{vm.valueShowBack}"
             TitleBarTitle="@{vm.valueTitle}"
             layout="@layout/meeting_title_bar"
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_main_navigation"
+            android:id="@+id/rv_setting"
             bindRecycleViewAdapter="@{vm.valueAdapter}"
             bindRecycleViewLayoutManager="@{vm.valueLayoutManager}"
             bindRecycleViewListData="@{vm.valueListData}"

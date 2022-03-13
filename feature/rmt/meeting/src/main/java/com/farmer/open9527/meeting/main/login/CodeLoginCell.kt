@@ -5,6 +5,8 @@ import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.databinding.ViewDataBinding
+import com.blankj.utilcode.util.ToastUtils
+import com.farmer.open9527.common.action.HandlerAction
 import com.farmer.open9527.meeting.BR
 import com.farmer.open9527.meeting.R
 import com.farmer.open9527.recycleview.cell.BaseBindingCell
@@ -16,13 +18,12 @@ class CodeLoginCell : BaseBindingCell<CodeLoginCell> {
     var valuePassword = ObservableField<String>()
 
     var valueSelect = ObservableBoolean(false)
+
     var valueRes = ObservableInt(R.drawable.meeting_login_un_select__icon)
     var valueSelectRes = ObservableInt(R.drawable.meeting_login_select__icon)
 
-
-    var valueShowPassword = ObservableBoolean(false)
-    var valueHidePasswordRes = ObservableInt(R.drawable.meeting_login_hide_password__icon)
-    var valueShowPasswordRes = ObservableInt(R.drawable.meeting_login_show_password__icon)
+    var valueCountdownStart = ObservableBoolean(false)
+    var valueCountdownStop = ObservableBoolean(false)
 
     var valueICodeLogin = ObservableField<ICodeLogin>()
 
@@ -42,17 +43,22 @@ class CodeLoginCell : BaseBindingCell<CodeLoginCell> {
 
     override fun onCellClick(view: View, cell: CodeLoginCell) {
         when (view.id) {
-            R.id.iv_password -> {
-                cell.valueShowPassword.set(!cell.valueShowPassword.get())
+            R.id.bt_get_code -> {
+                valueCountdownStart.set(true)
             }
             R.id.btn_login -> {
-                valueICodeLogin.get()?.login(cell.valueMobile.get(), cell.valuePassword.get())
+
+                if (cell.valueSelect.get()) {
+                    valueICodeLogin.get()?.login(cell.valueMobile.get(), cell.valuePassword.get())
+                } else {
+                    ToastUtils.showLong("请先认真阅读并同意以上协议内容。")
+                }
             }
             R.id.iv_select -> {
                 cell.valueSelect.set(!cell.valueSelect.get())
-
             }
             R.id.btn_switch -> {
+                valueCountdownStop.set(true)
                 valueICodeLogin.get()?.switch()
             }
         }

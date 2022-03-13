@@ -24,7 +24,7 @@
             app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_main_navigation"
+            android:id="@+id/rv_mine"
             bindRecycleViewAdapter="@{vm.valueAdapter}"
             bindRecycleViewLayoutManager="@{vm.valueLayoutManager}"
             bindRecycleViewListData="@{vm.valueListData}"

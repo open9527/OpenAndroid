@@ -1,12 +1,12 @@
 package com.farmer.open9527.meeting.main.login
 
 import android.os.Bundle
+import android.view.View
 import com.blankj.utilcode.util.ActivityUtils
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
 import com.farmer.open9527.meeting.BR
 import com.farmer.open9527.meeting.R
-import com.farmer.open9527.meeting.main.MainActivity
 import com.farmer.open9527.meeting.main.login.PasswordLoginCell.IPasswordLogin
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentLinearLayoutManager
@@ -22,6 +22,7 @@ class LoginActivity : CommonActivity() {
 
     override fun getDataBindingConfig(): DataBindingConfig {
         return DataBindingConfig(R.layout.meeting__login__activity, BR.vm, mViewModel)
+            .addBindingParam(BR.click, ClickProxy())
     }
 
 
@@ -31,6 +32,7 @@ class LoginActivity : CommonActivity() {
 
     override fun initView(bundle: Bundle?) {
         initRecycleView()
+
         mViewModel.valueIPasswordLogin.set(iPasswordLogin)
         mViewModel.valueICodeLogin.set(iCodeLogin)
     }
@@ -41,9 +43,16 @@ class LoginActivity : CommonActivity() {
     }
 
 
+    open inner class ClickProxy {
+        var onBackClick = View.OnClickListener {
+            finish()
+        }
+    }
+
+
     private val iPasswordLogin = object : IPasswordLogin {
         override fun login(mobile: String?, password: String?) {
-            MainActivity.startMainActivity()
+            mViewModel.requestLoginPassword(mobile, password)
         }
 
         override fun switch() {
@@ -54,7 +63,7 @@ class LoginActivity : CommonActivity() {
 
     private val iCodeLogin = object : CodeLoginCell.ICodeLogin {
         override fun login(mobile: String?, code: String?) {
-            MainActivity.startMainActivity()
+            mViewModel.requestLoginCode(mobile, code)
         }
 
         override fun switch() {

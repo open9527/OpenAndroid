@@ -32,4 +32,8 @@ class MineLineCell : BaseBindingCell<MineLineCell> {
     ) {
         holder.addBindingParam(BR.cell, this)
     }
+
+    override fun getUUID(): String {
+        return super.getUUID()
+    }
 }

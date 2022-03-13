@@ -56,9 +56,9 @@ android {
             signingConfig signingConfigs.config
             // 添加清单占位符
             addManifestPlaceholders([
-                    'app_name'      : '@string/rmt_name_debug',
-                    'app_icon'      : '@mipmap/rmt__app__icon',
-                    'app_round_icon': '@mipmap/rmt__app__icon'
+                    'app_name'      : '@string/meeting_name',
+                    'app_icon'      : '@mipmap/meeting_app__icon',
+                    'app_round_icon': '@mipmap/meeting_app__icon'
             ])
             // 调试模式下只保留一种架构的 so 库，提升打包速度
             ndk {
@@ -71,9 +71,9 @@ android {
             applicationIdSuffix ''
             // 添加清单占位符
             addManifestPlaceholders([
-                    'app_name'      : '@string/rmt_name_preview',
-                    'app_icon'      : '@mipmap/rmt__app__icon',
-                    'app_round_icon': '@mipmap/rmt__app__icon'
+                    'app_name'      : '@string/meeting_name',
+                    'app_icon'      : '@mipmap/meeting_app__icon',
+                    'app_round_icon': '@mipmap/meeting_app__icon'
             ])
         }
 
@@ -91,9 +91,9 @@ android {
             signingConfig signingConfigs.config
             // 添加清单占位符
             addManifestPlaceholders([
-                    'app_name'      : '@string/rmt_name',
-                    'app_icon'      : '@mipmap/rmt__app__icon',
-                    'app_round_icon': '@mipmap/rmt__app__icon'
+                    'app_name'      : '@string/meeting_name',
+                    'app_icon'      : '@mipmap/meeting_app__icon',
+                    'app_round_icon': '@mipmap/meeting_app__icon'
             ])
             // 仅保留两种架构的 so 库，根据 Bugly 统计得出
             ndk {

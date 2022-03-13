@@ -1,6 +1,7 @@
 package com.farmer.open9527.meeting.main.setting
 
 import android.os.Bundle
+import android.view.View
 import com.blankj.utilcode.util.ActivityUtils
 import com.blankj.utilcode.util.BarUtils
 import com.farmer.open9527.base.page.DataBindingConfig
@@ -21,6 +22,7 @@ class SettingActivity : CommonActivity() {
 
     override fun getDataBindingConfig(): DataBindingConfig {
         return DataBindingConfig(R.layout.meeting__setting__activity, BR.vm, mViewModel)
+            .addBindingParam(BR.click, ClickProxy())
     }
 
     override fun initStatusBar() {
@@ -40,7 +42,11 @@ class SettingActivity : CommonActivity() {
         mViewModel.valueLayoutManager.set(WrapContentLinearLayoutManager(mActivity))
         mViewModel.valueAdapter.set(BaseBindingCellListAdapter())
     }
-
+    open inner class ClickProxy {
+        var onBackClick = View.OnClickListener {
+            finish()
+        }
+    }
 
     companion object {
         fun startSettingActivity() {

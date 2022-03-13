@@ -63,16 +63,16 @@ open class BaseBindingCellListAdapter<CELL : BaseBindingCell<CELL>> :
         return super.getCurrentList()
     }
 
-    override fun submitList(list: MutableList<CELL>?) {
-        super.submitList(list)
-    }
+//    override fun submitList(list: MutableList<CELL>?) {
+//        super.submitList(list)
+//    }
 
 
-    override fun onViewAttachedToWindow(holder: BaseBindingCellViewHolder<ViewDataBinding>) {
-        super.onViewAttachedToWindow(holder)
-//        val type = holder.itemViewType
-        addAnimation(holder)
-    }
+//    override fun onViewAttachedToWindow(holder: BaseBindingCellViewHolder<ViewDataBinding>) {
+//        super.onViewAttachedToWindow(holder)
+////        val type = holder.itemViewType
+//        addAnimation(holder)
+//    }
 
     /*************************** Animation ******************************************/
 

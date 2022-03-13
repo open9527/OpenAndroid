@@ -32,7 +32,7 @@ class MsgViewModel : ViewModel(), OnHttpListener<Any> {
                 "政务微信提醒",
                 "企业微信支持添加超50万",
                 "星期二",
-                R.drawable.meeting__app__icon
+                R.drawable.meeting_msg_wx__icon
             )
         )
 

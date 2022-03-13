@@ -9,17 +9,22 @@
             name="vm"
             type="com.farmer.open9527.meeting.main.login.LoginViewModel" />
 
+        <variable
+            name="click"
+            type="com.farmer.open9527.meeting.main.login.LoginActivity.ClickProxy" />
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="@color/meeting__window_bg__color"
+        android:background="@color/meeting__white__color"
         android:focusable="true"
         android:focusableInTouchMode="true">
 
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_click_back"
+            bindViewClick="@{click.onBackClick}"
             android:layout_width="@dimen/size_45"
             android:layout_height="@dimen/size_45"
             android:layout_marginTop="@dimen/size_30"
@@ -29,8 +34,24 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_header"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_163"
+            android:src="@drawable/meeting_login_header__bg"
+            app:layout_constraintTop_toTopOf="parent" />
+
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/iv_footer"
+            android:layout_width="wrap_content"
+            android:layout_height="@dimen/size_200"
+            android:src="@drawable/meeting_login_footer__bg"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/rv_main_navigation"
+            android:id="@+id/rv_login"
             bindRecycleViewAdapter="@{vm.valueAdapter}"
             bindRecycleViewLayoutManager="@{vm.valueLayoutManager}"
             bindRecycleViewListData="@{vm.valueListData}"
@@ -41,7 +62,7 @@
             app:layout_constraintTop_toBottomOf="@+id/iv_click_back"
             tools:itemCount="5"
             tools:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
-            tools:listitem="@layout/meeting__main_navigation__cell"
+            tools:listitem="@layout/meeting__login_password_cell"
             tools:orientation="vertical" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>

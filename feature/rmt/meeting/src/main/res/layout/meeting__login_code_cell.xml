@@ -49,6 +49,31 @@
             app:layout_constraintStart_toStartOf="@+id/tv_title"
             app:layout_constraintTop_toBottomOf="@+id/tv_title" />
 
+        <!--
+         "bindCountdownViewTotalTime",
+                    "bindCountdownViewStart",
+                    "bindTextViewSelectStop"-->
+        <com.farmer.open9527.common.widget.CountdownView
+            android:id="@+id/bt_get_code"
+            bindCountdownViewStart="@{cell.valueCountdownStart}"
+            bindCountdownViewStop="@{cell.valueCountdownStop}"
+            bindCountdownViewTotalTime="@{60}"
+            bindViewClick="@{v->cell.onCellClick(v,cell)}"
+            bindViewClickViewScale="@{true}"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@color/transparent"
+            android:ellipsize="end"
+            android:gravity="center"
+            android:singleLine="true"
+            android:text="@string/meeting__login_get_verification_code"
+            android:textColor="@color/meeting__text_title__color"
+            android:textSize="@dimen/font_16"
+            app:layout_constraintBottom_toBottomOf="@+id/et_mobile"
+            app:layout_constraintEnd_toEndOf="@+id/et_mobile"
+            app:layout_constraintTop_toTopOf="@+id/et_mobile" />
+
+
         <View
             android:layout_width="@dimen/size_0"
             android:layout_height="@dimen/space_1"
@@ -60,7 +85,6 @@
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/et_code"
-            bindEditTextShowPassword="@{cell.valueShowPassword}"
             android:layout_width="@dimen/size_0"
             android:layout_height="@dimen/size_64"
             android:layout_marginTop="@dimen/size_30"

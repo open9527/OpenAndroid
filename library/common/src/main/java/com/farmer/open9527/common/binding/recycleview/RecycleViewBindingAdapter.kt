@@ -5,6 +5,7 @@ import androidx.databinding.ObservableList
 import androidx.databinding.ViewDataBinding
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import androidx.recyclerview.widget.SimpleItemAnimator
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.animator.BaseAnimation
 import com.farmer.open9527.recycleview.cell.BaseBindingCell
@@ -90,6 +91,7 @@ object RecycleViewBindingAdapter {
     ) {
         if (recyclerView == null || adapter == null) return
 
+
         if (layoutManager != null) {
             recyclerView.layoutManager = layoutManager
         }
@@ -98,15 +100,23 @@ object RecycleViewBindingAdapter {
                 recyclerView.addItemDecoration(itemDecoration)
             }
         }
-        recyclerView.itemAnimator = itemAnimator
-        recyclerView.setHasFixedSize(hasFixedSize)
 
-        (adapter as BaseBindingCellListAdapter).animationEnable = hasAnim
-        adapter.adapterAnimation = animator
+//        recyclerView.itemAnimator = itemAnimator
+//        (recyclerView.itemAnimator as SimpleItemAnimator?)?.supportsChangeAnimations = false
+//        recyclerView.setHasFixedSize(hasFixedSize)
+
+//        (adapter as BaseBindingCellListAdapter).animationEnable = hasAnim
+//        adapter.adapterAnimation = animator
 
 
-        recyclerView.adapter = adapter
+
+//        if (recyclerView.adapter == null) {
+            recyclerView.adapter = adapter
+//        }
 //        (adapter as BaseBindingCellListAdapter<BaseBindingCell<*>>).submitList(list!!)
-        adapter.submitList(list)
+//        if (recyclerView.adapter != null) {
+            adapter.submitList(list)
+//        }
+
     }
 }

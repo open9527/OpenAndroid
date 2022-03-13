@@ -9,7 +9,7 @@
         android:gravity="bottom">
         <bitmap
             android:gravity="center"
-            android:src="@drawable/meeting__app__icon" />
+            android:src="@drawable/meeting_msg_wx__icon" />
     </item>
 
 </layer-list>

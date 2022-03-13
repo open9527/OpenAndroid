@@ -5,6 +5,7 @@ import androidx.databinding.ObservableBoolean
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.databinding.ViewDataBinding
+import com.blankj.utilcode.util.ToastUtils
 import com.farmer.open9527.meeting.BR
 import com.farmer.open9527.meeting.R
 import com.farmer.open9527.recycleview.cell.BaseBindingCell
@@ -46,7 +47,12 @@ class PasswordLoginCell : BaseBindingCell<PasswordLoginCell> {
                 cell.valueShowPassword.set(!cell.valueShowPassword.get())
             }
             R.id.btn_login -> {
-                valueIPasswordLogin.get()?.login(cell.valueMobile.get(), cell.valuePassword.get())
+
+                if (cell.valueSelect.get()) {
+                    valueIPasswordLogin.get()?.login(cell.valueMobile.get(), cell.valuePassword.get())
+                } else {
+                    ToastUtils.showLong("请先认真阅读并同意以上协议内容。")
+                }
             }
             R.id.iv_select -> {
                 cell.valueSelect.set(!cell.valueSelect.get())

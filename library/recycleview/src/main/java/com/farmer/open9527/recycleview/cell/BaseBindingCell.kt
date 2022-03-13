@@ -143,7 +143,7 @@ abstract class BaseBindingCell<CELL : BaseBindingCell<CELL>> : IBaseCellClick<CE
         return RecyclerView.NO_ID
     }
 
-    fun getUUID(): String {
+    open  fun getUUID(): String {
         return UUID.randomUUID().toString()
     }
 
