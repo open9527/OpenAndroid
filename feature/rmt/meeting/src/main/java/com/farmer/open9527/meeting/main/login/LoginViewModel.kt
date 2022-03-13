@@ -34,7 +34,7 @@ class LoginViewModel : ViewModel(), OnHttpListener<Any> {
     val valueICodeLogin = ObservableField<CodeLoginCell.ICodeLogin>()
 
     init {
-        valueListData.add(MineLineCell(SizeUtils.dp2px(50f), ColorUtils.getColor(R.color.transparent)))
+        valueListData.add(MineLineCell(SizeUtils.dp2px(1f), ColorUtils.getColor(R.color.transparent)))
     }
 
     fun requestPasswordData() {

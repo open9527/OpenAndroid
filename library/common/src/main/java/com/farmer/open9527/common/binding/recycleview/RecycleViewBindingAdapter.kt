@@ -101,21 +101,20 @@ object RecycleViewBindingAdapter {
             }
         }
 
-//        recyclerView.itemAnimator = itemAnimator
-//        (recyclerView.itemAnimator as SimpleItemAnimator?)?.supportsChangeAnimations = false
-//        recyclerView.setHasFixedSize(hasFixedSize)
+        recyclerView.itemAnimator = itemAnimator
+        (recyclerView.itemAnimator as SimpleItemAnimator?)?.supportsChangeAnimations = false
+        recyclerView.setHasFixedSize(hasFixedSize)
 
 //        (adapter as BaseBindingCellListAdapter).animationEnable = hasAnim
 //        adapter.adapterAnimation = animator
 
 
-
 //        if (recyclerView.adapter == null) {
-            recyclerView.adapter = adapter
+        recyclerView.adapter = adapter
 //        }
 //        (adapter as BaseBindingCellListAdapter<BaseBindingCell<*>>).submitList(list!!)
 //        if (recyclerView.adapter != null) {
-            adapter.submitList(list)
+        adapter.submitList(list)
 //        }
 
     }
