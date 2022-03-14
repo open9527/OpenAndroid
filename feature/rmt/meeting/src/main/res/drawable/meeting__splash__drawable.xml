@@ -2,14 +2,15 @@
 <layer-list xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:drawable="@android:color/white" />
-    <item
+        android:drawable="@drawable/meeting__splash__bg"
+        android:gravity="fill" />
+    <!--    <item-->
 
-        android:bottom="@dimen/size_100"
-        android:gravity="bottom">
-        <bitmap
-            android:gravity="center"
-            android:src="@drawable/meeting_msg_wx__icon" />
-    </item>
+    <!--        android:bottom="@dimen/size_100"-->
+    <!--        android:gravity="bottom">-->
+    <!--        <bitmap-->
+    <!--            android:gravity="center"-->
+    <!--            android:src="@drawable/meeting_msg_wx__icon" />-->
+    <!--    </item>-->
 
 </layer-list>
