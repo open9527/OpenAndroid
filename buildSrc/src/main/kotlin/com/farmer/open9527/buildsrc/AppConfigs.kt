@@ -17,6 +17,11 @@ object AppConfigs {
     const val wxId = ""
     const val wxSecret = ""
 
+
+    //(0:rmt,1:meeting)
+//    const val RMT_TYPE = 0
+    const val RMT_TYPE = 1
+
     object Rmt {
         const val applicationId = "com.wdit.shrmt"
         const val versionCode = 203

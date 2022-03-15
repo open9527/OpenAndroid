@@ -11,7 +11,7 @@
         android:bottom="@dimen/size_100">
         <bitmap
             android:gravity="center"
-            android:src="@drawable/rmt__app__icon" />
+            android:src="@drawable/rmt__splash__icon" />
     </item>
 
 </layer-list>

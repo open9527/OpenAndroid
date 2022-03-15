@@ -1,13 +1,40 @@
 import com.farmer.open9527.buildsrc.*
 
 apply {
-//    from '../../rmt_app.gradle'
-    from '../../meeting_app.gradle'
+    if (0 == AppConfigs.RMT_TYPE) {
+        from '../../rmt_app.gradle'
+
+    } else if (1 == AppConfigs.RMT_TYPE) {
+        from '../../meeting_app.gradle'
+
+    }
+}
+
+android {
+
+    sourceSets {
+        main {
+            if (0 == AppConfigs.RMT_TYPE) {
+                res.srcDirs('src/main/res-rmt',)
+                manifest.srcFile 'src/main/rmt/AndroidManifest.xml'
+
+            } else if (1 == AppConfigs.RMT_TYPE) {
+                res.srcDirs('src/main/res-meeting',)
+                manifest.srcFile 'src/main/meeting/AndroidManifest.xml'
+            }
+        }
+    }
 }
 
 dependencies {
-//    implementation project(':feature:rmt:pkg')
-    implementation project(':feature:rmt:meeting')
+
+    if (0 == AppConfigs.RMT_TYPE) {
+        implementation project(':feature:rmt:pkg')
+
+    } else if (1 == AppConfigs.RMT_TYPE) {
+        implementation project(':feature:rmt:meeting')
+
+    }
 }
 
 

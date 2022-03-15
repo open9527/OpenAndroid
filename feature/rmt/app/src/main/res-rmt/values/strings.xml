@@ -3,7 +3,4 @@
     <string name="rmt_name">RMT</string>
     <string name="rmt_name_preview">RMT-preview</string>
     <string name="rmt_name_debug">RMT-debug</string>
-
-
-    <string name="meeting_name">重要会议</string>
 </resources>

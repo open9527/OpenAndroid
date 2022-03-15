@@ -13,14 +13,16 @@ android {
         consumerProguardFiles 'proguard-rmt.pro'
     }
 
-    sourceSets {
-        main {
-            // res 资源目录配置
-            res.srcDirs(
-                    'src/main/res',
-            )
-        }
-    }
+//    sourceSets {
+//        main {
+//            // res 资源目录配置
+//            res.srcDirs(
+//                    'src/main/res',
+//            )
+////            res.srcDirs('src/main/res-rmt',)
+////            manifest.srcFile 'src/main/rmt/AndroidManifest.xml'
+//        }
+//    }
     // 资源前缀限制
 //    resourcePrefix "rmt_"
 

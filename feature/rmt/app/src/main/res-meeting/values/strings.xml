@@ -1,0 +1,4 @@
+<resources>
+    <!--app name-->
+    <string name="meeting_name">重要会议</string>
+</resources>

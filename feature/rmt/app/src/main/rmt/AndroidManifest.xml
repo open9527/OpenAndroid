@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    package="com.farmer.open9527.rmt.app">
+    <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <application
+        android:name=".App"
+        android:allowBackup="true"
+        android:icon="${app_icon}"
+        android:label="${app_name}"
+        android:networkSecurityConfig="@xml/network_security_config"
+        android:roundIcon="${app_round_icon}"
+        android:supportsRtl="true"
+        android:theme="@style/rmt__AppTheme"
+        tools:ignore="AllowBackup"
+        tools:targetApi="n">
+
+        <!--Android 9 及更高版本 找不到 Apache HTTP 闪退
+        详细:https://developer.android.google.cn/about/versions/pie/android-9.0-changes-28
+        -->
+        <uses-library
+            android:name="org.apache.http.legacy"
+            android:required="false" />
+
+
+        <!-- 适配 Android 7.0 文件意图 -->
+        <provider
+            android:name="androidx.core.content.FileProvider"
+            android:authorities="${applicationId}.provider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+
+
+<!--                <activity-->
+<!--                    android:name="${applicationId}.wxapi.WXEntryActivity"-->
+<!--                    android:exported="true"-->
+<!--                    android:launchMode="singleTask"-->
+<!--                    android:taskAffinity="com.wdit.shrmthk.test"-->
+<!--                    android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
+
+<!--                <activity-->
+<!--                    android:name="com.tencent.tauth.AuthActivity"-->
+<!--                    android:launchMode="singleTask"-->
+<!--                    android:noHistory="true"-->
+<!--                    tools:node="replace">-->
+<!--                    <intent-filter>-->
+<!--                        <action android:name="android.intent.action.VIEW" />-->
+
+<!--                        <category android:name="android.intent.category.DEFAULT" />-->
+<!--                        <category android:name="android.intent.category.BROWSABLE" />-->
+
+<!--                        <data android:scheme="tencent${QQ_ID}" />-->
+<!--                    </intent-filter>-->
+<!--                </activity>-->
+
+
+                <activity
+                    android:name="com.farmer.open9527.rmt.pkg.splash.SplashActivity"
+                    android:exported="true"
+                    android:theme="@style/rmt__SplashTheme">
+                    <intent-filter>
+                        <action android:name="android.intent.action.MAIN" />
+
+                        <category android:name="android.intent.category.LAUNCHER" />
+                    </intent-filter>
+                </activity>
+    </application>
+</manifest>

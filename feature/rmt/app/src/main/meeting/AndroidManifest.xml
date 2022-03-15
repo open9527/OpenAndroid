@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     package="com.farmer.open9527.rmt.app">
-
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <application
         android:name=".App"
@@ -34,44 +34,6 @@
                 android:name="android.support.FILE_PROVIDER_PATHS"
                 android:resource="@xml/file_paths" />
         </provider>
-
-
-        <!--微信-->
-        <!--        <activity-->
-        <!--            android:name="${applicationId}.wxapi.WXEntryActivity"-->
-        <!--            android:exported="true"-->
-        <!--            android:launchMode="singleTask"-->
-        <!--            android:taskAffinity="com.wdit.shrmthk.test"-->
-        <!--            android:theme="@android:style/Theme.Translucent.NoTitleBar" />-->
-
-        <!--QQ 回调-->
-        <!--        <activity-->
-        <!--            android:name="com.tencent.tauth.AuthActivity"-->
-        <!--            android:launchMode="singleTask"-->
-        <!--            android:noHistory="true"-->
-        <!--            tools:node="replace">-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.VIEW" />-->
-
-        <!--                <category android:name="android.intent.category.DEFAULT" />-->
-        <!--                <category android:name="android.intent.category.BROWSABLE" />-->
-
-        <!--                <data android:scheme="tencent${QQ_ID}" />-->
-        <!--            </intent-filter>-->
-        <!--        </activity>-->
-
-
-        <!--        <activity-->
-        <!--            android:name="com.farmer.open9527.rmt.pkg.splash.SplashActivity"-->
-        <!--            android:exported="true"-->
-        <!--            android:theme="@style/rmt__SplashTheme">-->
-        <!--            <intent-filter>-->
-        <!--                <action android:name="android.intent.action.MAIN" />-->
-
-        <!--                <category android:name="android.intent.category.LAUNCHER" />-->
-        <!--            </intent-filter>-->
-        <!--        </activity>-->
-
 
         <activity
             android:name="com.farmer.open9527.meeting.splash.SplashActivity"

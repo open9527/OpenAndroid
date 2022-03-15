@@ -4,13 +4,9 @@ import android.os.Bundle
 import com.blankj.utilcode.util.AppUtils
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonFragment
-import com.farmer.open9527.rmt.export.http.vo.sys.VersionVo
 import com.farmer.open9527.rmt.pkg.BR
 import com.farmer.open9527.rmt.pkg.R
 import com.farmer.open9527.webview.bridge.X5WebView
-import com.farmer.open9527.webview.bridge.bean.rp.WebVersionRp
-import com.farmer.open9527.webview.bridge.impl.CallbackParam
-import com.farmer.open9527.webview.bridge.impl.WebAgreementImpl
 import com.hjq.http.EasyHttp
 import com.hjq.http.request.PostRequest
 
@@ -43,22 +39,22 @@ class HomeFragment : CommonFragment() {
         x5WebView?.buildUserAgent("Rmt/ChongMing; Version/" + AppUtils.getAppVersionName())
         x5WebView?.loadUrl("https://k8s.shmedia.tech/api/app/doc/release/rm_js_sdk_testcase.html")
 
-        val mWebAgreement = WebAgreementImpl.newInstance(x5WebView)
-
-        //版本号
-        mWebAgreement?.getVersion { webBaseBean ->
-            val webVersionRp = WebVersionRp()
-            val appBean = WebVersionRp.AppBean()
-            val jsSdkBean = WebVersionRp.JsSdkBean()
-            appBean.name = VersionVo.APP_NAME
-            appBean.version = AppUtils.getAppVersionName()
-            jsSdkBean.name = "rmt-js-sdk"
-            jsSdkBean.version = "2.0.0"
-            webVersionRp.app = appBean
-            webVersionRp.jssdk = jsSdkBean
-            webBaseBean.callback.onCallback(CallbackParam.success(webVersionRp).toJSON())
-            webBaseBean.callback.onCallback(CallbackParam.complete().toJSON())
-        }
+//        val mWebAgreement = WebAgreementImpl.newInstance(x5WebView)
+//
+//        //版本号
+//        mWebAgreement?.getVersion { webBaseBean ->
+//            val webVersionRp = WebVersionRp()
+//            val appBean = WebVersionRp.AppBean()
+//            val jsSdkBean = WebVersionRp.JsSdkBean()
+//            appBean.name = VersionVo.APP_NAME
+//            appBean.version = AppUtils.getAppVersionName()
+//            jsSdkBean.name = "rmt-js-sdk"
+//            jsSdkBean.version = "2.0.0"
+//            webVersionRp.app = appBean
+//            webVersionRp.jssdk = jsSdkBean
+//            webBaseBean.callback.onCallback(CallbackParam.success(webVersionRp).toJSON())
+//            webBaseBean.callback.onCallback(CallbackParam.complete().toJSON())
+//        }
 
     }
 
