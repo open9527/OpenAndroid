@@ -20,7 +20,7 @@ class MineInfoOthersCell : BaseBindingCell<MineInfoOthersCell> {
 
     constructor(
         job: String,
-        jobContent: String,
+        jobContent: String?,
         retinue: String,
         party: String,
 

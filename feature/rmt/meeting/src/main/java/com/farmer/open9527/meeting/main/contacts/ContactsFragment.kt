@@ -10,6 +10,7 @@ import com.farmer.open9527.meeting.R
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentLinearLayoutManager
 import com.hjq.http.EasyHttp
+import com.hjq.http.request.GetRequest
 import com.hjq.http.request.PostRequest
 
 class ContactsFragment : CommonFragment() {
@@ -35,7 +36,8 @@ class ContactsFragment : CommonFragment() {
     }
 
     override fun initRequest() {
-        mViewModel.requestMsgData()
+//        mViewModel.requestMsgData()
+        mViewModel.requestMailList(getRequest())
     }
 
     override fun initView(bundle: Bundle?) {
@@ -48,14 +50,8 @@ class ContactsFragment : CommonFragment() {
         mViewModel.valueAdapter.set(BaseBindingCellListAdapter())
     }
 
-    open inner class ClickProxy {
-        var onBackClick = View.OnClickListener {
-            LogUtils.i(TAG, "onBackClick")
-        }
-    }
 
-
-    private fun getRequest(): PostRequest {
-        return EasyHttp.post(this)
+    private fun getRequest(): GetRequest {
+        return EasyHttp.get(this)
     }
 }

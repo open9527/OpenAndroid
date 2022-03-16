@@ -26,9 +26,10 @@ object EditTextBindingAdapter {
     ) {
         if (editText == null) return
         if (show) {
-            editText.transformationMethod = PasswordTransformationMethod.getInstance()
-        } else {
             editText.transformationMethod = HideReturnsTransformationMethod.getInstance()
+        } else {
+            editText.transformationMethod = PasswordTransformationMethod.getInstance()
+
         }
         editText.setSelection(editText.text.length)
 

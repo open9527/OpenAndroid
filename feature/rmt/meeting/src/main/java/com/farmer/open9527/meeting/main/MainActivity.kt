@@ -39,6 +39,7 @@ class MainActivity : CommonActivity() {
     }
 
     override fun initStatusBar() {
+//        super.initStatusBar()
         BarUtils.transparentStatusBar(this)
         BarUtils.setStatusBarLightMode(this, false)
     }

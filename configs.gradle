@@ -40,20 +40,20 @@ ext {
 //    // 微信 Secret
 //    WX_APP_SECRET = " "
 
-    switch (serverType) {
-        case SERVER_TYPE_TEST:
-        case SERVER_TYPE_PREVIEW:
-            LOG_ENABLE = true
-
-            if (serverType == SERVER_TYPE_PREVIEW) {
-                HOST_URL = "https://www.pre.baidu.com/"
-            } else {
-                HOST_URL = "https://www.test.baidu.com/"
-            }
-            break
-        case SERVER_TYPE_PRODUCT:
-            LOG_ENABLE = false
-            HOST_URL = "https://www.baidu.com/"
-            break
-    }
+//    switch (serverType) {
+//        case SERVER_TYPE_TEST:
+//        case SERVER_TYPE_PREVIEW:
+//            LOG_ENABLE = true
+//
+//            if (serverType == SERVER_TYPE_PREVIEW) {
+//                HOST_URL = "https://www.pre.baidu.com/"
+//            } else {
+//                HOST_URL = "https://www.test.baidu.com/"
+//            }
+//            break
+//        case SERVER_TYPE_PRODUCT:
+//            LOG_ENABLE = false
+//            HOST_URL = "https://www.baidu.com/"
+//            break
+//    }
 }

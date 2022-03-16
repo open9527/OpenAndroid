@@ -7,9 +7,12 @@ import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
 import com.farmer.open9527.meeting.BR
 import com.farmer.open9527.meeting.R
+import com.farmer.open9527.meeting.main.MainActivity
 import com.farmer.open9527.meeting.main.login.PasswordLoginCell.IPasswordLogin
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentLinearLayoutManager
+import com.hjq.http.EasyHttp
+import com.hjq.http.request.PostRequest
 
 class LoginActivity : CommonActivity() {
 
@@ -37,6 +40,12 @@ class LoginActivity : CommonActivity() {
         mViewModel.valueICodeLogin.set(iCodeLogin)
     }
 
+    override fun initEvent() {
+        mViewModel.loginEvent.observe(this) {
+            MainActivity.startMainActivity()
+        }
+    }
+
     private fun initRecycleView() {
         mViewModel.valueLayoutManager.set(WrapContentLinearLayoutManager(mActivity))
         mViewModel.valueAdapter.set(BaseBindingCellListAdapter())
@@ -52,7 +61,7 @@ class LoginActivity : CommonActivity() {
 
     private val iPasswordLogin = object : IPasswordLogin {
         override fun login(mobile: String?, password: String?) {
-            mViewModel.requestLoginPassword(mobile, password)
+            mViewModel.requestLoginPassword(getRequest(), mobile, password)
         }
 
         override fun switch() {
@@ -69,6 +78,10 @@ class LoginActivity : CommonActivity() {
         override fun switch() {
             mViewModel.requestPasswordData()
         }
+    }
+
+    private fun getRequest(): PostRequest {
+        return EasyHttp.post(this)
     }
 
     companion object {

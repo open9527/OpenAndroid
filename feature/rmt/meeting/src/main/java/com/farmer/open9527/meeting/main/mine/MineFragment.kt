@@ -7,6 +7,8 @@ import com.farmer.open9527.meeting.BR
 import com.farmer.open9527.meeting.R
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentLinearLayoutManager
+import com.hjq.http.EasyHttp
+import com.hjq.http.request.PostRequest
 
 class MineFragment : CommonFragment() {
 
@@ -27,7 +29,8 @@ class MineFragment : CommonFragment() {
     }
 
     override fun initRequest() {
-        mViewModel.requestMsgData()
+//        mViewModel.requestMsgData()
+        mViewModel.requestMemberInfo(getRequest())
     }
 
     override fun initView(bundle: Bundle?) {
@@ -37,5 +40,9 @@ class MineFragment : CommonFragment() {
     private fun initRecycleView() {
         mViewModel.valueLayoutManager.set(WrapContentLinearLayoutManager(mActivity))
         mViewModel.valueAdapter.set(BaseBindingCellListAdapter())
+    }
+
+    private fun getRequest(): PostRequest {
+        return EasyHttp.post(this)
     }
 }

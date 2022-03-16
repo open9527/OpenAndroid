@@ -8,8 +8,8 @@ import com.hjq.http.listener.OnHttpListener
 
 class HomeViewModel : ViewModel(), OnHttpListener<Any> {
 
-    val valueTitle = ObservableField("会议")
-    val valueShowBack = ObservableInt(View.INVISIBLE)
+    val valueTitle = ObservableField("")
+    val valueShowBack = ObservableInt(View.VISIBLE)
 
 
     override fun onSucceed(result: Any?) {

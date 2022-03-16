@@ -2,11 +2,13 @@ package com.farmer.open9527.webview.bridge
 
 import android.annotation.SuppressLint
 import android.content.Context
+import android.os.Build
 import android.os.Looper
 import android.os.SystemClock
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.Log
+import android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 import com.tencent.smtt.sdk.WebView
 import com.tencent.smtt.sdk.WebSettings
 import java.lang.Exception
@@ -222,7 +224,7 @@ open class X5WebView @JvmOverloads constructor(
     @SuppressLint("SetJavaScriptEnabled")
     private fun initWebSettings(webView: X5WebView) {
         setWebContentsDebuggingEnabled(true)
-        val settings: WebSettings = webView.getSettings()
+        val settings: WebSettings = webView.settings
         // 允许文件访问
         settings.allowFileAccess = true
         // 允许网页定位
@@ -234,11 +236,13 @@ open class X5WebView @JvmOverloads constructor(
         // 允许网页弹对话框
         settings.javaScriptCanOpenWindowsAutomatically = true
         // 加快网页加载完成的速度，等页面完成再加载图片
-        settings.loadsImagesAutomatically = true
+//        settings.loadsImagesAutomatically = true
         // 本地 DOM 存储（解决加载某些网页出现白板现象）
         settings.domStorageEnabled = true
 
-
+//        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+//            settings.mixedContentMode = MIXED_CONTENT_ALWAYS_ALLOW
+//        }
         // 不显示滚动条
         webView.isVerticalScrollBarEnabled = false
         webView.isHorizontalScrollBarEnabled = false

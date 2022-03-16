@@ -7,7 +7,11 @@
 
         <variable
             name="vm"
-            type="com.farmer.open9527.meeting.main.setting.SettingViewModel" />
+            type="com.farmer.open9527.meeting.main.mine.MineInfoViewModel" />
+
+        <variable
+            name="click"
+            type="com.farmer.open9527.meeting.main.mine.MineInfoActivity.ClickProxy" />
 
     </data>
 
@@ -20,6 +24,7 @@
             android:id="@+id/title_bar"
             TitleBarShowBack="@{vm.valueShowBack}"
             TitleBarTitle="@{vm.valueTitle}"
+            TitleBarBack="@{click.onBackClick}"
             layout="@layout/meeting_title_bar"
             app:layout_constraintTop_toTopOf="parent" />
 

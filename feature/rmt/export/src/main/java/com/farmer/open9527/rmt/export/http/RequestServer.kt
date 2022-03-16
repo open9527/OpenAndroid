@@ -11,7 +11,7 @@ class RequestServer(var hostUrl: String) : IRequestServer {
     }
 
     override fun getCacheMode(): CacheMode {
-        return CacheMode.USE_CACHE_FIRST
+        return CacheMode.NO_CACHE
     }
 
 }

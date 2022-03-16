@@ -13,18 +13,22 @@ import com.farmer.open9527.recycleview.viewholder.BaseBindingCellViewHolder
 class ContactsCell : BaseBindingCell<ContactsCell> {
 
     var valueTitle = ObservableField<String>()
+    var valueDeptId = ObservableField<String>()
     var valueRes = ObservableInt()
-    var valueFolder = ObservableBoolean()
+    private var valueFolder = ObservableBoolean()
 
     constructor(
         title: String,
+        deptId: String,
         drawable: Int,
         folder: Boolean,
     ) : super(R.layout.meeting__contacts__cell) {
         valueTitle.set(title)
+        valueDeptId.set(deptId)
         valueRes.set(drawable)
         valueFolder.set(folder)
     }
+
 
     override fun bindBaseBindingCellViewHolder(
         holder: BaseBindingCellViewHolder<ViewDataBinding>,
@@ -34,8 +38,8 @@ class ContactsCell : BaseBindingCell<ContactsCell> {
     }
 
     override fun onCellClick(view: View, cell: ContactsCell) {
-        if (cell.valueFolder.get()){
-            ContactsActivity.startContactsActivity(cell.valueTitle.get())
+        if (cell.valueFolder.get()) {
+            ContactsActivity.startContactsActivity(cell.valueTitle.get(), cell.valueDeptId.get())
         }
     }
 

@@ -4,13 +4,17 @@ import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.text.TextUtils
 import android.view.View
 import com.blankj.utilcode.util.LogUtils
+import com.blankj.utilcode.util.SPUtils
+import com.blankj.utilcode.util.SpanUtils
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
 import com.farmer.open9527.meeting.R
 import com.farmer.open9527.meeting.BR
 import com.farmer.open9527.meeting.main.MainActivity
+import com.farmer.open9527.meeting.main.login.LoginActivity
 import com.hjq.http.EasyHttp
 import com.hjq.http.request.PostRequest
 
@@ -39,7 +43,6 @@ class SplashActivity : CommonActivity() {
     }
 
 
-
     private fun checkTaskRoot() {
         // 问题及方案：https://www.cnblogs.com/net168/p/5722752.html
         // 如果当前 Activity 不是任务栈中的第一个 Activity
@@ -64,7 +67,11 @@ class SplashActivity : CommonActivity() {
     }
 
     private fun startMainActivity() {
-        startActivity(MainActivity::class.java)
+        if (TextUtils.isEmpty(SPUtils.getInstance().getString("token"))) {
+            LoginActivity.startLoginActivity()
+        } else {
+            startActivity(MainActivity::class.java)
+        }
         finish()
     }
 

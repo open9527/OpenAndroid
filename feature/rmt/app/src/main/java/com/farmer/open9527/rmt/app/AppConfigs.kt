@@ -2,6 +2,7 @@ package com.farmer.open9527.rmt.app
 
 object AppConfigs {
     const val SITE_ID = "siteId"
+    const val TOKEN = "token"
 
 
     fun getDebug(): Boolean {

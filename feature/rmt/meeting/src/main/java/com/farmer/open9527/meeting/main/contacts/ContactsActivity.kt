@@ -13,6 +13,7 @@ import com.farmer.open9527.recycleview.layoutmanager.WrapContentLinearLayoutMana
 import com.hjq.http.EasyHttp
 import com.hjq.http.request.PostRequest
 import android.content.Intent
+import com.hjq.http.request.GetRequest
 
 
 class ContactsActivity : CommonActivity() {
@@ -35,11 +36,12 @@ class ContactsActivity : CommonActivity() {
     }
 
     override fun initRequest() {
-        mViewModel.requestMsgData()
+        mViewModel.requestMailList(getRequest(), mViewModel.valueId.get())
     }
 
     override fun initView(bundle: Bundle?) {
         mViewModel.valueTitle.set(getString("title"))
+        mViewModel.valueId.set(getString("id"))
         initRecycleView()
     }
 
@@ -56,15 +58,16 @@ class ContactsActivity : CommonActivity() {
     }
 
     companion object {
-        fun startContactsActivity(title: String?) {
+        fun startContactsActivity(title: String?, id: String?) {
             val bundle = Bundle()
             bundle.putString("title", title)
+            bundle.putString("id", id)
             ActivityUtils.startActivity(bundle, ContactsActivity::class.java)
         }
     }
 
 
-    private fun getRequest(): PostRequest {
-        return EasyHttp.post(this)
+    private fun getRequest(): GetRequest {
+        return EasyHttp.get(this)
     }
 }

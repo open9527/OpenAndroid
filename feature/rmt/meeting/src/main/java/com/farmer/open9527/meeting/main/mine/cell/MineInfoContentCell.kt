@@ -18,7 +18,7 @@ class MineInfoContentCell : BaseBindingCell<MineInfoContentCell> {
 
     constructor(
         key: String,
-        value: String
+        value: String?
 
     ) : super(R.layout.meeting__mine_info_content__cell) {
         valueKey.set(key)

@@ -20,7 +20,7 @@ android {
         buildConfigField('boolean', 'LOG_ENABLE', '' + AppConfigs.Meeting.logEnable + '')
         buildConfigField('String', 'HOST_URL', '"' + AppConfigs.Meeting.hostUrl + '"')
         buildConfigField('String', 'HOST_TEST_URL', '"' + AppConfigs.Meeting.hostTestUrl + '"')
-        buildConfigField('String', 'SITE_ID', '"' + AppConfigs.Meeting.siteId + '"')
+        buildConfigField('String', 'SITE_ID', '"' + AppConfigs.Rmt.siteId + '"')
 
     }
 
@@ -79,14 +79,14 @@ android {
 
         release {
             // 调试模式开关
-            debuggable false
-            jniDebuggable false
+            debuggable true
+            jniDebuggable true
             // 压缩对齐开关
             zipAlignEnabled true
             // 移除无用的资源
-            shrinkResources true
+            shrinkResources false
             // 代码混淆开关
-            minifyEnabled true
+            minifyEnabled false
             // 签名信息配置
             signingConfig signingConfigs.config
             // 添加清单占位符

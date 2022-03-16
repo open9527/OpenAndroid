@@ -42,9 +42,9 @@ object AppConfigs {
         const val versionCode = 100
         const val versionName = "1.0.0"
         const val logEnable = true
-        const val hostUrl = "https://hard.shmedia.tech/media-basic-port/api/app"
-        const val hostTestUrl = "http://k8s.shmedia.tech/media-basic-port/api/app"
-        const val siteId = ""
+        const val hostUrl = "http://61.129.134.49/zyhy-api"
+        const val hostTestUrl = "http://10.10.10.120/meeting-interaction-front"
+        const val token = ""
         const val qqId = ""
         const val qqSecret = ""
         const val wxId = ""

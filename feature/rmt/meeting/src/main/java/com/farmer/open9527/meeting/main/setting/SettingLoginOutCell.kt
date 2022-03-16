@@ -4,6 +4,9 @@ import android.view.View
 import androidx.databinding.ObservableField
 import androidx.databinding.ObservableInt
 import androidx.databinding.ViewDataBinding
+import com.blankj.utilcode.util.ActivityUtils
+import com.blankj.utilcode.util.SPUtils
+import com.blankj.utilcode.util.SpanUtils
 import com.blankj.utilcode.util.StringUtils
 import com.farmer.open9527.meeting.BR
 import com.farmer.open9527.meeting.R
@@ -27,6 +30,8 @@ class SettingLoginOutCell : BaseBindingCell<SettingLoginOutCell> {
     }
 
     override fun onCellClick(view: View, cell: SettingLoginOutCell) {
+        SPUtils.getInstance().put("token", "")
+        ActivityUtils.finishAllActivities()
         LoginActivity.startLoginActivity()
     }
 
