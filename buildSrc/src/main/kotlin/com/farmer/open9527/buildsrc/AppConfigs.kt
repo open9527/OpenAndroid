@@ -42,7 +42,7 @@ object AppConfigs {
         const val versionCode = 100
         const val versionName = "1.0.0"
         const val logEnable = true
-        const val hostUrl = "http://61.129.134.49/zyhy-api"
+        const val hostUrl = "http://61.129.134.51/zyhy-api"
         const val hostTestUrl = "http://10.10.10.120/meeting-interaction-front"
         const val token = ""
         const val qqId = ""

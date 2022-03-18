@@ -28,20 +28,22 @@ class MsgViewModel : ViewModel(), OnHttpListener<Any> {
     fun requestMsgData() {
         valueListData.clear()
         valueListData.add(
-            MsgCell(
-                "政务微信提醒",
-                "企业微信支持添加超50万",
-                "星期二",
-                R.drawable.meeting_msg_wx__icon
-            )
+            MsgCell("党代表群", "党的建设水平进一步提高。坚持党的全面领导", "8分钟前", R.drawable.meeting_msg_avatar_1__icon)
+        )
+        valueListData.add(
+            MsgCell("市党代会", "您的物品已经配置完成，请及时至XXX领取。", "昨天", R.drawable.meeting_msg_avatar_2__icon)
+        )
+
+        valueListData.add(
+            MsgCell("刘广会", "不断深化政治监管，推进巡查工作高质量发展", "昨天", R.drawable.meeting_msg_avatar_3__icon)
+        )
+        valueListData.add(
+            MsgCell("许安", "加强清廉红桥建设，巩固深化基层作风", "星期三", R.drawable.meeting_msg_avatar_4__icon)
         )
 
         valueListData.add(
             MsgCell(
-                "市党代会",
-                " ",
-                "星期日",
-                R.drawable.meeting_msg__icon
+                "高亚瑞", "激活全面从严治党基层末梢，加强社区", "星期一", R.drawable.meeting_msg_avatar_5__icon
             )
         )
     }

@@ -12,6 +12,7 @@ class HomeFragment : CommonFragment() {
 
     private lateinit var mViewModel: HomeViewModel
     private var x5WebView: X5WebView? = null
+//    private var x5WebView: BrowserView? = null
 
 
     companion object {
@@ -33,9 +34,12 @@ class HomeFragment : CommonFragment() {
 
 
     override fun initRequest() {
-        x5WebView = mActivity?.findViewById<X5WebView>(R.id.x5_web)
+        x5WebView = mActivity?.findViewById(R.id.x5_web)
+//        x5WebView?.setLifecycleOwner(this)
+//        x5WebView?.setBrowserViewClient(BrowserView.BrowserViewClient())
+//        x5WebView?.setBrowserChromeClient(BrowserView.BrowserChromeClient(x5WebView!!))
                 x5WebView?.loadUrl(
-        "http://61.129.134.49/zyhy/#/init?token=" + SPUtils.getInstance().getString("token")
+        "http://61.129.134.51/zyhy/#/init?token=" + SPUtils.getInstance().getString("token")
         )
     }
 

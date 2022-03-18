@@ -33,7 +33,7 @@ class App : CommonApplication() {
     }
 
     companion object {
-        private const val TAG = "App"
+        private const val TAG = "RMT-App"
         fun initSdk(application: Application) {
             MMKV.initialize(application)
             initHttp(application)
@@ -73,7 +73,7 @@ class App : CommonApplication() {
         }
 
 
-        fun initX5(application: Application) {
+        private  fun initX5(application: Application) {
             // 首次初始化冷启动优化 在调用TBS初始化、创建WebView之前进行如下配置
             val map = HashMap<String, Any>()
             map[TbsCoreSettings.TBS_SETTINGS_USE_SPEEDY_CLASSLOADER] = true

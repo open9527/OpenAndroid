@@ -80,7 +80,7 @@ class MainActivity : CommonActivity() {
         mViewModel.valueViewPager2Adapter.set(ViewPager2FragmentStateAdapter(this, fragmentList))
         mViewModel.valueViewPager2OffscreenPageLimit.set(fragmentList.size)
         mViewModel.valueViewPager2PageChangeCallback.set(iPageChangeCallback)
-        mViewModel.valueViewPager2CurrentItem.set(0)
+        mViewModel.valueViewPager2CurrentItem.set(2)
     }
 
     private fun onSwitchNavigation(position: Int) {

@@ -39,7 +39,7 @@ class SplashActivity : CommonActivity() {
     override fun initView(bundle: Bundle?) {
         checkTaskRoot()
         super.initView(bundle)
-        startMainActivity()
+        skipSplash(3)
     }
 
 

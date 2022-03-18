@@ -27,7 +27,7 @@ abstract class CommonApplication : BaseApplication() {
 
         fun initSdk(application: Application) {
             initSmartRefresh()
-            initTBS(application)
+//            initTBS(application)
         }
 
 

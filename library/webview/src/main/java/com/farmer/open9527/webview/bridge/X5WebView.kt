@@ -8,6 +8,7 @@ import android.os.SystemClock
 import android.text.TextUtils
 import android.util.AttributeSet
 import android.util.Log
+import android.webkit.WebChromeClient
 import android.webkit.WebSettings.MIXED_CONTENT_ALWAYS_ALLOW
 import com.tencent.smtt.sdk.WebView
 import com.tencent.smtt.sdk.WebSettings
@@ -16,7 +17,7 @@ import java.net.URLEncoder
 import java.util.ArrayList
 
 
-open class X5WebView @JvmOverloads constructor(
+class X5WebView @JvmOverloads constructor(
     context: Context, attrs: AttributeSet? = null
 ) : WebView(context, attrs), IWebView {
 
@@ -37,9 +38,12 @@ open class X5WebView @JvmOverloads constructor(
 
     init {
         initWebSettings(this)
-//        webChromeClient
+        webChromeClient = X5ChromeClient(this)
         webViewClient = X5WebViewClient(this)
     }
+
+
+
 
 
     override fun send(data: String) {

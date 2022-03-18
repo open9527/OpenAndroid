@@ -25,6 +25,12 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent" />
 
+
+<!--        <com.farmer.open9527.rmt.export.widget.BrowserView-->
+<!--            android:id="@+id/x5_web"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent" />-->
+
         <androidx.appcompat.widget.AppCompatImageView
             android:id="@+id/iv_click_back"
             bindViewClick="@{click.onBackClick}"

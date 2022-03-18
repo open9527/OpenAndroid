@@ -50,7 +50,7 @@ class ContactsViewModel : ViewModel(), OnHttpListener<Any> {
         request: GetRequest,
     ) {
         request.api(MailListApi().apply {
-            setDeptId("")
+            setDeptId("2")
         })
             .request(object : HttpCallback<HttpData<MailListVo?>>(this) {
                 override fun onSucceed(data: HttpData<MailListVo?>) {

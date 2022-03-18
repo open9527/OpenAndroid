@@ -15,7 +15,7 @@ class NavigationCell : BaseBindingCell<NavigationCell> {
 
     private var valueINavigationCell = ObservableField<INavigationCell>()
 
-    var valueIndex = ObservableInt(0)
+    var valueIndex = ObservableInt(2)
     var valueSelect = ObservableBoolean(false)
     var valueTitle = ObservableField<String>()
     var valueRes = ObservableInt()
@@ -28,7 +28,7 @@ class NavigationCell : BaseBindingCell<NavigationCell> {
         index: Int,
         iNavigationCell: INavigationCell
     ) : super(R.layout.meeting__main_navigation__cell) {
-        valueSelect.set(0 == index)
+        valueSelect.set(2 == index)
         valueIndex.set(index)
         valueTitle.set(title)
         valueRes.set(drawable)
@@ -63,11 +63,17 @@ class NavigationCell : BaseBindingCell<NavigationCell> {
     }
 
     fun updateStatus(index: Int) {
-        val oldcell = getCell(selectedPosition.get()) as NavigationCell
-        val cell = getCell(index) as NavigationCell
-        updateStatus(oldcell, false)
-        updateStatus(cell, true)
+//        if (index==selectedPosition.get()){
+        val oldcell = getCell(selectedPosition.get())
+        if (oldcell != null) {
+            updateStatus(oldcell, false)
+        }
+        val cell = getCell(index)
+        if (cell != null) {
+            updateStatus(cell, true)
+        }
         selectedPosition.set(index)
+
     }
 
 
@@ -76,6 +82,6 @@ class NavigationCell : BaseBindingCell<NavigationCell> {
     }
 
     companion object {
-        private var selectedPosition = ObservableInt(0)
+        private var selectedPosition = ObservableInt(2)
     }
 }
