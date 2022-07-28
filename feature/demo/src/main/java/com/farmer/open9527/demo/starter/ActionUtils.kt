@@ -109,6 +109,7 @@ object ActionUtils {
         val componentName = ComponentName(AppUtils.getAppPackageName(), cls!!)
         intent.component = componentName
         intent.putExtra(ACTION_BUNDLE_NAME, json)
+        intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         Utils.getApp().startActivity(intent)
     }
 

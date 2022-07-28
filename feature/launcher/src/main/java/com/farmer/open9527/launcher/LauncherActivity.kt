@@ -37,7 +37,7 @@ class LauncherActivity : CommonActivity() {
         initRecycleView()
         mViewModel?.valueILauncherCell?.set(iLauncherCell)
 
-        LogUtils.i(TAG, "Leetcode: " + Leetcode.sum(intArrayOf(2, 7, 11, 15), 9).iterator().toString())
+//        LogUtils.i(TAG, "Leetcode: " + Leetcode.sum(intArrayOf(2, 7, 11, 15), 9).iterator().toString())
     }
 
 

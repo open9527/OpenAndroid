@@ -13,7 +13,6 @@ import java.net.URLConnection;
 import android.graphics.Bitmap;
 import android.graphics.Bitmap.CompressFormat;
 import android.graphics.BitmapFactory;
-import android.util.Log;
 
 public class Util {
 
@@ -88,10 +87,9 @@ public class Util {
                 // 9、把图片设置到UI主线程
                 // ImageView中,获取网络资源是耗时操作需放在子线程中进行,通过创建消息发送消息给主线程刷新控件；
 
-                Log.i(TAG, "网络请求成功");
-
+                ShareLogCatUtil.INSTANCE.d(TAG, "请求图片成功");
             } else {
-                Log.w(TAG, "网络请求失败");
+                ShareLogCatUtil.INSTANCE.d(TAG, "请求图片失败");
                 bm = null;
             }
         } catch (MalformedURLException e) {
@@ -128,7 +126,7 @@ public class Util {
 
         File file = new File(fileName);
         if (!file.exists()) {
-            Log.i(TAG, "readFromFile: file not found");
+            ShareLogCatUtil.INSTANCE.d(TAG, "readFromFile: file not found");
             return null;
         }
 
@@ -136,18 +134,18 @@ public class Util {
             len = (int) file.length();
         }
 
-        Log.d(TAG, "readFromFile : offset = " + offset + " len = " + len + " offset + len = " + (offset + len));
+        ShareLogCatUtil.INSTANCE.d(TAG, "readFromFile : offset = " + offset + " len = " + len + " offset + len = " + (offset + len));
 
         if (offset < 0) {
-            Log.e(TAG, "readFromFile invalid offset:" + offset);
+            ShareLogCatUtil.INSTANCE.d(TAG, "readFromFile invalid offset:" + offset);
             return null;
         }
         if (len <= 0) {
-            Log.e(TAG, "readFromFile invalid len:" + len);
+            ShareLogCatUtil.INSTANCE.d(TAG, "readFromFile invalid len:" + len);
             return null;
         }
         if (offset + len > (int) file.length()) {
-            Log.e(TAG, "readFromFile invalid file len:" + file.length());
+            ShareLogCatUtil.INSTANCE.d(TAG, "readFromFile invalid file len:" + file.length());
             return null;
         }
 
@@ -160,7 +158,7 @@ public class Util {
             in.close();
 
         } catch (Exception e) {
-            Log.e(TAG, "readFromFile : errMsg = " + e.getMessage());
+            ShareLogCatUtil.INSTANCE.d(TAG, "readFromFile : errMsg = " + e.getMessage());
             e.printStackTrace();
         }
         return b;
@@ -176,7 +174,6 @@ public class Util {
         }
         return def;
     }
-
 
 
 }

@@ -1,19 +1,17 @@
-package com.farmer.open9527.share.core
+package com.farmer.open9527.upload
 
 import android.text.TextUtils
 import android.util.Log
 import java.util.logging.Logger
 
-object ShareLogCatUtil {
-
-
+object QiNiuLogCatUtil {
 
     var DEBUG = false
     private var DESC = ""
 
     fun setLogCatInfo(logEnable: Boolean, descString: String?) {
         DEBUG = logEnable
-        DESC = if (TextUtils.isEmpty(descString)) "ShareLogCatUtil" else descString.toString()
+        DESC = if (TextUtils.isEmpty(descString)) "QiNiuLogCatUtil" else descString.toString()
     }
 
     fun i(tag: String, msg: String) {

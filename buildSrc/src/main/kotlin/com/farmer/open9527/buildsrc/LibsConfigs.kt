@@ -60,8 +60,10 @@ object LibsConfigs {
     object Sdk {
         const val QQ = "com.tencent.tauth:qqopensdk:3.51.2"
         const val WeChat = "com.tencent.mm.opensdk:wechat-sdk-android-without-mta:6.6.5"
-        const val TBS = "com.tencent.tbs:tbssdk:44165"
         const val Sina = "io.github.sinaweibosdk:core:11.12.0@aar"
+        const val TBS = "com.tencent.tbs:tbssdk:44165"
+        const val QiNiu = "com.qiniu:qiniu-android-sdk:8.4.4"
+
     }
 
     const val MMKV = "com.tencent:mmkv-static:1.2.10"

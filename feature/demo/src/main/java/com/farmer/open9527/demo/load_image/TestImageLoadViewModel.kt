@@ -10,6 +10,7 @@ import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
+import com.blankj.utilcode.util.ResourceUtils
 import com.farmer.open9527.common.event.SingleLiveEvent
 import com.farmer.open9527.demo.api.JsonApiUtils
 import com.farmer.open9527.demo.api.vo.image.ImageVo
@@ -61,8 +62,7 @@ class TestImageLoadViewModel : ViewModel() {
         val adapterSetting: Map<Type, Any> = JsonApiUtils.defaultAdapterSetting()
         val gson: Gson = JsonApiUtils.buildGson(adapterSetting)
         return gson.fromJson(
-//            ResourceUtils.readRaw2String(resId),
-            "",
+            ResourceUtils.readRaw2String(resId),
             object : TypeToken<List<ImageVo>>() {}.type
         )
     }

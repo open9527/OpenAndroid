@@ -13,6 +13,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
+        android:clipChildren="false"
+        android:clipToPadding="false"
         android:layout_height="match_parent">
 
 
@@ -36,13 +38,15 @@
             bindRecycleViewLayoutManager="@{vm.valueLayoutManager}"
             bindRecycleViewListData="@{vm.valueListData}"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="@dimen/size_50"
             android:background="@color/white"
+            android:clipChildren="false"
+            android:clipToPadding="false"
             android:elevation="@dimen/size_10"
             app:layout_constraintBottom_toBottomOf="parent"
             tools:itemCount="5"
             tools:layoutManager="androidx.recyclerview.widget.GridLayoutManager"
-            tools:listitem="@layout/rmt__main_navigation__cell"
+            tools:listitem="@layout/rmt__main_navigation_home__cell"
             tools:orientation="vertical" />
 
         <!--        <androidx.appcompat.widget.AppCompatImageView-->

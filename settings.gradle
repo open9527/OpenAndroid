@@ -1,3 +1,5 @@
+import com.farmer.open9527.buildsrc.*
+
 include ':library:base'
 include ':library:common'
 include ':library:dialog'
@@ -19,5 +21,9 @@ include ':feature:rmt:pkg'
 
 //include ':third'
 include ':third:share'
+include ':third:upload'
 
 include ':feature:rmt:meeting'
+
+
+

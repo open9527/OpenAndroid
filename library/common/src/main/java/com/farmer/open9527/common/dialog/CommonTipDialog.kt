@@ -36,9 +36,9 @@ class CommonTipDialog(context: Context) : BaseDialogFragment(context) {
     val valueTitle = ObservableField<String>()
     val valueContent = ObservableField<CharSequence>()
     val valueCancelContent: ObservableField<String> =
-        ObservableField(getString(R.string.common_cancel))
+        ObservableField(context.getString(R.string.common_cancel))
     val valueConfirmContent: ObservableField<String?> =
-        ObservableField(getString(R.string.common_confirm))
+        ObservableField(context.getString(R.string.common_confirm))
     val valueCancelTextColor = ObservableInt(ContextCompat.getColor(context, R.color.common_accent_color))
     val valueConfirmTextColor = ObservableInt(ContextCompat.getColor(context, R.color.common_text_hint_color))
     val valueOnlyConfirm = ObservableInt(View.VISIBLE)

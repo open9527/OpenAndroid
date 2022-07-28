@@ -67,5 +67,4 @@ dependencies {
     implementation LibsConfigs.Material
     implementation LibsConfigs.KotlinxCoroutinesCore
     implementation LibsConfigs.KotlinxCoroutinesAndroid
-    implementation LibsConfigs.KotlinxCoroutinesAndroid
 }

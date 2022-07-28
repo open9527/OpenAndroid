@@ -1,0 +1,38 @@
+import com.farmer.open9527.buildsrc.*
+apply {
+    plugin PluginsConfigs.Ids.Library
+    plugin PluginsConfigs.Ids.Kotlin
+    plugin PluginsConfigs.Ids.KotlinKapt
+    from '../third.gradle'
+}
+
+android {
+    defaultConfig {
+        versionName ThirdConfigs.Upload.versionName
+        versionCode ThirdConfigs.Upload.versionCode
+        // 模块混淆配置
+        consumerProguardFiles 'proguard-upload.pro'
+    }
+
+    // 资源前缀限制
+    resourcePrefix "upload_"
+
+    packagingOptions {
+        exclude 'META-INF/LICENSE.txt'
+        exclude 'META-INF/beans.xml'
+    }
+}
+
+dependencies {
+    implementation LibsConfigs.Sdk.QiNiu
+    //// 1 直接导入
+    //implementation 'com.qiniu:qiniu-android-sdk:8.4.+'
+    //// 2 如果要修改okhttp依赖的版本，可采用以下方式（强烈建议使用七牛库依赖的okhttp版本）
+    //implementation ('com.qiniu:qiniu-android-sdk:8.4.+'){
+    //    exclude (group: 'com.squareup.okhttp3', module: 'okhttp')
+    //}
+    //implementation 'com.squareup.okhttp3:okhttp:4.2.2'
+}
+
+
+

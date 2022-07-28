@@ -55,7 +55,5 @@ dependencies {
     implementation LibsConfigs.Appcompat
     implementation LibsConfigs.KotlinxCoroutinesCore
     implementation LibsConfigs.KotlinxCoroutinesAndroid
-    api LibsConfigs.Sdk.WeChat
-    api LibsConfigs.Sdk.QQ
-    api LibsConfigs.Sdk.Sina
+
 }

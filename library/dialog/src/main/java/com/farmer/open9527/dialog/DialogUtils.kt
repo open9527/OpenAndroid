@@ -45,7 +45,7 @@ object DialogUtils {
                 return activity
             }
         }
-        throw NullPointerException("context not instanceof FragmentActivity!")
+        throw NullPointerException("context not instance FragmentActivity!")
     }
 
     /**

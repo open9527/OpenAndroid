@@ -24,7 +24,9 @@ android {
 }
 
 dependencies {
-
+    api LibsConfigs.Sdk.WeChat
+    api LibsConfigs.Sdk.QQ
+    api LibsConfigs.Sdk.Sina
 }
 
 

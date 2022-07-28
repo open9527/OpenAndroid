@@ -63,7 +63,6 @@ class NavigationCell : BaseBindingCell<NavigationCell> {
     }
 
     fun updateStatus(index: Int) {
-//        if (index==selectedPosition.get()){
         val oldcell = getCell(selectedPosition.get())
         if (oldcell != null) {
             updateStatus(oldcell, false)

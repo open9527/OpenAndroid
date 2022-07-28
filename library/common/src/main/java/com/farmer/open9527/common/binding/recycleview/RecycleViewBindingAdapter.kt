@@ -114,7 +114,7 @@ object RecycleViewBindingAdapter {
 //        }
 //        (adapter as BaseBindingCellListAdapter<BaseBindingCell<*>>).submitList(list!!)
 //        if (recyclerView.adapter != null) {
-        adapter.submitList(list)
+            adapter.submitList(list)
 //        }
 
     }

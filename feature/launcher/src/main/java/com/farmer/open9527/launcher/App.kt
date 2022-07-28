@@ -45,7 +45,6 @@ class App : CommonApplication(), ImageLoaderFactory {
         fun initSdk(application: Application) {
             MMKV.initialize(application)
             initHttp(application)
-//            initShareSdk(application)
         }
 
 

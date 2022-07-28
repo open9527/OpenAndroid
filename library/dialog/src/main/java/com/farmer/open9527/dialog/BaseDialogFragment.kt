@@ -80,7 +80,6 @@ abstract class BaseDialogFragment(private val mContext: Context) : DialogFragmen
                 DialogUtils.bindingVariable(dialogBinding, dataBindingConfig.getBindingParams())
             }
         }
-
     }
 
     override fun onDetach() {

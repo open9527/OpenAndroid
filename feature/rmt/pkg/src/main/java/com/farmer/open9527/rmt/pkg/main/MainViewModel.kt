@@ -32,15 +32,17 @@ class MainViewModel : ViewModel(), OnHttpListener<Any> {
     val valueListData = ObservableArrayList<BaseBindingCell<*>>()
 
 
-    val valueViewPager2Adapter=ObservableField<FragmentStateAdapter>()
-    val valueViewPager2OffscreenPageLimit=ObservableInt()
-    val valueViewPager2CurrentItem=ObservableInt()
-    val valueViewPager2SmoothScroll= ObservableBoolean(false)
-    val valueViewPager2IsUserInputEnabled= ObservableBoolean(true)
-    val valueViewPager2PageChangeCallback= ObservableField<ViewPager2.OnPageChangeCallback>()
+    val valueViewPager2Adapter = ObservableField<FragmentStateAdapter>()
+    val valueViewPager2OffscreenPageLimit = ObservableInt()
+    val valueViewPager2CurrentItem = ObservableInt()
+    val valueViewPager2SmoothScroll = ObservableBoolean(false)
+    val valueViewPager2IsUserInputEnabled = ObservableBoolean(false)
+    val valueViewPager2PageChangeCallback = ObservableField<ViewPager2.OnPageChangeCallback>()
 
 
-    fun requestNavigation(iNavigationCell: NavigationCell.INavigationCell) {
+    fun requestNavigation(
+        iNavigationCell: NavigationCell.INavigationCell
+    ) {
         valueListData.clear()
         valueListData.add(
             NavigationCell(
@@ -66,9 +68,11 @@ class MainViewModel : ViewModel(), OnHttpListener<Any> {
                 R.drawable.main__moment__icon,
                 R.drawable.main__moment__icon,
                 2,
-                iNavigationCell
+                iNavigationCell,
+                R.layout.rmt__main_navigation_home__cell
             )
         )
+
         valueListData.add(
             NavigationCell(
                 "音频",
@@ -90,7 +94,6 @@ class MainViewModel : ViewModel(), OnHttpListener<Any> {
     }
 
 
-
     fun requestUpgrade(request: PostRequest) {
         request.api(UpgradeApi())
             .body(
@@ -110,7 +113,6 @@ class MainViewModel : ViewModel(), OnHttpListener<Any> {
                 }
             })
     }
-
 
 
     override fun onSucceed(result: Any?) {

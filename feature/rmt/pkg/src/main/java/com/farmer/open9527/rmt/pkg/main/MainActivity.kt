@@ -7,7 +7,6 @@ import androidx.viewpager2.widget.ViewPager2
 import com.blankj.utilcode.util.AppUtils
 import com.farmer.open9527.base.page.DataBindingConfig
 import com.farmer.open9527.common.base.CommonActivity
-import com.farmer.open9527.common.utils.ActivityManager
 import com.farmer.open9527.recycleview.adapter.BaseBindingCellListAdapter
 import com.farmer.open9527.recycleview.layoutmanager.WrapContentGridLayoutManager
 import com.farmer.open9527.recycleview.scroll.BottomSmoothScroller
@@ -70,7 +69,7 @@ class MainActivity : CommonActivity() {
         mViewModel.valueViewPager2Adapter.set(ViewPager2FragmentStateAdapter(this, fragmentList))
         mViewModel.valueViewPager2OffscreenPageLimit.set(fragmentList.size)
         mViewModel.valueViewPager2PageChangeCallback.set(iPageChangeCallback)
-        mViewModel.valueViewPager2CurrentItem.set(0)
+        mViewModel.valueViewPager2CurrentItem.set(2)
     }
 
     private fun onSwitchNavigation(position: Int) {
@@ -78,7 +77,7 @@ class MainActivity : CommonActivity() {
         bottomSmoothScroller.targetPosition = position
         mViewModel.valueLayoutManager.get()?.startSmoothScroll(bottomSmoothScroller)
         val cell = mViewModel.valueListData[position] as NavigationCell
-        cell.updateStatus(position)
+        cell.updateStatus(mViewModel.valueNavigationAdapter.get(),cell,position)
     }
 
     private var iPageChangeCallback = object : ViewPager2.OnPageChangeCallback() {
@@ -92,6 +91,7 @@ class MainActivity : CommonActivity() {
             mViewModel.valueViewPager2CurrentItem.set(position)
         }
     }
+
 
     private fun getRequest(): PostRequest {
         return EasyHttp.post(this)

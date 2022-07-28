@@ -59,9 +59,9 @@ open class BaseBindingCellListAdapter<CELL : BaseBindingCell<CELL>> :
         currentList[position].onViewRecycled(holder, position)
     }
 
-    override fun getCurrentList(): List<CELL> {
-        return super.getCurrentList()
-    }
+//    override fun getCurrentList(): List<CELL> {
+//        return super.getCurrentList()
+//    }
 
 //    override fun submitList(list: MutableList<CELL>?) {
 //        super.submitList(list)
